@@ -7,14 +7,23 @@
                      <div class="col-lg-3 col-sm-6">
                          <aside class="widget widget_text">
                              <div class="footer-logo">
-                                 <a href="index.html"><img src="{{ asset('frontend/assets/images/seylanodyssey.png') }}"
+                                 <a href="index.html"><img src="{{ asset('frontend/assets/images/logo/travelingceylon.svg') }}"
                                          alt=""></a>
                              </div>
                              <div class="textwidget widget-text">
-                                 Welcome to our travel website! With over 14 years of experience in organizing
+                                 Welcome to our travel website! With over 22 years of experience in organizing
                                  unforgettable tours, we are dedicated to providing you with an exceptional travel
                                  experience in Sri Lanka.
                              </div>
+
+                             <!-- TrustBox widget - Review Collector -->
+        <div class="trustpilot-widget" data-locale="en-GB" data-template-id="56278e9abfbbba0bdcd568bc"
+        data-businessunit-id="662ebc5e8020661380806157" data-style-height="52px" data-style-width="100%">
+        <a href="https://uk.trustpilot.com/review/travelingceylon.com" target="_blank" rel="noopener">Trustpilot</a>
+    </div>
+    <!-- End TrustBox widget -->
+
+    {{-- 5rE83no_n;;O --}}
                          </aside>
                      </div>
                      <div class="col-lg-3 col-sm-6">
@@ -29,7 +38,7 @@
                                      </figure>
                                      <div class="post-content">
                                          <h6>
-                                             <a href="blog-single.html">{{ Str::limit(strip_tags($package->title), 60, '...') }}</a>
+                                             <a href="{{ route('packages.single', ['slug' => $package->slug]) }}">{{ Str::limit(strip_tags($package->title), 60, '...') }}</a>
                                          </h6>
 
                                      </div>
@@ -45,15 +54,19 @@
                                  <p>Feel free to contact and<br /> reach us !!</p>
                                  <ul>
                                      <li>
-                                         <a href="tel:+01988256203">
+                                         <a href="tel:+94706332644">
                                              <i aria-hidden="true" class="icon icon-phone1"></i>
-                                             +44 7863 844411
+                                             +94 70 633 2644
                                          </a>
+                                         <a href="tel:+447916177140">
+                                            <i aria-hidden="true" class="icon icon-phone1"></i>
+                                            +44 79 16 177 140
+                                        </a>
                                      </li>
                                      <li>
-                                         <a href="mailtop:info@domain.com">
+                                         <a href="mailtop:info@travelingceylon.com">
                                              <i aria-hidden="true" class="icon icon-envelope1"></i>
-                                             info@seylanodyssey.com
+                                             info@travelingceylon.com
                                          </a>
                                      </li>
                                      <li>
@@ -74,7 +87,7 @@
                                 @foreach ($gallery_footer as $gallery)
                                  <figure class="gallery-item gallery-item-width">
                                      <a class="footer-image" href="{{ asset($gallery->image) }}" data-fancybox="gallery-1">
-                                         <img class="footer-image" src="{{$gallery->image}}" alt="">
+                                         <img class="footer-image" src="{{asset($gallery->image)}}" alt="">
                                      </a>
                                  </figure>
 

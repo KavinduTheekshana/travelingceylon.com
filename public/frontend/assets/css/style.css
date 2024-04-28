@@ -2986,7 +2986,7 @@ padding: 0 15px;
 
 .home-banner-slider {
     overflow: hidden;
-    height: calc(100vh - 224px);
+    height: calc(100vh - 166px);
 }
 .home-banner-slider.slick-slider.slick-dotted {
     margin-bottom: 0;
@@ -3036,7 +3036,7 @@ padding: 0 15px;
 >>> Home travel search section
 ******************************/
 .home-trip-search {
-    padding: 55px 0 60px;
+    padding: 30px 0 25px;
 }
 .home-trip-search .trip-search-inner {
     -webkit-align-items: flex-end;
@@ -6681,15 +6681,10 @@ padding: 0 15px;
     border-radius: 100%;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;
+    /* overflow: hidden; */
     background: #fff;
 }
-.widget.author_widget .profile .avatar img {
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    -ms-border-radius: 100%;
-    border-radius: 100%;
-}
+
 .widget.author_widget .widget-content.text-center .profile .avatar {
     margin-left: auto;
     margin-right: auto;

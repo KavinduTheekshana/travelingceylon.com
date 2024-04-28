@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/icon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/logo/travelingceylonfavicon.svg') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendors/bootstrap/css/bootstrap.min.css') }}" media="all">
     <!-- jquery-ui css -->
@@ -72,6 +72,54 @@
     <script src="{{ asset('frontend/assets/plugin/animtrap/js/anim-scroll.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.0/dist/sweetalert2.min.js"></script>
+    <!-- TrustBox script -->
+    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+    <!-- End TrustBox script -->
+
+    {{-- <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    <div class="elfsight-app-43f178d5-5a96-4661-b2b6-3c3df005d25d" data-elfsight-app-lazy></div> --}}
+
+    {{-- <script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+        <script>
+          var wa_btnSetting = {"btnColor":"#16BE45","ctaText":"WhatsApp Us","cornerRadius":40,"marginBottom":0,"marginLeft":"50","marginRight":60,"btnPosition":"right","whatsAppNumber":"94715421423","welcomeMessage":"Hello","zIndex":999999,"btnColorScheme":"light"};
+          window.onload = () => {
+            _waEmbed(wa_btnSetting);
+          };
+        </script> --}}
+
+
+    <script>
+        var url = 'https://edna.io/wp-content/plugins/whatsapp-widget-generator/js/generator.js?27227';
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = url;
+        var options = {
+            "host": "https://edna.io",
+            "enabled": true,
+            "chatButtonSetting": {
+                "backgroundColor": "#4fce5d",
+                "ctaText": "",
+                "icon": "whatsapp",
+                "position": "right",
+            },
+            "brandSetting": {
+                "backgroundColor": "#085b53",
+                "brandImg": "https://scontent-lhr8-2.xx.fbcdn.net/v/t39.30808-6/431273104_6715401488559855_3884483656857971277_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=59BesqiTlVYQ7kNvgGGNVSw&_nc_ht=scontent-lhr8-2.xx&oh=00_AfDzTw_LT42N4Hf4rnfCCsOi_CjIm8-7ahyzaqtfvwQIRw&oe=6634A393",
+                "brandName": "Kavindu",
+                "brandSubTitle": "Typically replies in minutes",
+                "ctaText": "Start Chat",
+                "phoneNumber": "447916177140",
+                "welcomeText": "\nHi there 👋\n\nHow can I help you?"
+            }
+        };
+        s.onload = function() {
+            CreateWhatsappChatWidget(options);
+        };
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+    </script>
+
 
     @stack('scripts')
 

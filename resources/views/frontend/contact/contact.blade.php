@@ -103,12 +103,10 @@
                            <h4>EMAIL ADDRESS</h4>
                            <ul>
                               <li>
-                                 <a href="mailto:info@seylanodyssey.com">info@seylanodyssey.com</a>
+                                 <a href="mailto:info@travelingceylon.com">info@travelingceylon.com</a>
                               </li>
-                              <li>
-                                 <a href="mailto:indikathushani@gmail.com">indikathushani@gmail.com</a>
-                              </li>
-                              
+
+
                            </ul>
                         </div>
                      </div>
@@ -122,12 +120,12 @@
                            <h4>PHONE NUMBER</h4>
                            <ul>
                               <li>
-                                 <a href="tell:+447863844411">+44 7863 844411</a>
+                                 <a href="tell:+94706332644">+94 70 633 2644</a>
                               </li>
                               <li>
-                                 <a href="tell:+447863844411">-</a>
+                                 <a href="tell:+447916177140">+44 79 16 177 140</a>
                               </li>
-                            
+
                            </ul>
                         </div>
                      </div>
@@ -142,12 +140,12 @@
                            <ul>
                               <li>
                                  Enfield | Waltham Cross,
-                                     
+
                               </li>
                               <li>
                                  United Kingdom
                               </li>
-                              
+
                            </ul>
                         </div>
                      </div>
@@ -194,7 +192,7 @@
                 data: formData,
                 success: function(response) {
 
-                    
+
                     Swal.fire({
                         icon: 'success',
                         title: 'Success!',

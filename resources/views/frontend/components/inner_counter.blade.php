@@ -3,7 +3,7 @@
        <div data-animscroll="fade-up" class="counter-wrap">
           <div class="counter-item">
              <span class="counter-no">
-                <span class="counter">870</span>+
+                <span class="counter">2870</span>+
              </span>
              <span class="counter-desc">
                 SATISFIED CUSTOMER
@@ -27,7 +27,7 @@
           </div>
           <div class="counter-item">
              <span class="counter-no">
-                <span class="counter">25</span>+
+                <span class="counter">78</span>+
              </span>
              <span class="counter-desc">
                 TRAVEL GUIDES

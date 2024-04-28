@@ -32,7 +32,7 @@
                                 </div>
                             </figure>
                             <h2 data-animscroll="fade-right" data-animscroll-delay="100" >HOW WE ARE BEST FOR TRAVEL !</h2>
-                            <p data-animscroll="fade-up" data-animscroll-delay="100">Welcome to our travel website! With over 14 years of experience in organizing
+                            <p data-animscroll="fade-up" data-animscroll-delay="100">Welcome to our travel website! With over 22 years of experience in organizing
                                 unforgettable tours, we are dedicated to providing you with an exceptional travel
                                 experience in Sri Lanka. </p>
 
@@ -96,7 +96,7 @@
                             </div>
                             <div class="icon-box-content">
                                 <h3>Experienced Tour Organizers</h3>
-                                <p>With 14+ years of experience, we excel in creating unforgettable travel experiences in Sri Lanka. Our well-planned itineraries ensure you make the most of your time in this captivating country.</p>
+                                <p>With 22+ years of experience, we excel in creating unforgettable travel experiences in Sri Lanka. Our well-planned itineraries ensure you make the most of your time in this captivating country.</p>
                             </div>
                         </div>
                         <div data-animscroll="fade-left" class="icon-box">

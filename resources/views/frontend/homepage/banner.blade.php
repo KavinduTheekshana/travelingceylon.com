@@ -26,7 +26,7 @@
        </div>
     </div>
 
-    <div class="home-banner d-flex flex-wrap align-items-center" style="background-image: url({{url('frontend/assets/images/q-70.jpg')}});">
+    <div class="home-banner d-flex flex-wrap align-items-center" style="background-image: url({{url('frontend/assets/images/slider/DDD-Srilanka-1.jpg')}});">
       <div class="overlay"></div>
       <div class="container header-title">
          <div class="banner-content text-center">
