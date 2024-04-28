@@ -1,0 +1,10 @@
+.header-title {
+    display: flex;
+    position: absolute;
+    bottom: 244px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.site-title img{
+max-width: 300px !important;
+}
