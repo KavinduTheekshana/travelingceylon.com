@@ -73,6 +73,15 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.0/dist/sweetalert2.min.js"></script>
     <!-- TrustBox script -->
+    <script>
+        $(document).ready(function() {
+            // Apply text-align: left !important; to all <div> elements within the Trustpilot widget
+            $("#tp_widget div").css("text-align", "left !important");
+
+            // Apply margin-top: 10px !important; to all <div> elements within the Trustpilot widget
+            $("#tp_widget div").css("margin-top", "10px !important");
+        });
+    </script>
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
     <!-- End TrustBox script -->
 
