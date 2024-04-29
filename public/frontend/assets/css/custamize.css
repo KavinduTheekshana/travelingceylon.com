@@ -15,3 +15,19 @@ max-width: 300px !important;
     text-align: left !important;
     margin-top: 10px !important;
 }
+/* Override Trustpilot widget styles */
+
+/* Example: Change the font size of the review text */
+.tp-review__content {
+    font-size: 16px !important; /* Use !important to override Trustpilot's styles */
+}
+
+/* Example: Change the color of the star rating */
+.tp-stars .tp-star {
+    color: gold !important; /* Use !important to override Trustpilot's styles */
+}
+
+/* Example: Adjust the spacing between elements */
+.tp-review {
+    margin-bottom: 20px; /* Adjust as needed */
+}
