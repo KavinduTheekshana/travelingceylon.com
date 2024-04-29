@@ -1,17 +1,17 @@
+name: Deploy via ftp
 on: push
-name: 🚀 Deploy website on push
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v4
-
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+    - uses: actions/checkout@v2
+    - name: Upload ftp
+      uses: sebastianpopp/ftp-action@releases/v2
       with:
-        server: ftp.creatxsoftware.com
-        username: travellingceylonadmin@travelingceylon.com
-        password: Nikon1997123Kavindu
-        port: 21
+        host: ${ secrets.FTP_SERVER }
+        user: ${ secrets.FTP_USERNAME }
+        password: ${ secrets.FTP_PASSWORD }
+        localDir: "dist"
+        remoteDir: "www"
+        options: "--delete --asci"
