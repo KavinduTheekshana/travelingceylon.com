@@ -17,7 +17,7 @@
                              </div>
 
                              <!-- TrustBox widget - Review Collector -->
-        <div class="trustpilot-widget" data-locale="en-GB" data-template-id="56278e9abfbbba0bdcd568bc"
+        <div class="trustpilot-widget" data-locale="en-GB" data-template-id="56278e9abfbbba0bdcd568bc" style="text-align: left; margin-top: 10px;"
         data-businessunit-id="662ebc5e8020661380806157" data-style-height="52px" data-style-width="100%">
         <a href="https://uk.trustpilot.com/review/travelingceylon.com" target="_blank" rel="noopener">Trustpilot</a>
     </div>
