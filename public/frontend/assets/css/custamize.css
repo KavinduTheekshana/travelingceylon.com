@@ -11,3 +11,7 @@ max-width: 300px !important;
 .footer-logo img{
     max-width: 90% !important;
 }
+.tp-widget-wrapper{
+    text-align: left !important;
+    margin-top: 5px !important;
+}

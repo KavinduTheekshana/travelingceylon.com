@@ -71,9 +71,7 @@
                                      </li>
                                      <li>
                                          <i aria-hidden="true" class="icon icon-map-marker1"></i>
-                                         Bryanstone Road,
-                                         Waltham Cross,
-                                         United Kingdom
+                                         90/62, Athapaththu Gardens,Depanama, Pannipitiya.
                                      </li>
                                  </ul>
                              </div>

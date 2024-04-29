@@ -139,11 +139,11 @@
                            <h4>ADDRESS LOCATION</h4>
                            <ul>
                               <li>
-                                 Enfield | Waltham Cross,
+                                 90/62, Athapaththu Gardens,
 
                               </li>
                               <li>
-                                 United Kingdom
+                                 Depanama, Pannipitiya.
                               </li>
 
                            </ul>
