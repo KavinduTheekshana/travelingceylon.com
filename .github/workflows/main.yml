@@ -14,5 +14,3 @@ jobs:
         server: ftp.creatxsoftware.com
         username: travellingceylonadmin@travelingceylon.com
         password: Nikon1997123Kavindu
-        protocol: ftps
-        port: 21
