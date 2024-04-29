@@ -12,5 +12,5 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ftp.creatxsoftware.com
-        username: travellingceylonadmin@travelingceylon.com
-        password: Nikon1997123Kavindu
+        username: kavindu@travelingceylon.com
+        password: Nikon1997@#123
