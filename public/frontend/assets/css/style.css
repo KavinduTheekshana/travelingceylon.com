@@ -2930,7 +2930,7 @@ padding: 0 15px;
     color: #ffffff;
 }
 .banner-content .banner-title {
-    font-size: 90px;
+    font-size: 70px;
     line-height: 1.1;
 }
 .banner-content p {
@@ -2986,7 +2986,7 @@ padding: 0 15px;
 
 .home-banner-slider {
     overflow: hidden;
-    height: calc(100vh - 166px);
+    height: calc(100vh - 106px);
 }
 .home-banner-slider.slick-slider.slick-dotted {
     margin-bottom: 0;

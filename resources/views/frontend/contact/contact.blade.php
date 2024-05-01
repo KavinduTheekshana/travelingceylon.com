@@ -59,7 +59,7 @@
                         </div> --}}
                      </div>
                      <div class="contact-map" data-animscroll="fade-up" data-animscroll-delay="100">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.540423056448!2d-0.12174238402827448!3d51.50330061882345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2slastminute.com%20London%20Eye!5e0!3m2!1sen!2snp!4v1646314586610!5m2!1sen!2snp" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31691.48274752863!2d79.91884989280004!3d6.838295083364013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2504acdcdef5d%3A0x74e6fe73b8e6f7a4!2sPannipitiya%2C%20Sri%20Lanka!5e0!3m2!1sen!2suk!4v1714579974978!5m2!1sen!2suk" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                      </div>
                   </div>
                   <div class="col-lg-6" data-animscroll="fade-left" data-animscroll-delay="100">

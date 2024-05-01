@@ -35,12 +35,12 @@
              <div class="header-social social-icon">
                 <ul>
                    <li>
-                      <a href="https://www.facebook.com/profile.php?id=100093226444158&mibextid=ZbWKwL" target="_blank">
+                      <a href="https://www.facebook.com/profile.php?id=61559169237547" target="_blank">
                          <i class="fab fa-facebook-f" aria-hidden="true"></i>
                       </a>
                    </li>
                    <li>
-                      <a href="https://instagram.com/ithushani?igshid=ZGUzMzM3NWJiOQ==" target="_blank">
+                      <a href="https://www.instagram.com/travelingceylon/?utm_source=qr&igsh=bnVtamFybHczZ21m" target="_blank">
                          <i class="fab fa-instagram" aria-hidden="true"></i>
                       </a>
                    </li>
