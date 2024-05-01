@@ -6,7 +6,7 @@
                    <h2 class="section-title sub-title-text">READY FOR UNFORGATABLE TRAVEL. </h2>
                 </div>
                 <div class="col-md-4 text-md-end">
-                   <a href="contact.html" class="outline-btn outline-btn-white">Contact Us !</a>
+                   <a href="{{ route('contact') }}" class="outline-btn outline-btn-white">Contact Us !</a>
                 </div>
              </div>
         </div>

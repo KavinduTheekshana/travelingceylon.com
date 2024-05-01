@@ -38,7 +38,7 @@
 
     {{-- Anim Trap  --}}
     <link rel="stylesheet" href="{{ asset('frontend/assets/plugin/animtrap/css/animtrap.min.css') }}">
-
+    @stack('styles')
     <title>Traveling Ceylon | Journey into Ceylon's Timeless Beauty</title>
     {{-- @vite(['resources/js/app.js']) --}}
 </head>
@@ -137,6 +137,8 @@
             easing: 'ease-in-out-sine'
         });
     </script>
+
+
 
 </body>
 

@@ -38,4 +38,10 @@ max-width: 300px !important;
     .home-banner-slider {
         height: 100% !important;
     }
+    .header-title {
+        bottom: 40px !important;
+    }
+}
+#tp-widget-wrapper{
+    text-align: left !important;
 }
