@@ -1,7 +1,7 @@
 .header-title {
     display: flex;
     position: absolute;
-    bottom: 184px;
+    bottom: 124px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -33,4 +33,9 @@ max-width: 300px !important;
 }
 .sub-title-text{
     font-size: 30px !important;
+}
+@media screen and (max-width: 575px) {
+    .home-banner-slider {
+        height: 100% !important;
+    }
 }
