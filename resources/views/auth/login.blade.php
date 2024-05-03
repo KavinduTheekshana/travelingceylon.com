@@ -22,7 +22,7 @@
                             <div class="card-body p-sm-5">
                                 <div class="">
                                     <div class="mb-3 text-center">
-                                        <img class="login-image" src="{{ asset('backend/assets/images/seylanodysseyDark.png') }}" width="60" alt="">
+                                        <img class="login-image" src="{{ asset('frontend/assets/images/logo/travelingceylon_dark.svg') }}" width="60" alt="">
                                     </div>
                                     <div class="text-center mb-4">
                                         {{-- <h5 class="">Travel With Thushi</h5> --}}

@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 
-// Frontend Routes 
+// Frontend Routes
 Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/destination/{slug}', [HomeController::class, 'single_destination'])->name('destinations.single');
 Route::get('/destinations/all', [HomeController::class, 'all_destinations'])->name('destinations.all');
@@ -36,27 +36,27 @@ Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/plan', [HomeController::class, 'plan'])->name('plan');
 
-// Booking Routs 
+// Booking Routs
 Route::post('/booking/send', [BookingController::class, 'save'])->name('booking.send');
 
-// Booking Routs 
+// Booking Routs
 Route::post('/plan/save', [PlanController::class, 'save'])->name('plan.save');
 
 //contact us form
 Route::post('/contact/save', [ContactController::class, 'save'])->name('contact.save');
 
 
-// Auth Routs 
-// Auth::routes(['register' => false]);
-Auth::routes();
+// Auth Routs
+Auth::routes(['register' => false]);
+// Auth::routes();
 
-// User Profile Routes 
+// User Profile Routes
 Route::get('/profile', [UserController::class, 'view'])->name('profile');
 Route::post('/profile-details-save', [UserController::class, 'details'])->name('profile.save.details');
 Route::post('/profile-password-save', [UserController::class, 'password'])->name('profile.save.password');
 Route::post('/profile-picture-save', [UserController::class, 'picture'])->name('profile.save.picture');
 
-// Dashboard 
+// Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // Destinations Back End
@@ -86,7 +86,7 @@ Route::get('/package-add-details/{id}', [PackagesController::class, 'add_details
 Route::get('/package-details-list/{id}', [PackagesController::class, 'details_list'])->name('package.details.list');
 Route::get('/package-view/{id}', [PackagesController::class, 'package_view'])->name('package.view');
 
-// Package Details Back End 
+// Package Details Back End
 Route::post('/save-package-details', [PackageDetailsController::class, 'save'])->name('package.save.details');
 Route::get('/package-details-active/{id}', [PackageDetailsController::class, 'active'])->name('package.active.details');
 Route::get('/package-details-diactive/{id}', [PackageDetailsController::class, 'diactive'])->name('package.diactive.details');
@@ -94,7 +94,7 @@ Route::get('/package-details-delete/{id}', [PackageDetailsController::class, 'de
 Route::post('/package-update-details', [PackageDetailsController::class, 'update'])->name('package.update.details');
 Route::get('/package-update-view-details/{id}', [PackageDetailsController::class, 'update_view'])->name('package.update_view.details');
 
-// Bookings Back End 
+// Bookings Back End
 Route::middleware('auth')->group(function () {
     Route::get('/bookings-list', [BookingController::class, 'list'])->name('bookings.list');
     Route::get('/booking-read/{id}', [BookingController::class, 'read'])->name('booking.read');
@@ -102,7 +102,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/booking-delete/{id}', [BookingController::class, 'delete'])->name('booking.delete');
 });
 
-// Gallery Back End 
+// Gallery Back End
 Route::get('/image-list', [GalleryController::class, 'list'])->name('image.list');
 Route::get('/add-image', [GalleryController::class, 'add'])->name('image.add');
 Route::post('/save-image', [GalleryController::class, 'save'])->name('image.save');
@@ -113,7 +113,7 @@ Route::get('/image-diactive/{id}', [GalleryController::class, 'diactive'])->name
 Route::get('/image-delete/{id}', [GalleryController::class, 'delete'])->name('image.delete');
 
 
-// Contact Back End 
+// Contact Back End
 Route::middleware('auth')->group(function () {
     Route::get('/contact-list', [ContactController::class, 'list'])->name('contact.list');
     Route::get('/contact-read/{id}', [ContactController::class, 'read'])->name('contact.read');
@@ -122,7 +122,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// Testimonial back End 
+// Testimonial back End
 Route::get('/testimonial-list', [TestimonialController::class, 'list'])->name('testimonial.list');
 Route::get('/add-testimonial', [TestimonialController::class, 'add'])->name('testimonial.add');
 Route::post('/save-testimonial', [TestimonialController::class, 'save'])->name('testimonial.save');
@@ -131,7 +131,7 @@ Route::get('/testimonial-diactive/{id}', [TestimonialController::class, 'diactiv
 Route::get('/testimonial-delete/{id}', [TestimonialController::class, 'delete'])->name('testimonial.delete');
 
 
-// Tour Plans Back End 
+// Tour Plans Back End
 Route::middleware('auth')->group(function () {
     Route::get('/plan-list', [PlanController::class, 'list'])->name('plan.list');
     Route::get('/plan-read/{id}', [PlanController::class, 'read'])->name('plan.read');

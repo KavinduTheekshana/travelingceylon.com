@@ -136,7 +136,7 @@
         </div>
 
         <div style="padding: 200px">
-            <img src="{{url('backend/assets/images/seylanodysseyDark.png')}}" alt="" srcset="" style="width: 100%">
+            <img src="{{url('frontend/assets/images/logo/travelingceylon_dark.svg')}}" alt="" srcset="" style="width: 100%">
         </div>
 
     </div>

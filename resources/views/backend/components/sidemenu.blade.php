@@ -2,7 +2,7 @@
     <div class="sidebar-wrapper" data-simplebar="true">
         <div class="sidebar-header">
             <div class="d-flex justify-content-center">
-                <img src="{{url('backend/assets/images/seylanodysseyDark.png')}}" class="logo-icon" alt="logo icon">
+                <img src="{{url('frontend/assets/images/logo/travelingceylon_dark.svg')}}" class="logo-icon" alt="logo icon">
             </div>
             <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
             </div>
@@ -19,7 +19,7 @@
                     <div class="menu-title">Dashboard</div>
                 </a>
             </li>
-   
+
             <li>
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class='bx bx-map-pin'></i>
@@ -31,7 +31,7 @@
                     </li>
                     <li> <a href="{{ route('destinations.add') }}"><i class='bx bx-radio-circle'></i>Add Destinations</a>
                     </li>
-                
+
                 </ul>
             </li>
 
@@ -46,7 +46,7 @@
                     </li>
                     <li> <a href="{{ route('package.add') }}"><i class='bx bx-radio-circle'></i>Add Packages</a>
                     </li>
-                
+
                 </ul>
             </li>
 
@@ -61,7 +61,7 @@
                     </li>
                     <li> <a href="{{ route('image.add') }}"><i class='bx bx-radio-circle'></i>Add Image</a>
                     </li>
-                
+
                 </ul>
             </li>
 
@@ -76,7 +76,7 @@
                     </li>
                     <li> <a href="{{ route('testimonial.add') }}"><i class='bx bx-radio-circle'></i>Add Testionial</a>
                     </li>
-                
+
                 </ul>
             </li>
 
@@ -109,17 +109,16 @@
             </li>
 
 
-          
-            
-       
-        
-       
-        
-           
+
+
+
+
+
+
+
         </ul>
         <!--end navigation-->
     </div>
     <!--end sidebar wrapper -->
 
 
-    
