@@ -32,7 +32,7 @@
     <link href="{{ asset('backend/assets/css/header-colors.css') }}" rel="stylesheet">
 
     <title>Traveling Ceylon | Journey into Ceylon's Timeless Beauty</title>
-    @vite(['resources/js/app.js'])
+    {{-- @vite(['resources/js/app.js']) --}}
 </head>
 
 <body>
