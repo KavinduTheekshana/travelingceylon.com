@@ -6,6 +6,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    {{-- SEO  --}}
+    <meta name="description"
+        content="Plan your dream getaway to Sri Lanka with Traveling Ceylon, your premier destination for immersive travel experiences.
+        Explore our curated selection of tours and activities, from sun-kissed beaches to ancient ruins, vibrant markets to lush tea plantations.
+        Our expert guides and personalized itineraries ensure that every moment is filled with adventure and discovery.
+        Start your journey with Traveling Ceylon and unlock the secrets of this captivating island paradise today!">
+
+    <meta name="keywords"
+        content="Sri Lanka travel, Ceylon adventures, Sri Lanka tourism, Sri Lanka attractions, Explore Sri Lanka,
+        Ceylon vacation, Sri Lanka holiday, Sri Lanka experiences, Sri Lanka tours, Sri Lanka destinations, Sri Lanka beaches,
+        Ceylon culture, Sri Lanka wildlife, Sri Lanka heritage sites, Sri Lanka tea plantations, Best of Sri Lanka, Visit Sri Lanka,
+        Discover Sri Lanka, Sri Lanka getaway, Sri Lanka exploration, Sri Lanka journey, Sri Lanka adventure, Sri Lanka wanderlust,
+        Sri Lanka paradise, Sri Lanka landscapes, Sri Lanka memories, Sri Lanka escapade, Sri Lanka exploration, Sri Lanka discovery,
+        Sri Lanka vacation spots, Sri Lanka travel tips, Sri Lanka travel guide, Sri Lanka travel agency, Sri Lanka adventure tours,
+        Sri Lanka travel packages, Sri Lanka travel deals, Sri Lanka adventure holidays, Sri Lanka sightseeing, Sri Lanka bucket list,
+        Sri Lanka cultural experiences, Sri Lanka hidden gems, Sri Lanka island hopping, Sri Lanka coastal beauty, Sri Lanka mountain trekking,
+        Sri Lanka wildlife safari, Sri Lanka eco-tourism, Sri Lanka luxury travel, Sri Lanka budget travel.">
+
+    <meta name="title" content="Traveling Ceylon | Journey into Ceylon's Timeless Beauty">
+    <link rel="canonical" href="https://travelingceylon.com" />
+    <meta name="author" content="www.travelingceylon.com">
+
     <!-- favicon -->
     <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/logo/travelingceylonfavicon.svg') }}">
     <!-- Bootstrap CSS -->
