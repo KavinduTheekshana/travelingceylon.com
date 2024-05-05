@@ -13,22 +13,22 @@
                 <div class="client-logo">
                     <ul>
                         <li>
-                            <img src="{{ asset('frontend/assets/images/logos/transparent/logo--Taj.png') }}" alt="">
+                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/logo--Taj.png') }}" alt="">
                         </li>
                         <li>
-                            <img src="{{ asset('frontend/assets/images/logos/transparent/Anantara.png') }}" alt="">
+                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/Anantara.png') }}" alt="">
                         </li>
                         <li>
-                            <img src="{{ asset('frontend/assets/images/logos/transparent/jetwing.png') }}" alt="">
+                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/jetwing.png') }}" alt="">
                         </li>
                         <li>
-                            <img src="{{ asset('frontend/assets/images/logos/transparent/cinemen.png') }}" alt="">
+                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/cinemen.png') }}" alt="">
                         </li>
                         <li>
-                            <img src="{{ asset('frontend/assets/images/logos/transparent/shangila.png') }}" alt="">
+                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/shangila.png') }}" alt="">
                         </li>
                         <li>
-                            <img src="{{ asset('frontend/assets/images/logos/transparent/rajarata.png') }}" alt="">
+                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/rajarata.png') }}" alt="">
                         </li>
                     </ul>
                 </div>

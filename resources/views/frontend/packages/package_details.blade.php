@@ -56,7 +56,7 @@
                                 </ul>
                             </div>
                             <figure data-animscroll="fade-up" class="single-package-image">
-                                <img src="{{ asset($package->image) }}" alt="">
+                                <img loading="lazy" src="{{ asset($package->image) }}" alt="">
                             </figure>
                             <div data-animscroll="fade-up" class="package-content-detail">
                                 <article class="package-overview">
@@ -135,7 +135,7 @@
                                                 placeholder="MM / DD / YY" autocomplete="off" readonly="readonly">
                                         </p>
 
-                                  
+
                                         <p>
                                             <button type="submit" class="outline-btn outline-btn-white mt-3">INQUIRY
                                                 NOW</button>
@@ -153,7 +153,7 @@
 
                                     @foreach ($package_details as $details)
                                         <div class="related-package-item package-details-single">
-                                            <img src="{{ asset($details->image) }}" alt="{{ $details->title }}">
+                                            <img loading="lazy" src="{{ asset($details->image) }}" alt="{{ $details->title }}">
                                         </div>
                                     @endforeach
 
@@ -205,7 +205,7 @@
                 data: formData,
                 success: function(response) {
 
-                    
+
                     Swal.fire({
                         icon: 'success',
                         title: 'Success!',

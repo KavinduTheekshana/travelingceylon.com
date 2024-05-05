@@ -26,7 +26,7 @@
                     <div class="col-lg-8">
                         <div class="about-content">
                             <figure class="about-image">
-                                <img data-animscroll="fade-right" data-animscroll-delay="100" src="{{ asset('frontend/assets/images/GettyRF_1129567869.jpg') }}" alt="">
+                                <img loading="lazy" data-animscroll="fade-right" data-animscroll-delay="100" src="{{ asset('frontend/assets/images/GettyRF_1129567869.jpg') }}" alt="">
                                 <div data-animscroll="fade-left" data-animscroll-delay="100" class="about-image-content">
                                     <h3>WE ARE BEST FOR TOURS & TRAVEL SINCE 2002 !</h3>
                                 </div>
@@ -67,23 +67,23 @@
                         </div>
                         <div class="client-slider white-bg" data-animscroll="fade-up" data-animscroll-delay="100">
                             <figure class="client-item">
-                                <img src="{{ asset('frontend/assets/images/logos/Jetwing_Hotels.jpeg') }}"
+                                <img loading="lazy" src="{{ asset('frontend/assets/images/logos/Jetwing_Hotels.jpeg') }}"
                                     alt="">
                             </figure>
                             <figure class="client-item">
-                                <img src="{{ asset('frontend/assets/images/logos/logo--Taj.png') }}" alt="">
+                                <img loading="lazy" src="{{ asset('frontend/assets/images/logos/logo--Taj.png') }}" alt="">
                             </figure>
                             <figure class="client-item">
-                                <img src="{{ asset('frontend/assets/images/logos/Shangri-La_Hotels_and_Resorts_logo.svg.png') }}"
+                                <img loading="lazy" src="{{ asset('frontend/assets/images/logos/Shangri-La_Hotels_and_Resorts_logo.svg.png') }}"
                                     alt="">
 
                             </figure>
                             <figure class="client-item">
-                                <img src="{{ asset('frontend/assets/images/logos/logo-chbs-1-BkuWi_c7I.png') }}"
+                                <img loading="lazy" src="{{ asset('frontend/assets/images/logos/logo-chbs-1-BkuWi_c7I.png') }}"
                                     alt="">
                             </figure>
                             <figure class="client-item">
-                                <img src="{{ asset('frontend/assets/images/logos/Anantara.png') }}" alt="">
+                                <imgl oading="lazy" src="{{ asset('frontend/assets/images/logos/Anantara.png') }}" alt="">
                             </figure>
                         </div>
                     </div>

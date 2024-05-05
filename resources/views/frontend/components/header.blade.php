@@ -15,7 +15,7 @@
              <div class="site-logo text-center">
                 <h1 class="site-title">
                    <a href="{{url('/')}}">
-                      <img src="{{ asset('frontend/assets/images/logo/travelingceylon.svg') }}" alt="Logo">
+                      <img loading="lazy" src="{{ asset('frontend/assets/images/logo/travelingceylon.svg') }}" alt="Logo">
                    </a>
                 </h1>
              </div>

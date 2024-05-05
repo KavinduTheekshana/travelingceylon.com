@@ -6,7 +6,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <aside class="widget widget_text">
                             <div class="footer-logo">
-                                <a href="{{ url('/') }}"><img
+                                <a href="{{ url('/') }}"><img loading="lazy"
                                         src="{{ asset('frontend/assets/images/logo/travelingceylon.svg') }}"
                                         alt=""></a>
                             </div>
@@ -40,7 +40,7 @@
                                     <li>
                                         <figure class="post-thumb post-thumb-height">
                                             <a class="footer-image"
-                                                href="{{ route('packages.single', ['slug' => $package->slug]) }}"><img
+                                                href="{{ route('packages.single', ['slug' => $package->slug]) }}"><img loading="lazy"
                                                     class="footer-image" src="{{ asset($package->image) }}"
                                                     alt=""></a>
                                         </figure>
@@ -95,7 +95,7 @@
                                     <figure class="gallery-item gallery-item-width">
                                         <a class="footer-image" href="{{ asset($gallery->image) }}"
                                             data-fancybox="gallery-1">
-                                            <img class="footer-image" src="{{ asset($gallery->image) }}" alt="">
+                                            <img loading="lazy" class="footer-image" src="{{ asset($gallery->image) }}" alt="">
                                         </a>
                                     </figure>
                                 @endforeach

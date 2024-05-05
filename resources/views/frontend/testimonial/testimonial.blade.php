@@ -22,7 +22,7 @@
                     <p>{{ Str::limit(strip_tags($testimonial->comment), 200, '...') }}</p>
                     <div class="author-content">
                         <figure class="testimonial-img">
-                            <img src="{{ asset($testimonial->image) }}" alt="">
+                            <img loading="lazy" src="{{ asset($testimonial->image) }}" alt="">
                         </figure>
                         <div class="author-name">
                             <h5>{{ Str::limit(strip_tags($testimonial->name), 15, '...') }}</h5>
