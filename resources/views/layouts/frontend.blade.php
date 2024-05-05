@@ -94,14 +94,15 @@
     <script src="{{ asset('frontend/assets/plugin/animtrap/js/anim-scroll.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.0/dist/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"
+        integrity="sha512-jNDtFf7qgU0eH/+Z42FG4fw3w7DM/9zbgNPe3wfJlCylVDTT3IgKW5r92Vy9IHa6U50vyMz5gRByIu4YIXFtaQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- TrustBox script -->
     <script>
         $(document).ready(function() {
-            // Apply text-align: left !important; to all <div> elements within the Trustpilot widget
-            $("#tp_widget div").css("text-align", "left !important");
+           $('img').lazyload();
 
-            // Apply margin-top: 10px !important; to all <div> elements within the Trustpilot widget
-            $("#tp_widget div").css("margin-top", "10px !important");
+
         });
     </script>
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
