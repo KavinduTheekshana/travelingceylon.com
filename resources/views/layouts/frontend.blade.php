@@ -57,7 +57,7 @@
     {{-- Sweet aleart  --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.0/dist/sweetalert2.min.css">
 
-
+    <meta name="google-site-verification" content="C8RMETsoQCWEIQZfjWu_I7lTqhPe1ymKa9O8y8HHX9I" />
     {{-- Anim Trap  --}}
     <link rel="stylesheet" href="{{ asset('frontend/assets/plugin/animtrap/css/animtrap.min.css') }}">
     @stack('styles')
