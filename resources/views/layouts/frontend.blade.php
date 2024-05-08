@@ -66,11 +66,11 @@
 </head>
 
 <body class="home">
-    <div id="siteLoader" class="site-loader">
+    {{-- <div id="siteLoader" class="site-loader">
         <div class="preloader-content">
             <img src="{{ asset('frontend/assets/images/loader1.gif') }}" alt="">
         </div>
-    </div>
+    </div> --}}
 
     <main>
         @yield('content')
