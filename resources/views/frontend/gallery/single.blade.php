@@ -2,7 +2,7 @@
 <div class="single-gallery grid-item">
     <figure class="gallery-img">
         <a href="{{asset(url($image->image))}}" data-fancybox="gallery">
-            <img src="{{asset(url($image->image))}}" alt="">
+            <img src="{{asset(url($image->image))}}" alt="{{$image->title}}">
         </a>
     </figure>
 </div>
