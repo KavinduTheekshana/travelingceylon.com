@@ -17,6 +17,6 @@
 </body>
 <footer>
     <hr>
-    <p>Design & Developed By <a href="creatxsoftware.com" target="_blank" rel="Creatx Software">Creatx Software</a></p>
+    <p>Design & Developed By <a href="https://neuroon.lk" target="_blank" rel="Neuroon Informatics">Neuroon Informatics</a></p>
 </footer>
 </html>

@@ -24,11 +24,11 @@ class ContactController extends Controller
         $contact->comment = $request->input('comment');
 
         $contact->save();
-        
-    
+
+
         // Send the email
         $formData = $request->all();
-        Mail::to('thushaniwerahera@gmail.com')->send(new ContactForm($formData));
+        Mail::to('kavindutheekshana@gmail.com')->send(new ContactForm($formData));
 
         return response()->json(['success' => 'Your Message Sent Sucessfully']);
     }

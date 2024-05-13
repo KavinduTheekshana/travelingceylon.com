@@ -6,7 +6,7 @@
 </head>
 <body>
     <h2>New Contact Form Inquiry Received: Let's Make Your Travel Dreams a Reality!</h2>
-  
+
 
     <p>Name: {{ $formData['name'] }}</p>
     <p>Email: {{ $formData['email'] }}</p>
@@ -15,6 +15,6 @@
 </body>
 <footer>
     <hr>
-    <p>Design & Developed By <a href="creatxsoftware.com" target="_blank" rel="Creatx Software">Creatx Software</a></p>
+    <p>Design & Developed By <a href="https://neuroon.lk" target="_blank" rel="Neuroon Informatics">Neuroon Informatics</a></p>
 </footer>
 </html>

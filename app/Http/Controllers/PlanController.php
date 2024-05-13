@@ -68,20 +68,20 @@ class PlanController extends Controller
             'children' => $request->input('children'),
             'single' => $request->input('single'),
             'double' => $request->input('double'),
-            'meal' => $request->input('meal', []), 
-            'hotel' => $request->input('hotel', []), 
-            'holiday' => $request->input('holiday', []), 
-            'likeToSee' => $request->input('likeToSee', []), 
-            'activity' => $request->input('activity', []), 
-            'vehicle' => $request->input('vehicle', []), 
+            'meal' => $request->input('meal', []),
+            'hotel' => $request->input('hotel', []),
+            'holiday' => $request->input('holiday', []),
+            'likeToSee' => $request->input('likeToSee', []),
+            'activity' => $request->input('activity', []),
+            'vehicle' => $request->input('vehicle', []),
             'note' => $request->input('note'),
         ];
-    
-        Mail::to('thushaniwerahera@gmail.com')->send(new PlanTour($formData));
 
-    
-    
-    
+        Mail::to('kavindutheekshana@gmail.com')->send(new PlanTour($formData));
+
+
+
+
         // Send the email
         // $formData = $request->all();
         // Mail::to('kavindutheekshana@gmail.com')->send(new PlanTour($formData));

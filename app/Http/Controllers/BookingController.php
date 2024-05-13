@@ -35,11 +35,11 @@ class BookingController extends Controller
         $booking->checkout = $request->input('checkout');
 
         $booking->save();
-        
-    
+
+
         // Send the email
         $formData = $request->all();
-        Mail::to('thushaniwerahera@gmail.com')->send(new BookingInquiry($formData));
+        Mail::to('kavindutheekshana@gmail.com')->send(new BookingInquiry($formData));
 
         return response()->json(['success' => 'Your Inquiry Sent Sucessfully']);
     }
