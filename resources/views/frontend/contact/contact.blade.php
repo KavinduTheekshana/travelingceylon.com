@@ -139,11 +139,11 @@
                            <h4>ADDRESS LOCATION</h4>
                            <ul>
                               <li>
-                                 90/62, Athapaththu Gardens,
+                                 1203/1 Vidyalaya junction,
 
                               </li>
                               <li>
-                                 Depanama, Pannipitiya.
+                                 Kottawa, Pannipitiya
                               </li>
 
                            </ul>
