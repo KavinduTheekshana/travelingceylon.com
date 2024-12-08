@@ -22,7 +22,55 @@
         Sri Lanka vacation spots, Sri Lanka travel tips, Sri Lanka travel guide, Sri Lanka travel agency, Sri Lanka adventure tours,
         Sri Lanka travel packages, Sri Lanka travel deals, Sri Lanka adventure holidays, Sri Lanka sightseeing, Sri Lanka bucket list,
         Sri Lanka cultural experiences, Sri Lanka hidden gems, Sri Lanka island hopping, Sri Lanka coastal beauty, Sri Lanka mountain trekking,
-        Sri Lanka wildlife safari, Sri Lanka eco-tourism, Sri Lanka luxury travel, Sri Lanka budget travel.">
+        Sri Lanka wildlife safari, Sri Lanka eco-tourism, Sri Lanka luxury travel, Sri Lanka budget travel, travel to sri lanka
+        travel sites, sri lanka trip
+        sri lanka tours
+        travel website
+        tours sri lanka
+        travel trip
+        explore sri lanka
+        travel experience
+        plan your trip
+        travel guide
+        sri lanka vacation
+        plan a trip
+        explore travel
+        dream vacation
+        plan a vacation
+        travel to sri lanka from us
+        travel journey
+        travel destinations
+        travel usa
+        sri lanka travel guide
+        sri lanka must see
+        travel more
+        make your trip
+        plan your vacation
+        destination travel
+        sri lanka destinations
+        travel ceylon
+        travel for you
+        vacation destination
+        affordable vacation
+        dream destinations
+        traveling tour
+        traveling travel
+        experience travel
+        plan your travel
+        trip to us
+        us travel destinations
+        lion rock sri lanka
+        us destinations
+        travel your guide
+        travel in the us
+        trip vacation
+        popular tourist destinations
+        sri lanka journey
+        travel and journey
+        our trip
+        experience travel sri lanka
+        make your travel
+        sri lanka travelers">
 
     <meta name="title" content="Traveling Ceylon | Journey into Ceylon's Timeless Beauty">
     <link rel="canonical" href="https://travelingceylon.com" />

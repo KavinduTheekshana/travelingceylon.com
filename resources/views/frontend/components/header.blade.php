@@ -8,7 +8,7 @@
                    <i aria-hidden="true" class="icon icon-phone-call2"></i>
                    <div class="header-contact-details">
                       <span class="contact-label">For Further Inquires :</span>
-                      <h5 class="header-contact-no">+94 70 633 2644</h5>
+                      <h5 class="header-contact-no">+44 79 16 177 140</h5>
                    </div>
                 </a>
              </div>
