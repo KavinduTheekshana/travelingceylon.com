@@ -20,7 +20,8 @@
 
                 <div class="ms-auto">
                     <div class="btn-group">
-                        <a href="{{ route('image.add') }}" type="button" class="btn btn-primary"><i class='bx bx-image-add' ></i> Add gallerys</a>
+                        <a href="{{ route('image.add') }}" type="button" class="btn btn-primary"><i
+                                class='bx bx-image-add'></i> Add gallerys</a>
 
                     </div>
                 </div>
@@ -35,6 +36,7 @@
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Image</th>
                                     <th>Title</th>
                                     <th>Status</th>
@@ -45,6 +47,7 @@
                             <tbody>
                                 @foreach ($galleries as $gallery)
                                     <tr>
+                                        <td>{{ $gallery->id }}</td>
                                         <td><img src="{{ asset($gallery->image) }}" class="table-image-holder"
                                                 alt="image" /> </td>
                                         <td>{{ $gallery->title }}</td>
@@ -63,10 +66,12 @@
                                         </td>
                                         <td>
                                             @if ($gallery->popular)
-                                                <a href="{{ route('image.notpopular', ['id' => $gallery->id]) }}" type="button"
-                                                    class="btn btn-secondary px-2 py-1">Remove Popular</a>
+                                                <a href="{{ route('image.notpopular', ['id' => $gallery->id]) }}"
+                                                    type="button" class="btn btn-secondary px-2 py-1">Remove
+                                                    Popular</a>
                                             @else
-                                                <a href="{{ route('image.popular', ['id' => $gallery->id]) }}" type="button" class="btn btn-purple"> Make
+                                                <a href="{{ route('image.popular', ['id' => $gallery->id]) }}"
+                                                    type="button" class="btn btn-purple"> Make
                                                     Popular</a>
                                             @endif
 
@@ -92,9 +97,10 @@
                                                 @endif
 
 
-                       
-                                                <a href="{{ route('image.delete', ['id' => $gallery->id]) }}" type="button"
-                                                    class="btn btn-warning"><i class='bx bxs-trash-alt me-0'></i></a>
+
+                                                <a href="{{ route('image.delete', ['id' => $gallery->id]) }}"
+                                                    type="button" class="btn btn-warning"><i
+                                                        class='bx bxs-trash-alt me-0'></i></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -103,6 +109,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Image</th>
                                     <th>Title</th>
                                     <th>Status</th>
@@ -130,12 +137,17 @@
 @push('scripts')
 @include('backend.components.model')
 <script>
-    // data table 
+    // data table
     $(document).ready(function() {
-        $('#example').DataTable();
+        $('#example').DataTable({
+            "order": [
+                [0, "desc"]
+            ]
+        });
+
     });
 
-    // model content 
+    // model content
     $(document).ready(function() {
         $('#exampleLargeModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget);
