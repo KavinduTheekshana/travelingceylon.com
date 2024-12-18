@@ -63,10 +63,10 @@
                                 <p>Feel free to contact and<br /> reach us !!</p>
                                 <ul>
                                     <li>
-                                        <a href="tel:+94706332644">
+                                        {{-- <a href="tel:+94706332644">
                                             <i aria-hidden="true" class="icon icon-phone1"></i>
                                             +94 70 633 2644
-                                        </a>
+                                        </a> --}}
                                         <a href="tel:+447916177140">
                                             <i aria-hidden="true" class="icon icon-phone1"></i>
                                             +44 79 16 177 140
