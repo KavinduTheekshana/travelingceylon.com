@@ -38,7 +38,7 @@ class HomeController extends Controller
     {
         $gallery_footer = DB::table('galleries')->where('status', 1)->whereNull('deleted_at')->take(6)->get();
         $packages_footer = DB::table('packages')->where('status', 1)->where('popular_status', 1)->whereNull('deleted_at')->take(2)->get();
-        $gallery = DB::table('galleries')->where('status', 1)->whereNull('deleted_at')->get();
+        $gallery = DB::table('galleries')->where('status', 1)->whereNull('deleted_at')->orderBy('id','desc')->get();
         return view('frontend.gallery.gallery', ['gallery' => $gallery, 'gallery_footer' => $gallery_footer, 'packages_footer' => $packages_footer]);
     }
 
