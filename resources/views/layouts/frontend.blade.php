@@ -187,7 +187,7 @@
                 "brandName": "Kavindu",
                 "brandSubTitle": "Typically replies in minutes",
                 "ctaText": "Start Chat",
-                "phoneNumber": "447916177140",
+                "phoneNumber": "447936331462",
                 "welcomeText": "\nHi there 👋\n\nHow can I help you?"
             }
         };

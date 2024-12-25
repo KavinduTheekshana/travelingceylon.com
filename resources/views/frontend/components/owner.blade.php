@@ -25,7 +25,7 @@
 
                          <br>
                          <div class="name-title">
-                           <h4> - Ishan Sulochana - </h4>
+                           <h4> - Kavindu Theekshana - </h4>
                         </div>
                        </div>
 
@@ -38,9 +38,9 @@
                     <p>Feel free to contact and<br/> reach us !!</p>
                     <ul>
                        <li>
-                          <a href="tel:+94706332644">
+                          <a href="tel:+447936331462">
                              <i aria-hidden="true" class="icon icon-phone1"></i>
-                             +94 70 633 2644
+                             +44 79 3633 1462
                           </a>
                        </li>
                        <li>

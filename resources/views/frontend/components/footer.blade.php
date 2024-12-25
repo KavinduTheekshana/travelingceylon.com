@@ -67,9 +67,9 @@
                                             <i aria-hidden="true" class="icon icon-phone1"></i>
                                             +94 70 633 2644
                                         </a> --}}
-                                        <a href="tel:+447916177140">
+                                        <a href="tel:+447936331462">
                                             <i aria-hidden="true" class="icon icon-phone1"></i>
-                                            +44 79 16 177 140
+                                            +44 79 3633 1462
                                         </a>
                                     </li>
                                     <li>
