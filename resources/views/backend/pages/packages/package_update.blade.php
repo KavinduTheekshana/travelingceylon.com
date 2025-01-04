@@ -103,6 +103,17 @@
                                     </div>
 
                                     <div class="form-row">
+                                        <label for="input1" class="form-label">Meta Keywords</label>
+                                        <input type="text" class="form-control" name="meta_keywords" required
+                                            placeholder="Meta Keywords" value="{{ $package->meta_keywords }}">
+                                    </div>
+
+                                    <div class="form-row">
+                                        <label for="input1" class="form-label">Meta Description</label>
+                                        <textarea type="text" class="form-control" name="meta_description" placeholder="Meta Description" required>{{ $package->meta_description }}</textarea>
+                                    </div>
+
+                                    <div class="form-row">
                                         <div class="d-grid d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary px-4">Update</button>
 

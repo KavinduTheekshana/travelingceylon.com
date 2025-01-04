@@ -44,6 +44,8 @@ class PackagesController extends Controller
             'peoples' => ['required'],
             'price' => ['required'],
             'description' => ['required'],
+            'meta_keywords' => ['required'],
+            'meta_description' => ['required'],
         ]);
 
         $package = new Packages();
@@ -55,6 +57,8 @@ class PackagesController extends Controller
         $package->peoples = $request->input('peoples');
         $package->price = $request->input('price');
         $package->description = $request->input('description');
+        $package->meta_keywords = $request->input('meta_keywords');
+        $package->meta_description = $request->input('meta_description');
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -117,6 +121,8 @@ class PackagesController extends Controller
             'peoples' => ['required'],
             'price' => ['required'],
             'description' => ['required'],
+            'meta_keywords' => ['required'],
+            'meta_description' => ['required'],
         ]);
 
         // Find the existing package record
@@ -132,6 +138,8 @@ class PackagesController extends Controller
         $package->peoples = $request->input('peoples');
         $package->price = $request->input('price');
         $package->description = $request->input('description');
+        $package->meta_keywords = $request->input('meta_keywords');
+        $package->meta_description = $request->input('meta_description');
 
         // Handle image update
         if ($request->hasFile('image')) {

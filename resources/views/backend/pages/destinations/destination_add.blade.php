@@ -92,10 +92,19 @@
                                         <label for="input1" class="form-label">Description</label>
 
                                         <textarea id="myeditorinstance" name="description" required>Add Your Text Here</textarea>
-
-
-
                                     </div>
+
+                                    <div class="form-row">
+                                        <label for="input1" class="form-label">Meta Keywords</label>
+                                        <input type="text" class="form-control" name="meta_keywords" required
+                                            placeholder="Meta Keywords">
+                                    </div>
+
+                                    <div class="form-row">
+                                        <label for="input1" class="form-label">Meta Description</label>
+                                        <textarea type="text" class="form-control" name="meta_description" placeholder="Meta Description" required></textarea>
+                                    </div>
+
 
                                     <div class="form-row">
                                         <div class="d-grid d-flex justify-content-end">

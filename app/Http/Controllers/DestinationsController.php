@@ -72,6 +72,8 @@ class DestinationsController extends Controller
             'category' => ['required', 'string', 'max:255'],
             'image' => ['required'],
             'description' => ['required'],
+            'meta_keywords' => ['required'],
+            'meta_description' => ['required'],
         ]);
 
         $destinations = new Destinations();
@@ -80,6 +82,8 @@ class DestinationsController extends Controller
         $destinations->location = $request->input('location');
         $destinations->category = $request->input('category');
         $destinations->description = $request->input('description');
+        $destinations->meta_keywords = $request->input('meta_keywords');
+        $destinations->meta_description = $request->input('meta_description');
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -104,6 +108,8 @@ class DestinationsController extends Controller
             'location' => ['required', 'string', 'max:255'],
             'category' => ['required', 'string', 'max:255'],
             'description' => ['required'],
+            'meta_keywords' => ['required'],
+            'meta_description' => ['required'],
         ]);
 
         // Find the existing destination record
@@ -115,6 +121,8 @@ class DestinationsController extends Controller
         $destinations->location = $request->input('location');
         $destinations->category = $request->input('category');
         $destinations->description = $request->input('description');
+        $destinations->meta_keywords = $request->input('meta_keywords');
+        $destinations->meta_description = $request->input('meta_description');
 
         // Handle image update
         if ($request->hasFile('image')) {
