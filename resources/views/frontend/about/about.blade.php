@@ -1,5 +1,7 @@
 @extends('layouts.frontend')
-
+@section('title', "About Traveling Ceylon | Your Gateway to Sri Lanka's Timeless Charm")
+@section('meta_description', 'Learn about Traveling Ceylon, your trusted partner for exploring Sri Lanka\'s beauty. Discover our mission, vision, and commitment to providing unforgettable travel experiences.')
+@section('meta_keywords', 'about Traveling Ceylon, Sri Lanka travel company, Sri Lanka tourism, Ceylon travel experts, about us, Traveling Ceylon mission, Traveling Ceylon team, Sri Lanka tours')
 @section('content')
 
     <div id="page" class="page">

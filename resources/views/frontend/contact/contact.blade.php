@@ -1,5 +1,7 @@
 @extends('layouts.frontend')
-
+@section('title', "Contact Traveling Ceylon | Plan Your Sri Lankan Adventure Today")
+@section('meta_description', 'Get in touch with Traveling Ceylon for all your travel inquiries. Contact us for booking information, travel assistance, or any questions about exploring Sri Lanka.')
+@section('meta_keywords', 'contact Traveling Ceylon, Sri Lanka travel contact, travel inquiries Sri Lanka, Sri Lanka tours contact, contact us for travel, book Sri Lanka tours, Traveling Ceylon contact page')
 @section('content')
 
     <div id="page" class="page">

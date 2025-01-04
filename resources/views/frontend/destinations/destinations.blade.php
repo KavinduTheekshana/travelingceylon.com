@@ -1,4 +1,7 @@
 @extends('layouts.frontend')
+@section('title', "Sri Lanka Travel Destinations | Discover Your Next Adventure with Traveling Ceylon")
+@section('meta_description', 'Discover the best travel destinations in Sri Lanka. Explore beautiful beaches, cultural landmarks, and hidden gems with Traveling Ceylon for your perfect vacation.')
+@section('meta_keywords', 'Sri Lanka travel destinations, explore Sri Lanka, Sri Lanka beach destinations, cultural landmarks Sri Lanka, Sri Lanka vacation, best destinations Sri Lanka, Traveling Ceylon destinations')
 
 @section('content')
 
@@ -17,20 +20,20 @@
                <div class="container">
                   <div class="row gx-5">
                      @include('frontend.destinations.single')
-                    
+
                   </div>
                </div>
             </div>
-   
+
             <div class="inner-counter">
             @include('frontend.components.inner_counter')
             </div>
             @include('frontend.destinations.counter_bg')
             </section>
          </main>
-      
 
-      
+
+
 
          @include('frontend.components.footer')
          @include('frontend.components.top')

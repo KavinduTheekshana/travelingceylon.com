@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>@yield('title', 'Traveling Ceylon | Journey into Ceylon&apos;s Timeless Beauty')</title>
+    <title>@yield('title', "Traveling Ceylon | Journey into Ceylon's Timeless Beauty")</title>
     <meta name="description" content="@yield('meta_description', 'Explore Sri Lanka with travel guides, visa info, maps, tips, luxury tours, group trips, itineraries, vaccinations, and advice for an unforgettable journey.')">
     <meta name="keywords" content="@yield('meta_keywords', 'Travel Sri Lanka, Sri Lanka travel guide, Sri Lanka visa info, Luxury travel Sri Lanka, Sri Lanka travel agency, Group travel Sri Lanka, Sri Lanka itineraries, Travel tips Sri Lanka, Travel insurance Sri Lanka, Explore Sri Lanka')">
 

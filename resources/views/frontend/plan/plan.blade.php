@@ -1,4 +1,7 @@
 @extends('layouts.frontend')
+@section('title', "Plan A Tour with Traveling Ceylon | Customized Sri Lanka Travel Itineraries")
+@section('meta_description', 'Plan your perfect Sri Lanka tour with Traveling Ceylon. Customizable itineraries, expert advice, and everything you need for a seamless travel experience. Let\'s plan your dream vacation today!')
+@section('meta_keywords', 'Plan a tour Sri Lanka, customized Sri Lanka tours, Sri Lanka vacation planning, travel Sri Lanka itinerary, Sri Lanka tour expert, tailor-made tours Sri Lanka, Sri Lanka travel guide, best tours Sri Lanka')
 
 @section('content')
 

@@ -1,6 +1,8 @@
 
 @extends('layouts.frontend')
-
+@section('title', "Sri Lanka Travel Gallery | Stunning Photos of Ceylon's Beauty")
+@section('meta_description', 'Browse stunning images of Sri Lanka\'s most breathtaking landscapes, beaches, and cultural sites in our gallery. Explore the beauty of Ceylon through Traveling Ceylon.')
+@section('meta_keywords', 'Sri Lanka travel gallery, Ceylon travel images, Sri Lanka photography, Sri Lanka landscape photos, travel photos Sri Lanka, Sri Lanka tourism pictures, beautiful Sri Lanka gallery, Traveling Ceylon gallery')
 @section('content')
 
       <div id="page" class="page">
@@ -29,13 +31,13 @@
                    </div>
                 </div>
              </div>
-   
-            
+
+
             </section>
          </main>
-      
 
-      
+
+
 
          @include('frontend.components.footer')
          @include('frontend.components.top')

@@ -1,5 +1,4 @@
 @extends('layouts.frontend')
-
 @section('content')
     <div id="page" class="page">
         <!-- site header html start  -->
@@ -25,10 +24,10 @@
             @include('frontend.testimonial.testimonial')
             @include('frontend.homepage.call_to_action')
 
-         
-          
 
-          
+
+
+
         </main>
 
 

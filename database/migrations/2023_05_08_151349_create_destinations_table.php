@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('category');
             $table->string('image');
             $table->longText('description');
+            $table->string('meta_keywords')->nullable();
+            $table->string('meta_description')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
