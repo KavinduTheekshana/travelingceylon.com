@@ -13,22 +13,22 @@
                 <div class="client-logo">
                     <ul>
                         <li>
-                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/logo--Taj.png') }}" alt="">
+                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/logo--Taj.png') }}" alt="Taj Hotels">
                         </li>
                         <li>
-                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/Anantara.png') }}" alt="">
+                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/Anantara.png') }}" alt="Anantara Hotels">
                         </li>
                         <li>
-                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/jetwing.png') }}" alt="">
+                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/jetwing.png') }}" alt="Jetwing Hotels">
                         </li>
                         <li>
-                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/cinemen.png') }}" alt="">
+                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/cinemen.png') }}" alt="Cinnamon Hotels">
                         </li>
                         <li>
-                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/shangila.png') }}" alt="">
+                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/shangila.png') }}" alt="Shangri-La Hotels">
                         </li>
                         <li>
-                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/rajarata.png') }}" alt="">
+                            <img loading="lazy" src="{{ asset('frontend/assets/images/logos/transparent/rajarata.png') }}" alt="Rajarata Hotels">
                         </li>
                     </ul>
                 </div>
