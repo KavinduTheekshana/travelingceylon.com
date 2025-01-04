@@ -5,76 +5,17 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@yield('title', 'Traveling Ceylon | Journey into Ceylon&apos;s Timeless Beauty')</title>
+    <meta name="description" content="@yield('meta_description', 'Explore Sri Lanka with travel guides, visa info, maps, tips, luxury tours, group trips, itineraries, vaccinations, and advice for an unforgettable journey.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'Travel Sri Lanka, Sri Lanka travel guide, Sri Lanka visa info, Luxury travel Sri Lanka, Sri Lanka travel agency, Group travel Sri Lanka, Sri Lanka itineraries, Travel tips Sri Lanka, Travel insurance Sri Lanka, Explore Sri Lanka')">
 
-    {{-- SEO  --}}
-    <meta name="description"
-        content="Plan your dream getaway to Sri Lanka with Traveling Ceylon, your premier destination for immersive travel experiences.
-        Explore our curated selection of tours and activities, from sun-kissed beaches to ancient ruins, vibrant markets to lush tea plantations.
-        Our expert guides and personalized itineraries ensure that every moment is filled with adventure and discovery.
-        Start your journey with Traveling Ceylon and unlock the secrets of this captivating island paradise today!">
-
-    <meta name="keywords"
-        content="Sri Lanka travel, Ceylon adventures, Sri Lanka tourism, Sri Lanka attractions, Explore Sri Lanka,
-        Ceylon vacation, Sri Lanka holiday, Sri Lanka experiences, Sri Lanka tours, Sri Lanka destinations, Sri Lanka beaches,
-        Ceylon culture, Sri Lanka wildlife, Sri Lanka heritage sites, Sri Lanka tea plantations, Best of Sri Lanka, Visit Sri Lanka,
-        Discover Sri Lanka, Sri Lanka getaway, Sri Lanka exploration, Sri Lanka journey, Sri Lanka adventure, Sri Lanka wanderlust,
-        Sri Lanka paradise, Sri Lanka landscapes, Sri Lanka memories, Sri Lanka escapade, Sri Lanka exploration, Sri Lanka discovery,
-        Sri Lanka vacation spots, Sri Lanka travel tips, Sri Lanka travel guide, Sri Lanka travel agency, Sri Lanka adventure tours,
-        Sri Lanka travel packages, Sri Lanka travel deals, Sri Lanka adventure holidays, Sri Lanka sightseeing, Sri Lanka bucket list,
-        Sri Lanka cultural experiences, Sri Lanka hidden gems, Sri Lanka island hopping, Sri Lanka coastal beauty, Sri Lanka mountain trekking,
-        Sri Lanka wildlife safari, Sri Lanka eco-tourism, Sri Lanka luxury travel, Sri Lanka budget travel, travel to sri lanka
-        travel sites, sri lanka trip
-        sri lanka tours
-        travel website
-        tours sri lanka
-        travel trip
-        explore sri lanka
-        travel experience
-        plan your trip
-        travel guide
-        sri lanka vacation
-        plan a trip
-        explore travel
-        dream vacation
-        plan a vacation
-        travel to sri lanka from us
-        travel journey
-        travel destinations
-        travel usa
-        sri lanka travel guide
-        sri lanka must see
-        travel more
-        make your trip
-        plan your vacation
-        destination travel
-        sri lanka destinations
-        travel ceylon
-        travel for you
-        vacation destination
-        affordable vacation
-        dream destinations
-        traveling tour
-        traveling travel
-        experience travel
-        plan your travel
-        trip to us
-        us travel destinations
-        lion rock sri lanka
-        us destinations
-        travel your guide
-        travel in the us
-        trip vacation
-        popular tourist destinations
-        sri lanka journey
-        travel and journey
-        our trip
-        experience travel sri lanka
-        make your travel
-        sri lanka travelers">
-
-    <meta name="title" content="Traveling Ceylon | Journey into Ceylon's Timeless Beauty">
+    <meta name="title" content="@yield('title', 'Traveling Ceylon | Journey into Ceylon&apos;s Timeless Beauty')">
     <link rel="canonical" href="https://travelingceylon.com" />
     <meta name="author" content="www.travelingceylon.com">
+    <meta property="og:title" content="@yield('title', 'Traveling Ceylon | Journey into Ceylon&apos;s Timeless Beauty')" />
+    <meta property="og:description" content="@yield('meta_description', 'Explore Sri Lanka with travel guides, visa info, maps, tips, luxury tours, group trips, itineraries, vaccinations, and advice for an unforgettable journey.')">
+    <meta property="og:image" content="{{ asset('frontend/assets/images/logo/travelingceylonfavicon.svg') }}">
+
 
     <!-- favicon -->
     <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/logo/travelingceylonfavicon.svg') }}">
@@ -109,7 +50,7 @@
     {{-- Anim Trap  --}}
     <link rel="stylesheet" href="{{ asset('frontend/assets/plugin/animtrap/css/animtrap.min.css') }}">
     @stack('styles')
-    <title>Traveling Ceylon | Journey into Ceylon's Timeless Beauty</title>
+
     {{-- @vite(['resources/js/app.js']) --}}
 </head>
 
