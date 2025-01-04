@@ -67,13 +67,13 @@
                                             <i aria-hidden="true" class="icon icon-phone1"></i>
                                             +94 70 633 2644
                                         </a> --}}
-                                        <a href="tel:+447936331462">
+                                        <a href="tel:+447936331462" aria-label="Call">
                                             <i aria-hidden="true" class="icon icon-phone1"></i>
                                             +44 79 3633 1462
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="mailtop:info@travelingceylon.com">
+                                        <a href="mailtop:info@travelingceylon.com" aria-label="Email">
                                             <i aria-hidden="true" class="icon icon-envelope1"></i>
                                             info@travelingceylon.com
                                         </a>
@@ -95,7 +95,7 @@
                                     <figure class="gallery-item gallery-item-width">
                                         <a class="footer-image" href="{{ asset($gallery->image) }}"
                                             data-fancybox="gallery-1">
-                                            <img loading="lazy" class="footer-image" src="{{ asset($gallery->image) }}" alt="">
+                                            <img loading="lazy" class="footer-image" src="{{ asset($gallery->image) }}" alt="{{ $gallery->title }}">
                                         </a>
                                     </figure>
                                 @endforeach

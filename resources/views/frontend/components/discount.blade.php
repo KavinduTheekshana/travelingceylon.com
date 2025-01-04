@@ -6,7 +6,7 @@
                     <h5 class="sub-title">DISCOUNT OFFER</h5>
                     <h2 class="section-title">GET A SPECIAL DISCOUNT ON VACATION TIMES !</h2>
                     <p>Save big on your vacation! Enjoy a special discount for a limited time only. Don't miss out on the chance to make your travel dreams a reality.</p>
-                    <a href="{{ route('contact') }}" class="round-btn">Contact Us</a>
+                    <a href="{{ route('contact') }}" class="round-btn" aria-label="Contact Us">Contact Us</a>
                 </div>
             </div>
             <div class="col-lg-6">

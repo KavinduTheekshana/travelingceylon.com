@@ -4,7 +4,7 @@
        <div class="container">
           <div class="top-header-inner">
              <div class="header-contact text-left">
-                <a href="tel:+94706332644">
+                <a href="tel:+94706332644" area-label="Phone Number">
                    <i aria-hidden="true" class="icon icon-phone-call2"></i>
                    <div class="header-contact-details">
                       <span class="contact-label">For Further Inquires :</span>
@@ -21,7 +21,7 @@
              </div>
              <div class="header-icon text-right">
                 <div class="offcanvas-menu d-inline-block">
-                   <a href="#">
+                   <a href="#" aria-label="Mobile Menu">
                       <i aria-hidden="true" class="icon icon-burger-menu"></i>
                    </a>
                 </div>
@@ -35,12 +35,12 @@
              <div class="header-social social-icon">
                 <ul>
                    <li>
-                      <a href="https://www.facebook.com/profile.php?id=61559169237547" target="_blank">
+                      <a href="https://www.facebook.com/profile.php?id=61559169237547" target="_blank" aria-label="Facebook">
                          <i class="fab fa-facebook-f" aria-hidden="true"></i>
                       </a>
                    </li>
                    <li>
-                      <a href="https://www.instagram.com/travelingceylon/?utm_source=qr&igsh=bnVtamFybHczZ21m" target="_blank">
+                      <a href="https://www.instagram.com/travelingceylon/?utm_source=qr&igsh=bnVtamFybHczZ21m" target="_blank" aria-label="Instagram">
                          <i class="fab fa-instagram" aria-hidden="true"></i>
                       </a>
                    </li>
