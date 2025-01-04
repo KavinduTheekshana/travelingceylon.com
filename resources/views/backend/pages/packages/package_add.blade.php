@@ -48,8 +48,8 @@
                                     </div>
 
 
-                                    <input hidden type="text" class="form-control" id="mySlugbox" name="slug"
-                                        required placeholder="Package Title Slag" readonly>
+                                    {{-- <input hidden type="text" class="form-control" id="mySlugbox" name="slug"
+                                        required placeholder="Package Title Slag" readonly> --}}
 
                                     <div class="form-row">
                                         <label for="input1" class="form-label">Location</label>
@@ -75,11 +75,11 @@
                                             placeholder="Peoples">
                                     </div>
 
-                                    {{-- <div class="form-row">
+                                    <div class="form-row">
                                         <label for="input1" class="form-label">Price Per Person (USD)</label>
                                         <input type="number" class="form-control" name="price" required
                                             placeholder="Price">
-                                    </div> --}}
+                                    </div>
 
 
 
@@ -131,7 +131,7 @@
 
 @push('scripts')
 <script>
-    // editer 
+    // editer
     tinymce.init({
         selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
         plugins: 'code table lists',
@@ -152,14 +152,14 @@
         }
     }
 
-    // slug editer 
-    $(document).ready(function() {
-        $('#myTextbox').on('input', function() {
-            var value = $(this).val();
-            var slug = value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + "-" +
-                Date.now();
-            $('#mySlugbox').val(slug);
-        });
-    });
+    // slug editer
+    // $(document).ready(function() {
+    //     $('#myTextbox').on('input', function() {
+    //         var value = $(this).val();
+    //         var slug = value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + "-" +
+    //             Date.now();
+    //         $('#mySlugbox').val(slug);
+    //     });
+    // });
 </script>
 @endpush

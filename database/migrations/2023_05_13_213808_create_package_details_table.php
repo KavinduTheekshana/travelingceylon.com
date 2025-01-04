@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->boolean('status')->default(1);
             $table->string('location');
+            $table->string('price');
             $table->string('image');
             $table->longText('description');
             $table->softDeletes();

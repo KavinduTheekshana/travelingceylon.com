@@ -6,6 +6,7 @@ use App\Models\PackageDetails;
 use App\Models\Packages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class PackagesController extends Controller
 {
@@ -22,9 +23,9 @@ class PackagesController extends Controller
 
     public function package_view($id)
     {
-        $package = DB::table('packages')->where('id',$id)->whereNull('deleted_at')->first();
-        $package_details = DB::table('package_details')->where('package_id',$id)->whereNull('deleted_at')->orderBy('day', 'asc')->get();
-        return view('backend.pages.packages.package_details', ['package' => $package,'package_details' => $package_details]);
+        $package = DB::table('packages')->where('id', $id)->whereNull('deleted_at')->first();
+        $package_details = DB::table('package_details')->where('package_id', $id)->whereNull('deleted_at')->orderBy('day', 'asc')->get();
+        return view('backend.pages.packages.package_details', ['package' => $package, 'package_details' => $package_details]);
     }
 
     public function add()
@@ -36,24 +37,23 @@ class PackagesController extends Controller
     {
         $this->validate($request, [
             'title' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
             'days' => ['required', 'numeric', 'max:255'],
             'nights' => ['required', 'numeric', 'max:255'],
             'image' => ['required'],
             'peoples' => ['required'],
-            // 'price' => ['required'],
+            'price' => ['required'],
             'description' => ['required'],
         ]);
 
         $package = new Packages();
         $package->title = $request->input('title');
-        $package->slug = $request->input('slug');
+        $package->slug = $this->generateUniqueSlug($request->input('title'));
         $package->location = $request->input('location');
         $package->days = $request->input('days');
         $package->nights = $request->input('nights');
         $package->peoples = $request->input('peoples');
-        // $package->price = $request->input('price');
+        $package->price = $request->input('price');
         $package->description = $request->input('description');
 
         if ($request->hasFile('image')) {
@@ -111,54 +111,41 @@ class PackagesController extends Controller
     {
         $this->validate($request, [
             'title' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
             'days' => ['required', 'numeric', 'max:255'],
             'nights' => ['required', 'numeric', 'max:255'],
             'peoples' => ['required'],
-            // 'price' => ['required'],
+            'price' => ['required'],
             'description' => ['required'],
         ]);
 
-        $package = new Packages();
+        // Find the existing package record
         $package_id = $request->input('id');
+        $package = Packages::findOrFail($package_id);
+
+        // Update fields
         $package->title = $request->input('title');
-        $package->slug = $request->input('slug');
+        $package->slug = $this->generateUniqueSlug($request->input('title'), $package_id);
         $package->location = $request->input('location');
         $package->days = $request->input('days');
         $package->nights = $request->input('nights');
         $package->peoples = $request->input('peoples');
-        // $package->price = $request->input('price');
+        $package->price = $request->input('price');
         $package->description = $request->input('description');
 
-        $single_package = Packages::find($package_id);
-        $package_url = $single_package->image;
-
+        // Handle image update
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $packagePath = 'uploads/destinations/'; // upload path
+            $packagePath = 'uploads/destinations/'; // Upload path
             $package_image = 'uploads/destinations/' . date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($packagePath, $package_image);
             $package->image = "$package_image";
-        } else {
-            $package->image = $package_url;
         }
 
-        $data = array(
-            'title' => $package->title,
-            'slug' => $package->slug,
-            'location' => $package->location,
-            'days' => $package->days,
-            'nights' => $package->nights,
-            'peoples' => $package->peoples,
-            // 'price' => $package->price,
-            'description' => $package->description,
-            'image' => $package->image,
-        );
+        // Save the updated data
+        $package->save();
 
-        Packages::where('id', $package_id)->update($data);
-        $package->update();
-        return redirect('package-list')->with('status', 'Package Updated Sucessfully');
+        return redirect('package-list')->with('status', 'Package Updated Successfully');
     }
     public function add_details($id)
     {
@@ -168,7 +155,26 @@ class PackagesController extends Controller
     public function details_list($id)
     {
         $package = Packages::find($id);
-        $package_details = DB::table('package_details')->where('package_id',$id)->whereNull('deleted_at')->orderBy('day', 'asc')->get();
+        $package_details = DB::table('package_details')->where('package_id', $id)->whereNull('deleted_at')->orderBy('day', 'asc')->get();
         return view('backend.pages.packages.details_list', ['package' => $package, 'package_details' => $package_details]);
+    }
+    private function generateUniqueSlug($title, $id = null)
+    {
+        $slug = Str::slug($title, '-');
+        $originalSlug = $slug;
+        $counter = 1;
+
+        while (
+            Packages::where('slug', $slug)
+            ->when($id, function ($query) use ($id) {
+                return $query->where('id', '!=', $id); // Exclude the current record
+            })
+            ->exists()
+        ) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
+
+        return $slug;
     }
 }
