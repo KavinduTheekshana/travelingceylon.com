@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title', "$package->title  | Journey into Ceylon&apos;s Timeless Beauty")
+@section('title', "$package->title  | Journey into Ceylon's Timeless Beauty")
 @section('meta_description', "$package->meta_description")
 @section('meta_keywords', "$package->meta_keywords")
 @section('content')
