@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Destinations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB as FacadesDB;
+use Illuminate\Support\Str;
 
 class DestinationsController extends Controller
 {
@@ -67,7 +68,6 @@ class DestinationsController extends Controller
     {
         $this->validate($request, [
             'title' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
             'category' => ['required', 'string', 'max:255'],
             'image' => ['required'],
@@ -76,67 +76,78 @@ class DestinationsController extends Controller
 
         $destinations = new Destinations();
         $destinations->title = $request->input('title');
-        $destinations->slug = $request->input('slug');
+        $destinations->slug = $this->generateUniqueSlug($request->input('title'));
         $destinations->location = $request->input('location');
         $destinations->category = $request->input('category');
         $destinations->description = $request->input('description');
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $destinationPath = 'uploads/destinations/'; // upload path
+            $destinationPath = 'uploads/destinations/'; // Upload path
             $destination_image = 'uploads/destinations/' . date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $destination_image);
             $destinations->image = "$destination_image";
         } else {
             $destinations->image = 'uploads/destinations/default.jpg';
         }
+
         $destinations->save();
-        return redirect('add-destinations')->with('status', 'New Destination Added Sucessfully');
+
+        return redirect('add-destinations')->with('status', 'New Destination Added Successfully');
     }
+
 
     public function update(Request $request)
     {
         $this->validate($request, [
             'title' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
             'category' => ['required', 'string', 'max:255'],
             'description' => ['required'],
         ]);
 
-        $destinations = new Destinations();
+        // Find the existing destination record
         $destinations_id = $request->input('id');
+        $destinations = Destinations::findOrFail($destinations_id);
+
         $destinations->title = $request->input('title');
-        $destinations->slug = $request->input('slug');
+        $destinations->slug = $this->generateUniqueSlug($request->input('title'), $destinations_id);
         $destinations->location = $request->input('location');
         $destinations->category = $request->input('category');
         $destinations->description = $request->input('description');
 
-        $single_destination = Destinations::find($destinations_id);
-        $destinations_url = $single_destination->image;
-
+        // Handle image update
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $destinationPath = 'uploads/destinations/'; // upload path
+            $destinationPath = 'uploads/destinations/'; // Upload path
             $destination_image = 'uploads/destinations/' . date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $destination_image);
             $destinations->image = "$destination_image";
-        } else {
-            $destinations->image = $destinations_url;
         }
 
-        $data = array(
-            'title' => $destinations->title,
-            'slug' => $destinations->slug,
-            'location' => $destinations->location,
-            'category' => $destinations->category,
-            'description' => $destinations->description,
-            'image' => $destinations->image,
-        );
+        // Save the updated data
+        $destinations->save();
 
-        //   dd($data);
-        Destinations::where('id', $destinations_id)->update($data);
-        $destinations->update();
-        return redirect('destinations-list')->with('status', 'Destination Updated Sucessfully');
+        return redirect('destinations-list')->with('status', 'Destination Updated Successfully');
+    }
+
+    private function generateUniqueSlug($title, $id = null)
+    {
+        $slug = Str::slug($title, '-');
+        $originalSlug = $slug;
+        $counter = 1;
+
+        while (
+            Destinations::where('slug', $slug)
+                ->when($id, function ($query) use ($id) {
+                    return $query->where('id', '!=', $id); // Exclude the current record
+                })
+                ->exists()
+        ) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
+
+        return $slug;
     }
 }
