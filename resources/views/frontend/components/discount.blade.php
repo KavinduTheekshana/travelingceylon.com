@@ -1,4 +1,4 @@
-<section class="home-client client-section" style="background-image: url({{ asset('frontend/assets/images/GettyRF_1129567869.jpg') }});">
+<section class="home-client client-section" style="background-image: url({{ asset('frontend/assets/images/GettyRF_1129567869.webp') }});">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
