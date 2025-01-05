@@ -51,7 +51,7 @@
 </div>
    </div>
 
-   <div class="home-banner d-flex flex-wrap align-items-center" style="background-image: url({{url('frontend/assets/images/merlin.webp')}});">
+   <div class="home-banner d-flex flex-wrap align-items-center" style="background-image: url({{url('frontend/assets/images/slider/merlin.webp')}});">
       <div class="overlay"></div>
       <div class="container header-title">
          <div class="banner-content text-center">
