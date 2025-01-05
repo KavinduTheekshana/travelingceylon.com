@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class GalleryController extends Controller
 {
@@ -28,23 +29,53 @@ class GalleryController extends Controller
     {
         $this->validate($request, [
             'title' => ['required', 'string', 'max:255'],
-            'image' => ['required'],
+            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:5120'], // Validate WebP and other image formats
         ]);
 
         $gallery = new Gallery();
-        $gallery->title = $request->input('title');;
+        $gallery->title = $request->input('title');
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imagePath = 'uploads/gallery/'; // upload path
-            $gallery_image = 'uploads/gallery/' . date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($imagePath, $gallery_image);
-            $gallery->image = "$gallery_image";
+            $imagePath = 'uploads/gallery/'; // Upload path
+            $fileName = time() . '.' . $image->getClientOriginalExtension(); // Retain original extension
+
+            // Create directory if not exists
+            if (!file_exists(public_path($imagePath))) {
+                mkdir(public_path($imagePath), 0777, true);
+            }
+
+            // If the uploaded file is already WebP, save it directly
+            if ($image->getClientOriginalExtension() === 'webp') {
+                $image->move(public_path($imagePath), $fileName);
+            } else {
+                // Process non-WebP image with Intervention
+                $imageIntervention = Image::make($image->getRealPath());
+
+                // Check width and resize if necessary
+                if ($imageIntervention->width() > 1920) {
+                    $imageIntervention->resize(1920, null, function ($constraint) {
+                        $constraint->aspectRatio(); // Maintain aspect ratio
+                        $constraint->upsize(); // Prevent upsizing
+                    });
+                }
+
+                // Encode to WebP
+                $imageIntervention->encode('webp', 80); // Convert to WebP with 90% quality
+
+                // Save optimized image
+                $fileName = time() . '.webp'; // Change extension to WebP
+                $imageIntervention->save(public_path($imagePath . $fileName));
+            }
+
+            $gallery->image = $imagePath . $fileName;
         } else {
-            $gallery->image = 'uploads/destinations/default.jpg';
+            $gallery->image = 'uploads/gallery/default.jpg';
         }
+
         $gallery->save();
-        return redirect('image-list')->with('status', 'New Image Added Sucessfully');
+
+        return redirect('image-list')->with('status', 'New Image Added Successfully');
     }
     public function popular($id)
     {
