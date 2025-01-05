@@ -31,55 +31,55 @@
         <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://localhost/destinations/sigiriya</loc>
+        <loc>http://localhost/destination/sigiriya</loc>
         <lastmod>2023-05-19T23:15:31+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://localhost/destinations/pidurangala</loc>
+        <loc>http://localhost/destination/pidurangala</loc>
         <lastmod>2023-05-10T23:11:49+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/destinations/galle-fort</loc>
+        <loc>http://localhost/destination/galle-fort</loc>
         <lastmod>2023-05-19T12:29:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/destinations/yala-national-park</loc>
+        <loc>http://localhost/destination/yala-national-park</loc>
         <lastmod>2023-05-11T22:26:20+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://localhost/destinations/nine-arch-bridge</loc>
+        <loc>http://localhost/destination/nine-arch-bridge</loc>
         <lastmod>2023-05-10T23:23:36+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
-        <loc>http://localhost/destinations/galle-fort-1736009619822</loc>
+        <loc>http://localhost/destination/galle-fort-1736009619822</loc>
         <lastmod>2025-01-04T16:53:56+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://localhost/destinations/galle-fort-1</loc>
+        <loc>http://localhost/destination/galle-fort-1</loc>
         <lastmod>2025-01-04T17:05:57+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://localhost/destinations/galle-fort-2</loc>
+        <loc>http://localhost/destination/galle-fort-2</loc>
         <lastmod>2025-01-04T17:06:27+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
-        <loc>http://localhost/destinations/galle-fort-galle-fort</loc>
+        <loc>http://localhost/destination/galle-fort-galle-fort</loc>
         <lastmod>2025-01-04T22:07:10+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
