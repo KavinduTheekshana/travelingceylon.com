@@ -111,6 +111,8 @@ Route::get('/image-notpopular/{id}', [GalleryController::class, 'notpopular'])->
 Route::get('/image-active/{id}', [GalleryController::class, 'active'])->name('image.active');
 Route::get('/image-diactive/{id}', [GalleryController::class, 'diactive'])->name('image.diactive');
 Route::get('/image-delete/{id}', [GalleryController::class, 'delete'])->name('image.delete');
+Route::put('/image/update', [GalleryController::class, 'update'])->name('image.update');
+
 
 
 // Contact Back End

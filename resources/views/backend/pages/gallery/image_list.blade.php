@@ -50,7 +50,7 @@
                                         <td>{{ $gallery->id }}</td>
                                         <td><img src="{{ asset($gallery->image) }}" class="table-image-holder"
                                                 alt="image" /> </td>
-                                        <td>{{ $gallery->title }}</td>
+                                        <td>{{ $gallery->title }} <br> {{ $gallery->size }}</td>
                                         <td>
                                             @if ($gallery->status)
                                                 <span class="badge bg-success">Active</span></a>
@@ -101,6 +101,19 @@
                                                 <a href="{{ route('image.delete', ['id' => $gallery->id]) }}"
                                                     type="button" class="btn btn-warning"><i
                                                         class='bx bxs-trash-alt me-0'></i></a>
+
+                                                <a href="{{ asset($gallery->image) }}"
+                                                    download="{{ $gallery->image }}" class="btn btn-info"
+                                                    title="Download Image">
+                                                    <i class="bx bxs-download me-0"></i>
+                                                </a>
+
+                                                <a href="#" class="btn btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#updateModal" data-id="{{ $gallery->id }}"
+                                                    data-title="{{ $gallery->title }}"
+                                                    data-image="{{ asset($gallery->image) }}">
+                                                    <i class="bx bxs-edit me-0"></i>
+                                                </a>
                                             </div>
                                         </td>
                                     </tr>
@@ -127,6 +140,51 @@
         </div>
     </div>
     <!--end page wrapper -->
+
+
+    <!-- Update Modal -->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="updateForm" method="POST" action="{{ route('image.update') }}"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT') <!-- Use PUT method for updates -->
+                    <input type="hidden" name="id" id="galleryId">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="updateModalLabel">Update Gallery</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="updateTitle" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="updateTitle" name="title" required>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="updateImage" class="form-label">Cover Image</label>
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="updateImage">Upload</label>
+                                <input type="file" class="form-control" id="updateImage" name="image"
+                                    onchange="readURL(this);">
+                            </div>
+                            <img id="updateImagePreview" src="{{ asset('backend/assets/images/default.jpg') }}"
+                                class="placeholder-image" alt="Current Image">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 
 </div>
 <!--end wrapper-->
@@ -181,5 +239,32 @@
             $('.model-image').attr('src', image);
         });
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const updateModal = document.getElementById('updateModal');
+
+        updateModal.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+
+            const id = button.getAttribute('data-id');
+            const title = button.getAttribute('data-title');
+            const image = button.getAttribute('data-image');
+
+            document.getElementById('galleryId').value = id;
+            document.getElementById('updateTitle').value = title;
+            document.getElementById('updateImagePreview').src = image;
+        });
+    });
+
+    document.getElementById('updateImage').addEventListener('change', function (event) {
+    const file = event.target.files[0]; // Get the selected file
+    if (file) {
+        const reader = new FileReader(); // Create a FileReader object
+        reader.onload = function (e) {
+            document.getElementById('updateImagePreview').src = e.target.result; // Set the preview image source
+        };
+        reader.readAsDataURL(file); // Read the file as a data URL
+    }
+});
 </script>
 @endpush

@@ -24,6 +24,61 @@ class GalleryController extends Controller
     {
         return view('backend.pages.gallery.add_image');
     }
+    public function update(Request $request)
+    {
+        $this->validate($request, [
+            'title' => ['required', 'string', 'max:255'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:5120'],
+        ]);
+
+        $gallery = Gallery::findOrFail($request->id);
+        $gallery->title = $request->title;
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imagePath = 'uploads/gallery/';
+            $fileName = time() . '.' . $image->getClientOriginalExtension();
+
+            // Ensure directory exists
+            if (!file_exists(public_path($imagePath))) {
+                mkdir(public_path($imagePath), 0777, true);
+            }
+
+            // Resize and save image
+            if ($image->getClientOriginalExtension() === 'webp') {
+                $image->move(public_path($imagePath), $fileName);
+            } else {
+                $imageIntervention = Image::make($image->getRealPath());
+
+                if ($imageIntervention->width() > 1920) {
+                    $imageIntervention->resize(1920, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    });
+                }
+
+                $imageIntervention->encode('webp', 80);
+                $fileName = time() . '.webp';
+                $imageIntervention->save(public_path($imagePath . $fileName));
+            }
+
+            // Delete old image if it exists
+            if ($gallery->image && file_exists(public_path($gallery->image))) {
+                unlink(public_path($gallery->image));
+            }
+
+            $gallery->image = $imagePath . $fileName;
+
+            // Calculate and save file size using your existing function
+            $fileSize = filesize(public_path($gallery->image));
+            $gallery->size = $this->formatFileSize($fileSize);
+        }
+
+        $gallery->save();
+
+        return redirect()->back()->with('status', 'Gallery updated successfully');
+    }
+
 
     public function save(Request $request)
     {
@@ -38,7 +93,10 @@ class GalleryController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imagePath = 'uploads/gallery/'; // Upload path
-            $fileName = time() . '.' . $image->getClientOriginalExtension(); // Retain original extension
+            $originalExtension = $image->getClientOriginalExtension(); // Get original extension
+            $originalSize = $image->getSize(); // Get original size in bytes
+            $humanReadableSize = $this->formatFileSize($originalSize); // Convert size to human-readable format
+            $fileName = time() . '.' . $originalExtension; // Retain original extension
 
             // Create directory if not exists
             if (!file_exists(public_path($imagePath))) {
@@ -46,7 +104,7 @@ class GalleryController extends Controller
             }
 
             // If the uploaded file is already WebP, save it directly
-            if ($image->getClientOriginalExtension() === 'webp') {
+            if ($originalExtension === 'webp') {
                 $image->move(public_path($imagePath), $fileName);
             } else {
                 // Process non-WebP image with Intervention
@@ -61,22 +119,34 @@ class GalleryController extends Controller
                 }
 
                 // Encode to WebP
-                $imageIntervention->encode('webp', 80); // Convert to WebP with 90% quality
+                $imageIntervention->encode('webp', 80); // Convert to WebP with 80% quality
 
                 // Save optimized image
                 $fileName = time() . '.webp'; // Change extension to WebP
                 $imageIntervention->save(public_path($imagePath . $fileName));
             }
 
+            // Save data to the database
             $gallery->image = $imagePath . $fileName;
+            $gallery->extension = $originalExtension; // Save original extension
+            $gallery->size = $humanReadableSize; // Save human-readable size
         } else {
             $gallery->image = 'uploads/gallery/default.jpg';
+            $gallery->extension = 'jpg'; // Default extension
+            $gallery->size = '0KB'; // Default size
         }
 
         $gallery->save();
 
         return redirect('image-list')->with('status', 'New Image Added Successfully');
     }
+    private function formatFileSize($bytes)
+    {
+        $units = ['B', 'KB', 'MB', 'GB', 'TB'];
+        $power = $bytes > 0 ? floor(log($bytes, 1024)) : 0;
+        return number_format($bytes / pow(1024, $power), 2) . ' ' . $units[$power];
+    }
+
     public function popular($id)
     {
         $gallery = Gallery::find($id);

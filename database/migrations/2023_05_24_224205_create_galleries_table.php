@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('image');
+            $table->string('size')->nullable();
+            $table->string('extension')->nullable();
             $table->boolean('status')->default(1);
             $table->boolean('popular')->default(0);
             $table->softDeletes();
