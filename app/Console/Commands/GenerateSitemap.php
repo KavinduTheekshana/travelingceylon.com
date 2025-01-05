@@ -52,7 +52,7 @@ class GenerateSitemap extends Command
         $destinations = Destinations::where('status', 1)->get();
         foreach ($destinations as $destination) {
             $sitemap->add(
-                Url::create("/destinations/{$destination->slug}")
+                Url::create("/destination/{$destination->slug}")
                     ->setPriority($destination->popular_status ? 0.9 : 0.7)
                     ->setChangeFrequency('monthly')
                     ->setLastModificationDate($destination->updated_at)
