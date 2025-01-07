@@ -7,6 +7,7 @@ use App\Models\Packages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class PackagesController extends Controller
 {
@@ -40,7 +41,7 @@ class PackagesController extends Controller
             'location' => ['required', 'string', 'max:255'],
             'days' => ['required', 'numeric', 'max:255'],
             'nights' => ['required', 'numeric', 'max:255'],
-            'image' => ['required'],
+            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:5120'],
             'peoples' => ['required'],
             'price' => ['required'],
             'description' => ['required'],
@@ -62,16 +63,28 @@ class PackagesController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $packagePath = 'uploads/packages/'; // upload path
-            $package_image = 'uploads/packages/' . date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($packagePath, $package_image);
-            $package->image = "$package_image";
+            $imagePath = 'uploads/packages/'; // Upload directory
+            $webpFileName = time() . '.webp'; // WebP file name
+
+            // Ensure the directory exists
+            if (!file_exists(public_path($imagePath))) {
+                mkdir(public_path($imagePath), 0777, true);
+            }
+
+            // Convert image to WebP and save
+            $imageIntervention = Image::make($image->getRealPath());
+            $imageIntervention->encode('webp', 80); // Encode as WebP with 80% quality
+            $imageIntervention->save(public_path($imagePath . $webpFileName));
+
+            $package->image = $imagePath . $webpFileName;
         } else {
             $package->image = 'uploads/destinations/default.jpg';
         }
+
         $package->save();
-        return redirect('package-list')->with('status', 'New package Added Sucessfully');
+        return redirect('package-list')->with('status', 'New package added successfully');
     }
+
     public function popular($id)
     {
         $package = Packages::find($id);
@@ -144,10 +157,31 @@ class PackagesController extends Controller
         // Handle image update
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $packagePath = 'uploads/destinations/'; // Upload path
-            $package_image = 'uploads/destinations/' . date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($packagePath, $package_image);
-            $package->image = "$package_image";
+
+            // Check if the uploaded image is JPEG
+            if (in_array($image->getClientOriginalExtension(), ['jpeg', 'jpg'])) {
+                $imagePath = 'uploads/packages/';
+                $webpFileName = time() . '.webp';
+
+                // Ensure the directory exists
+                if (!file_exists(public_path($imagePath))) {
+                    mkdir(public_path($imagePath), 0777, true);
+                }
+
+                // Convert the image to WebP
+                $imageIntervention = Image::make($image->getRealPath());
+                $imageIntervention->encode('webp', 80); // Encode as WebP with 80% quality
+                $imageIntervention->save(public_path($imagePath . $webpFileName));
+
+                // Set WebP path
+                $package->image = $imagePath . $webpFileName;
+            } else {
+                // Handle other image formats (if needed, save directly without conversion)
+                $packagePath = 'uploads/packages/';
+                $package_image = $packagePath . time() . "." . $image->getClientOriginalExtension();
+                $image->move(public_path($packagePath), $package_image);
+                $package->image = $package_image;
+            }
         }
 
         // Save the updated data
@@ -155,6 +189,7 @@ class PackagesController extends Controller
 
         return redirect('package-list')->with('status', 'Package Updated Successfully');
     }
+
     public function add_details($id)
     {
         $package = Packages::find($id);

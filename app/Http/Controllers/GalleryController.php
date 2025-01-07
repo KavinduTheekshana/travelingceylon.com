@@ -57,7 +57,7 @@ class GalleryController extends Controller
                     });
                 }
 
-                $imageIntervention->encode('webp', 80);
+                $imageIntervention->encode('webp', 10);
                 $fileName = time() . '.webp';
                 $imageIntervention->save(public_path($imagePath . $fileName));
             }
@@ -119,7 +119,7 @@ class GalleryController extends Controller
                 }
 
                 // Encode to WebP
-                $imageIntervention->encode('webp', 80); // Convert to WebP with 80% quality
+                $imageIntervention->encode('webp', 10); // Convert to WebP with 80% quality
 
                 // Save optimized image
                 $fileName = time() . '.webp'; // Change extension to WebP
