@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
+use App\Models\Destinations;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        View::composer('frontend.components.footer', function ($view) {
+            $destinations = Destinations::where('status', 1)
+                ->select('title', 'slug')
+                ->take(25)
+                ->get();
+            $view->with('destinations_list', $destinations);
+        });
     }
 }

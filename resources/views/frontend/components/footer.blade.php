@@ -88,17 +88,21 @@
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <aside class="widget">
-                            <h3 class="widget-title">Gallery</h3>
+                            <h3 class="widget-title">Popular Distinations</h3>
                             <div class="gallery gallery-colum-3">
 
-                                @foreach ($gallery_footer as $gallery)
+                                @foreach($destinations_list as $key => $destination)
+                                <a class="footer-primary-text" href="{{ url('/destination/' . $destination->slug) }}">{{ $destination->title }}</a>@if(!$loop->last),&nbsp; @endif
+                            @endforeach
+
+                                {{-- @foreach ($gallery_footer as $gallery)
                                     <figure class="gallery-item gallery-item-width">
                                         <a class="footer-image" href="{{ asset($gallery->image) }}"
                                             data-fancybox="gallery-1">
                                             <img loading="lazy" class="footer-image" src="{{ asset($gallery->image) }}" alt="{{ $gallery->title }}">
                                         </a>
                                     </figure>
-                                @endforeach
+                                @endforeach --}}
                             </div>
                         </aside>
                     </div>
