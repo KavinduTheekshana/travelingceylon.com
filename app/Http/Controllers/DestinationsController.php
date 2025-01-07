@@ -6,6 +6,7 @@ use App\Models\Destinations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class DestinationsController extends Controller
 {
@@ -70,7 +71,7 @@ class DestinationsController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
             'category' => ['required', 'string', 'max:255'],
-            'image' => ['required'],
+            'image' => ['required', 'image'], // Ensure it's an image
             'description' => ['required'],
             'meta_keywords' => ['required'],
             'meta_description' => ['required'],
@@ -88,9 +89,29 @@ class DestinationsController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $destinationPath = 'uploads/destinations/'; // Upload path
-            $destination_image = 'uploads/destinations/' . date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $destination_image);
-            $destinations->image = "$destination_image";
+
+            // Ensure the directory exists
+            if (!file_exists(public_path($destinationPath))) {
+                mkdir(public_path($destinationPath), 0777, true);
+            }
+
+            // Check if the uploaded image is JPEG or JPG
+            if (in_array($image->getClientOriginalExtension(), ['jpeg', 'jpg'])) {
+                $webpFileName = date('YmdHis') . '.webp';
+
+                // Convert the image to WebP using Intervention Image
+                $imageIntervention = Image::make($image->getRealPath());
+                $imageIntervention->encode('webp', 80); // Convert to WebP with 80% quality
+                $imageIntervention->save(public_path($destinationPath . $webpFileName));
+
+                // Set WebP file path
+                $destinations->image = $destinationPath . $webpFileName;
+            } else {
+                // Handle other formats
+                $destination_image = $destinationPath . date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move(public_path($destinationPath), $destination_image);
+                $destinations->image = $destination_image;
+            }
         } else {
             $destinations->image = 'uploads/destinations/default.jpg';
         }
@@ -128,9 +149,29 @@ class DestinationsController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $destinationPath = 'uploads/destinations/'; // Upload path
-            $destination_image = 'uploads/destinations/' . date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $destination_image);
-            $destinations->image = "$destination_image";
+
+            // Ensure the directory exists
+            if (!file_exists(public_path($destinationPath))) {
+                mkdir(public_path($destinationPath), 0777, true);
+            }
+
+            // Check if the uploaded image is JPEG or JPG
+            if (in_array($image->getClientOriginalExtension(), ['jpeg', 'jpg'])) {
+                $webpFileName = date('YmdHis') . '.webp';
+
+                // Convert the image to WebP using Intervention Image
+                $imageIntervention = Image::make($image->getRealPath());
+                $imageIntervention->encode('webp', 80); // Convert to WebP with 80% quality
+                $imageIntervention->save(public_path($destinationPath . $webpFileName));
+
+                // Set WebP file path
+                $destinations->image = $destinationPath . $webpFileName;
+            } else {
+                // Handle other formats
+                $destination_image = $destinationPath . date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move(public_path($destinationPath), $destination_image);
+                $destinations->image = $destination_image;
+            }
         }
 
         // Save the updated data
@@ -147,10 +188,10 @@ class DestinationsController extends Controller
 
         while (
             Destinations::where('slug', $slug)
-                ->when($id, function ($query) use ($id) {
-                    return $query->where('id', '!=', $id); // Exclude the current record
-                })
-                ->exists()
+            ->when($id, function ($query) use ($id) {
+                return $query->where('id', '!=', $id); // Exclude the current record
+            })
+            ->exists()
         ) {
             $slug = $originalSlug . '-' . $counter;
             $counter++;
