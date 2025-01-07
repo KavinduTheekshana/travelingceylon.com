@@ -1,7 +1,7 @@
   <!-- ***home banner html start form here*** -->
   <section class="home-banner-section home-banner-slider">
 
-      <div class="home-banner d-flex flex-wrap align-items-center lazyload"
+      <div class="home-banner d-flex flex-wrap align-items-center lazyload" aria-hidden="true"
           style="background-image: url({{ url('frontend/assets/images/slider/the-orphanage-was-founded.webp') }});">
           <div class="overlay"></div>
           <div class="container header-title">
@@ -14,7 +14,7 @@
               </div>
           </div>
       </div>
-      <div class="home-banner d-flex flex-wrap align-items-center lazyload"
+      <div class="home-banner d-flex flex-wrap align-items-center lazyload" aria-hidden="true"
           style="background-image: url({{ url('frontend/assets/images/Leopard-srilanka-Getty.webp') }});">
           <div class="overlay"></div>
           <div class="container header-title">
@@ -28,7 +28,7 @@
           </div>
       </div>
 
-      <div class="home-banner d-flex flex-wrap align-items-center lazyload"
+      <div class="home-banner d-flex flex-wrap align-items-center lazyload" aria-hidden="true"
           style="background-image: url({{ url('frontend/assets/images/slider/DDD-Srilanka-1.webp') }});">
           <div class="overlay"></div>
           <div class="container header-title">
@@ -43,7 +43,7 @@
           </div>
       </div>
 
-      <div class="home-banner d-flex flex-wrap align-items-center lazyload"
+      <div class="home-banner d-flex flex-wrap align-items-center lazyload" aria-hidden="true"
           style="background-image: url({{ url('frontend/assets/images/slider/GettyRF_1129567869.webp') }});">
           <div class="overlay"></div>
           <div class="container header-title">
