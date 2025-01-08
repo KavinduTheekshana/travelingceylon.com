@@ -1,6 +1,7 @@
 @foreach ($packages as $key => $package)
 <article class="package-item" data-animscroll="fade-up" data-animscroll-delay="{{$key*100}}">
-    <figure class="package-image" style="background-image: url({{asset(url($package->image))}});"></figure>
+    <figure class="package-image" style="background-image: url({{asset(url($package->image))}});" aria-label="{{ $package->title }}"></figure>
+
     <div class="package-content">
        <h3>
           <a href="{{ route('packages.single', ['slug' => $package->slug]) }}">
