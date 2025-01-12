@@ -1,124 +1,153 @@
-	<!--sidebar wrapper -->
-    <div class="sidebar-wrapper" data-simplebar="true">
-        <div class="sidebar-header">
-            <div class="d-flex justify-content-center">
-                <img src="{{url('frontend/assets/images/logo/travelingceylon_dark.svg')}}" class="logo-icon" alt="logo icon">
-            </div>
-            <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
-            </div>
+ <!--sidebar wrapper -->
+ <div class="sidebar-wrapper" data-simplebar="true">
+     <div class="sidebar-header">
+         <div class="d-flex justify-content-center">
+             <img src="{{ url('frontend/assets/images/logo/travelingceylon_dark.svg') }}" class="logo-icon"
+                 alt="logo icon">
          </div>
-        <!--navigation-->
-        <ul class="metismenu" id="menu">
+         <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
+         </div>
+     </div>
+     <!--navigation-->
+     <ul class="metismenu" id="menu">
 
-            <li class="menu-label">Menu</li>
+         <li class="menu-label">Menu</li>
 
-            <li>
-                <a href="{{ route('dashboard') }}">
-                    <div class="parent-icon"><i class='bx bx-home-alt'></i>
-                    </div>
-                    <div class="menu-title">Dashboard</div>
-                </a>
-            </li>
+         <li>
+             <a href="{{ route('dashboard') }}">
+                 <div class="parent-icon"><i class='bx bx-home-alt'></i>
+                 </div>
+                 <div class="menu-title">Dashboard</div>
+             </a>
+         </li>
 
-            <li>
-                <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-map-pin'></i>
-                    </div>
-                    <div class="menu-title">Destinations</div>
-                </a>
-                <ul>
-                    <li> <a href="{{ route('destinations.list') }}"><i class='bx bx-radio-circle'></i>Destinations List</a>
-                    </li>
-                    <li> <a href="{{ route('destinations.add') }}"><i class='bx bx-radio-circle'></i>Add Destinations</a>
-                    </li>
+         <li>
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon"><i class='bx bx-map-pin'></i>
+                 </div>
+                 <div class="menu-title">Destinations</div>
+             </a>
+             <ul>
+                 <li> <a href="{{ route('destinations.list') }}"><i class='bx bx-radio-circle'></i>Destinations List</a>
+                 </li>
+                 <li> <a href="{{ route('destinations.add') }}"><i class='bx bx-radio-circle'></i>Add Destinations</a>
+                 </li>
 
-                </ul>
-            </li>
+             </ul>
+         </li>
 
-            <li>
-                <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-package'></i>
-                    </div>
-                    <div class="menu-title">Packages</div>
-                </a>
-                <ul>
-                    <li> <a href="{{ route('package.list') }}"><i class='bx bx-radio-circle'></i>Packages List</a>
-                    </li>
-                    <li> <a href="{{ route('package.add') }}"><i class='bx bx-radio-circle'></i>Add Packages</a>
-                    </li>
+         <li>
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon"><i class='bx bx-package'></i>
+                 </div>
+                 <div class="menu-title">Packages</div>
+             </a>
+             <ul>
+                 <li> <a href="{{ route('package.list') }}"><i class='bx bx-radio-circle'></i>Packages List</a>
+                 </li>
+                 <li> <a href="{{ route('package.add') }}"><i class='bx bx-radio-circle'></i>Add Packages</a>
+                 </li>
 
-                </ul>
-            </li>
+             </ul>
+         </li>
 
-            <li>
-                <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-images'></i>
-                    </div>
-                    <div class="menu-title">Gallery</div>
-                </a>
-                <ul>
-                    <li> <a href="{{ route('image.list') }}"><i class='bx bx-radio-circle'></i>Image List</a>
-                    </li>
-                    <li> <a href="{{ route('image.add') }}"><i class='bx bx-radio-circle'></i>Add Image</a>
-                    </li>
+         <li>
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon"><i class='bx bxs-category'></i>
+                 </div>
+                 <div class="menu-title">Categories</div>
+             </a>
+             <ul>
+                 <li> <a href="{{ route('category.list') }}"><i class='bx bx-radio-circle'></i>Category List</a>
+                 </li>
+                 <li> <a href="{{ route('category.add') }}"><i class='bx bx-radio-circle'></i>Create Category</a>
+                 </li>
 
-                </ul>
-            </li>
+             </ul>
+         </li>
 
-            <li>
-                <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-message-dots'></i>
-                    </div>
-                    <div class="menu-title">Testionials</div>
-                </a>
-                <ul>
-                    <li> <a href="{{ route('testimonial.list') }}"><i class='bx bx-radio-circle'></i>Testionial List</a>
-                    </li>
-                    <li> <a href="{{ route('testimonial.add') }}"><i class='bx bx-radio-circle'></i>Add Testionial</a>
-                    </li>
+         <li>
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon"><i class='bx bxl-blogger'></i>
+                 </div>
+                 <div class="menu-title">Blog</div>
+             </a>
+             <ul>
+                 <li> <a href="{{ route('blog.list') }}"><i class='bx bx-radio-circle'></i>Article List</a>
+                 </li>
+                 <li> <a href="{{ route('blog.add') }}"><i class='bx bx-radio-circle'></i>Create Article</a>
+                 </li>
 
-                </ul>
-            </li>
+             </ul>
+         </li>
 
+         <li>
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon"><i class='bx bx-images'></i>
+                 </div>
+                 <div class="menu-title">Gallery</div>
+             </a>
+             <ul>
+                 <li> <a href="{{ route('image.list') }}"><i class='bx bx-radio-circle'></i>Image List</a>
+                 </li>
+                 <li> <a href="{{ route('image.add') }}"><i class='bx bx-radio-circle'></i>Add Image</a>
+                 </li>
 
-            <li class="menu-label">Notifications</li>
+             </ul>
+         </li>
 
+         <li>
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon"><i class='bx bx-message-dots'></i>
+                 </div>
+                 <div class="menu-title">Testionials</div>
+             </a>
+             <ul>
+                 <li> <a href="{{ route('testimonial.list') }}"><i class='bx bx-radio-circle'></i>Testionial List</a>
+                 </li>
+                 <li> <a href="{{ route('testimonial.add') }}"><i class='bx bx-radio-circle'></i>Add Testionial</a>
+                 </li>
 
-            <li>
-                <a href="{{ route('bookings.list') }}">
-                    <div class="parent-icon"><i class='bx bx-bookmark-alt'></i>
-                    </div>
-                    <div class="menu-title">Bookings</div>
-                </a>
-            </li>
-
-            <li>
-                <a href="{{ route('contact.list') }}">
-                    <div class="parent-icon"><i class='bx bxs-contact' ></i>
-                    </div>
-                    <div class="menu-title">Contact Form</div>
-                </a>
-            </li>
-
-            <li>
-                <a href="{{ route('plan.list') }}">
-                    <div class="parent-icon"><i class='bx bx-paper-plane' ></i>
-                    </div>
-                    <div class="menu-title">Tour Plans</div>
-                </a>
-            </li>
-
-
-
-
-
-
-
+             </ul>
+         </li>
 
 
-        </ul>
-        <!--end navigation-->
-    </div>
-    <!--end sidebar wrapper -->
+         <li class="menu-label">Notifications</li>
 
 
+         <li>
+             <a href="{{ route('bookings.list') }}">
+                 <div class="parent-icon"><i class='bx bx-bookmark-alt'></i>
+                 </div>
+                 <div class="menu-title">Bookings</div>
+             </a>
+         </li>
+
+         <li>
+             <a href="{{ route('contact.list') }}">
+                 <div class="parent-icon"><i class='bx bxs-contact'></i>
+                 </div>
+                 <div class="menu-title">Contact Form</div>
+             </a>
+         </li>
+
+         <li>
+             <a href="{{ route('plan.list') }}">
+                 <div class="parent-icon"><i class='bx bx-paper-plane'></i>
+                 </div>
+                 <div class="menu-title">Tour Plans</div>
+             </a>
+         </li>
+
+
+
+
+
+
+
+
+
+     </ul>
+     <!--end navigation-->
+ </div>
+ <!--end sidebar wrapper -->

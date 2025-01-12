@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +11,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PackageDetailsController;
 use App\Http\Controllers\PackagesController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -131,6 +133,20 @@ Route::post('/save-testimonial', [TestimonialController::class, 'save'])->name('
 Route::get('/testimonial-active/{id}', [TestimonialController::class, 'active'])->name('testimonial.active');
 Route::get('/testimonial-diactive/{id}', [TestimonialController::class, 'diactive'])->name('testimonial.diactive');
 Route::get('/testimonial-delete/{id}', [TestimonialController::class, 'delete'])->name('testimonial.delete');
+
+Route::get('/category-list', [CategoryController::class, 'list'])->name('category.list');
+Route::get('/add-category', [CategoryController::class, 'add'])->name('category.add');
+Route::post('/save-category', [CategoryController::class, 'save'])->name('category.save');
+Route::get('/category-delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
+
+Route::get('/blog-list', [PostController::class, 'list'])->name('blog.list');
+Route::get('/add-blog', [PostController::class, 'add'])->name('blog.add');
+Route::post('/save-blog', [PostController::class, 'save'])->name('blog.save');
+Route::get('/blog/edit/{id}', [PostController::class, 'edit'])->name('blog.edit');
+Route::put('/blog/update/{id}', [PostController::class, 'update'])->name('blog.update');
+Route::get('/blog-active/{id}', [PostController::class, 'active'])->name('blog.active');
+Route::get('/blog-diactive/{id}', [PostController::class, 'diactive'])->name('blog.diactive');
+Route::get('/blog-delete/{id}', [PostController::class, 'delete'])->name('blog.delete');
 
 
 // Tour Plans Back End
