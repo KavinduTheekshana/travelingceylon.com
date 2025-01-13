@@ -27,7 +27,7 @@
             </div>
             @include('frontend.homepage.gallery')
             @include('frontend.components.discount')
-            @include('frontend.homepage.blog')
+            {{-- @include('frontend.homepage.blog') --}}
             @include('frontend.testimonial.testimonial')
             @include('frontend.homepage.call_to_action')
 
