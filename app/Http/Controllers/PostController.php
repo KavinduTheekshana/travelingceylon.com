@@ -133,4 +133,5 @@ class PostController extends Controller
         $post->delete();
         return redirect()->back()->with('status', 'Testamonial Delete Sucessfully');
     }
+
 }

@@ -147,6 +147,7 @@ Route::put('/blog/update/{id}', [PostController::class, 'update'])->name('blog.u
 Route::get('/blog-active/{id}', [PostController::class, 'active'])->name('blog.active');
 Route::get('/blog-diactive/{id}', [PostController::class, 'diactive'])->name('blog.diactive');
 Route::get('/blog-delete/{id}', [PostController::class, 'delete'])->name('blog.delete');
+Route::get('/blog/{slug}', [HomeController::class, 'blog'])->name('blog.details');
 
 
 // Tour Plans Back End

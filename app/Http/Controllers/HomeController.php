@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Destinations;
+use App\Models\Gallery;
 use App\Models\Packages;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,7 +19,8 @@ class HomeController extends Controller
         $gallery_footer = DB::table('galleries')->where('status', 1)->whereNull('deleted_at')->take(6)->get();
         $packages_footer = DB::table('packages')->where('status', 1)->where('popular_status', 1)->whereNull('deleted_at')->take(2)->get();
         $testimonials = DB::table('testimonials')->where('status', 1)->whereNull('deleted_at')->get();
-        return view('frontend.home', ['destinations' => $destinations, 'packages' => $packages, 'gallery' => $gallery, 'testimonials' => $testimonials, 'gallery_footer' => $gallery_footer, 'packages_footer' => $packages_footer]);
+        $blogs = Post::with('category')->where('status', 1)->take(2)->get();
+        return view('frontend.home', ['destinations' => $destinations, 'packages' => $packages, 'gallery' => $gallery, 'testimonials' => $testimonials, 'gallery_footer' => $gallery_footer, 'packages_footer' => $packages_footer, 'blogs' => $blogs]);
     }
 
     public function about()
@@ -38,7 +41,7 @@ class HomeController extends Controller
     {
         $gallery_footer = DB::table('galleries')->where('status', 1)->whereNull('deleted_at')->take(6)->get();
         $packages_footer = DB::table('packages')->where('status', 1)->where('popular_status', 1)->whereNull('deleted_at')->take(2)->get();
-        $gallery = DB::table('galleries')->where('status', 1)->whereNull('deleted_at')->orderBy('id','desc')->get();
+        $gallery = DB::table('galleries')->where('status', 1)->whereNull('deleted_at')->orderBy('id', 'desc')->get();
         return view('frontend.gallery.gallery', ['gallery' => $gallery, 'gallery_footer' => $gallery_footer, 'packages_footer' => $packages_footer]);
     }
 
@@ -83,5 +86,17 @@ class HomeController extends Controller
         $packages_footer = DB::table('packages')->where('status', 1)->where('popular_status', 1)->whereNull('deleted_at')->take(2)->get();
         $packages = DB::table('packages')->where('status', 1)->whereNull('deleted_at')->get();
         return view('frontend.packages.packages', ['packages' => $packages, 'gallery_footer' => $gallery_footer, 'packages_footer' => $packages_footer]);
+    }
+    public function blog($slug)
+    {
+        $distination = Destinations::where('status', 1)
+            ->inRandomOrder()
+            ->select('image', 'title','slug') // Fetch both image and title
+            ->first();
+        // Retrieve the blog by slug
+        $blog = Post::with('category','user')->where('slug', $slug)->firstOrFail();
+
+        // Pass the blog data to the view
+        return view('frontend.blog.article', compact('blog', 'distination'));
     }
 }
