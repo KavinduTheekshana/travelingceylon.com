@@ -7,7 +7,7 @@
                  <div class="widget-content text-center">
                     <div class="profile">
                        <figure class="avatar">
-                          <img loading="lazy" class="owner-image" src="{{ asset('frontend/assets/images/logo/travelingceylonfavicon.svg') }}" alt="">
+                          <img loading="lazy" class="owner-image lazyload" src="{{ asset('frontend/assets/images/logo/travelingceylonfavicon.svg') }}" alt="">
                        </figure>
                        <div class="text-content">
 

@@ -28,7 +28,7 @@
                     <div class="col-lg-8">
                         <div class="about-content">
                             <figure class="about-image">
-                                <img loading="lazy" data-animscroll="fade-right" data-animscroll-delay="100" src="{{ asset('frontend/assets/images/GettyRF_1129567869.jpg') }}" alt="Beach Image">
+                                <img loading="lazy" class="lazyload" data-animscroll="fade-right" data-animscroll-delay="100" src="{{ asset('frontend/assets/images/GettyRF_1129567869.jpg') }}" alt="Beach Image">
                                 <div data-animscroll="fade-left" data-animscroll-delay="100" class="about-image-content">
                                     <h3>WE ARE BEST FOR TOURS & TRAVEL SINCE 2002 !</h3>
                                 </div>
@@ -69,23 +69,23 @@
                         </div>
                         <div class="client-slider white-bg" data-animscroll="fade-up" data-animscroll-delay="100">
                             <figure class="client-item">
-                                <img loading="lazy" src="{{ asset('frontend/assets/images/logos/Jetwing_Hotels.jpeg') }}"
+                                <img class="lazyload" loading="lazy" src="{{ asset('frontend/assets/images/logos/Jetwing_Hotels.jpeg') }}"
                                     alt="Jetwing Hotels">
                             </figure>
                             <figure class="client-item">
-                                <img loading="lazy" src="{{ asset('frontend/assets/images/logos/logo--Taj.png') }}" alt="Taj Hotels">
+                                <img class="lazyload" loading="lazy" src="{{ asset('frontend/assets/images/logos/logo--Taj.png') }}" alt="Taj Hotels">
                             </figure>
                             <figure class="client-item">
-                                <img loading="lazy" src="{{ asset('frontend/assets/images/logos/Shangri-La_Hotels_and_Resorts_logo.svg.png') }}"
+                                <img class="lazyload" loading="lazy" src="{{ asset('frontend/assets/images/logos/Shangri-La_Hotels_and_Resorts_logo.svg.png') }}"
                                     alt="Shangri-La Hotels">
 
                             </figure>
                             <figure class="client-item">
-                                <img loading="lazy" src="{{ asset('frontend/assets/images/logos/logo-chbs-1-BkuWi_c7I.png') }}"
+                                <img class="lazyload" loading="lazy" src="{{ asset('frontend/assets/images/logos/logo-chbs-1-BkuWi_c7I.png') }}"
                                     alt="Cinemen Hotels">
                             </figure>
                             <figure class="client-item">
-                                <img oading="lazy" src="{{ asset('frontend/assets/images/logos/Anantara.png') }}" alt="Anantara Hotels">
+                                <img class="lazyload" loading="lazy" src="{{ asset('frontend/assets/images/logos/Anantara.png') }}" alt="Anantara Hotels">
                             </figure>
                         </div>
                     </div>

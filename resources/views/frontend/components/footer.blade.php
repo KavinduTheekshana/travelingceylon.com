@@ -6,7 +6,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <aside class="widget widget_text">
                             <div class="footer-logo">
-                                <a href="{{ url('/') }}"><img loading="lazy"
+                                <a href="{{ url('/') }}"><img loading="lazy" class="lazyload"
                                         src="{{ asset('frontend/assets/images/logo/travelingceylon.svg') }}"
                                         alt="travelingceylon logo"></a>
                             </div>

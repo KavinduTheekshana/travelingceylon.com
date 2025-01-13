@@ -37,11 +37,15 @@ class GalleryController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imagePath = 'uploads/gallery/';
+            $thumbnailPath = 'uploads/gallery/thumbnails/';
             $fileName = time() . '.' . $image->getClientOriginalExtension();
 
-            // Ensure directory exists
+            // Ensure directories exist
             if (!file_exists(public_path($imagePath))) {
                 mkdir(public_path($imagePath), 0777, true);
+            }
+            if (!file_exists(public_path($thumbnailPath))) {
+                mkdir(public_path($thumbnailPath), 0777, true);
             }
 
             // Resize and save image
@@ -57,17 +61,30 @@ class GalleryController extends Controller
                     });
                 }
 
-                $imageIntervention->encode('webp', 10);
+                $imageIntervention->encode('webp', 80); // Convert to WebP with 80% quality
                 $fileName = time() . '.webp';
                 $imageIntervention->save(public_path($imagePath . $fileName));
             }
 
-            // Delete old image if it exists
+            // Generate thumbnail
+            $thumbnailFileName = 'thumb_' . $fileName;
+            $thumbnail = Image::make(public_path($imagePath . $fileName));
+            $thumbnail->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio(); // Maintain aspect ratio
+            });
+            $thumbnail->save(public_path($thumbnailPath . $thumbnailFileName));
+
+            // Delete old image and thumbnail if they exist
             if ($gallery->image && file_exists(public_path($gallery->image))) {
                 unlink(public_path($gallery->image));
             }
+            if ($gallery->thumbnail && file_exists(public_path($gallery->thumbnail))) {
+                unlink(public_path($gallery->thumbnail));
+            }
 
+            // Update gallery data
             $gallery->image = $imagePath . $fileName;
+            $gallery->thumbnail = $thumbnailPath . $thumbnailFileName;
 
             // Calculate and save file size using your existing function
             $fileSize = filesize(public_path($gallery->image));
@@ -119,19 +136,37 @@ class GalleryController extends Controller
                 }
 
                 // Encode to WebP
-                $imageIntervention->encode('webp', 10); // Convert to WebP with 80% quality
+                $imageIntervention->encode('webp', 80); // Convert to WebP with 80% quality
 
                 // Save optimized image
                 $fileName = time() . '.webp'; // Change extension to WebP
                 $imageIntervention->save(public_path($imagePath . $fileName));
             }
 
+            // Generate thumbnail
+            $thumbnailPath = 'uploads/gallery/thumbnails/'; // Thumbnail upload path
+            $thumbnailFileName = 'thumb_' . $fileName; // Thumbnail file name
+
+            // Create thumbnail directory if not exists
+            if (!file_exists(public_path($thumbnailPath))) {
+                mkdir(public_path($thumbnailPath), 0777, true);
+            }
+
+            // Create thumbnail using Intervention Image
+            $thumbnail = Image::make(public_path($imagePath . $fileName));
+            $thumbnail->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio(); // Maintain aspect ratio
+            });
+            $thumbnail->save(public_path($thumbnailPath . $thumbnailFileName));
+
             // Save data to the database
             $gallery->image = $imagePath . $fileName;
+            $gallery->thumbnail = $thumbnailPath . $thumbnailFileName;
             $gallery->extension = $originalExtension; // Save original extension
             $gallery->size = $humanReadableSize; // Save human-readable size
         } else {
             $gallery->image = 'uploads/gallery/default.jpg';
+            $gallery->thumbnail = 'uploads/gallery/thumbnails/default.jpg';
             $gallery->extension = 'jpg'; // Default extension
             $gallery->size = '0KB'; // Default size
         }
@@ -140,11 +175,27 @@ class GalleryController extends Controller
 
         return redirect('image-list')->with('status', 'New Image Added Successfully');
     }
+    // private function formatFileSize($bytes)
+    // {
+    //     $units = ['B', 'KB', 'MB', 'GB', 'TB'];
+    //     $power = $bytes > 0 ? floor(log($bytes, 1024)) : 0;
+    //     return number_format($bytes / pow(1024, $power), 2) . ' ' . $units[$power];
+    // }
     private function formatFileSize($bytes)
     {
-        $units = ['B', 'KB', 'MB', 'GB', 'TB'];
-        $power = $bytes > 0 ? floor(log($bytes, 1024)) : 0;
-        return number_format($bytes / pow(1024, $power), 2) . ' ' . $units[$power];
+        if ($bytes >= 1073741824) {
+            return number_format($bytes / 1073741824, 2) . ' GB';
+        } elseif ($bytes >= 1048576) {
+            return number_format($bytes / 1048576, 2) . ' MB';
+        } elseif ($bytes >= 1024) {
+            return number_format($bytes / 1024, 2) . ' KB';
+        } elseif ($bytes > 1) {
+            return $bytes . ' bytes';
+        } elseif ($bytes == 1) {
+            return $bytes . ' byte';
+        } else {
+            return '0 bytes';
+        }
     }
 
     public function popular($id)

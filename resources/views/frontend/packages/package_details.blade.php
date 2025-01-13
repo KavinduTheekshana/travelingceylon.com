@@ -58,7 +58,7 @@
                                 </ul>
                             </div>
                             <figure data-animscroll="fade-up" class="single-package-image">
-                                <img loading="lazy" src="{{ asset($package->image) }}" alt="{{ $package->title }}">
+                                <img class="lazyload" loading="lazy" src="{{ asset($package->image) }}" alt="{{ $package->title }}">
                             </figure>
                             <div data-animscroll="fade-up" class="package-content-detail">
                                 <article class="package-overview">
@@ -73,7 +73,7 @@
                                     <article class="package-overview">
                                         <h3 data-animscroll="fade-up" data-animscroll-delay="{{$key*100}}" class="m-0"><span class="color-theme">DAY {{ $details->day }} </span>| {{ $details->title }}</h3>
                                         <h6 data-animscroll="fade-up" data-animscroll-delay="{{$key*100}}">- {{ $details->location }}</h6>
-                                        <img data-animscroll="fade-up" data-animscroll-delay="{{$key*100}}" src="{{ asset($details->image) }}" alt="{{ $details->location }}">
+                                        <img class="lazyload" data-animscroll="fade-up" data-animscroll-delay="{{$key*100}}" src="{{ asset($details->image) }}" alt="{{ $details->location }}">
                                         <p data-animscroll="fade-up" data-animscroll-delay="{{$key*100}}"> {!! $details->description !!}</p>
                                     </article>
                                 </div>
@@ -155,7 +155,7 @@
 
                                     @foreach ($package_details as $details)
                                         <div class="related-package-item package-details-single">
-                                            <img loading="lazy" src="{{ asset($details->image) }}" alt="{{ $details->title }}">
+                                            <img class="lazyload" loading="lazy" src="{{ asset($details->image) }}" alt="{{ $details->title }}">
                                         </div>
                                     @endforeach
 

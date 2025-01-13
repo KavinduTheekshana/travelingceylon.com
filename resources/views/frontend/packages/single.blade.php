@@ -1,7 +1,7 @@
 @foreach ($packages as $key => $package)
     <article class="package-item" data-animscroll="fade-up" data-animscroll-delay="{{ $key * 100 }}">
         <figure class="package-image-holder">
-            <img src="{{ asset(url($package->image)) }}" class="package-image"  alt="{{ $package->title }}">
+            <img src="{{ asset(url($package->image)) }}" class="package-image lazyload"  alt="{{ $package->title }}">
         </figure>
 
         <div class="package-content">

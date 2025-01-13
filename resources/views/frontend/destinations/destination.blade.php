@@ -18,7 +18,7 @@
         <div class="single-page-section">
             <div class="container">
                 <figure class="single-feature-img">
-                    <img loading="lazy" src="{{ asset($destinations->image) }}" alt="{{ $destinations->title }}">
+                    <img loading="lazy" class="lazyload" src="{{ asset($destinations->image) }}" alt="{{ $destinations->title }}">
                 </figure>
                 <div class="page-content">
                     <h2 class="m-0">{{ $destinations->title }} - {{ $destinations->location }}</h2>
