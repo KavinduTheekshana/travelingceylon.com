@@ -6,6 +6,8 @@ use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 
 class GalleryController extends Controller
 {
@@ -14,6 +16,44 @@ class GalleryController extends Controller
         $this->middleware('auth');
     }
 
+    public function generateThumbnails()
+    {
+        $galleries = Gallery::all();
+
+        foreach ($galleries as $gallery) {
+            $imagePath = public_path($gallery->image);
+
+            // Check if the image file exists
+            if (File::exists($imagePath)) {
+                $thumbnailPath = 'uploads/gallery/thumbnails/';
+                $thumbnailFileName = 'thumb_' . basename($gallery->image);
+
+                // Ensure the thumbnail directory exists
+                if (!File::exists(public_path($thumbnailPath))) {
+                    File::makeDirectory(public_path($thumbnailPath), 0777, true);
+                }
+
+                // Generate thumbnail
+                $thumbnail = Image::make($imagePath);
+                $thumbnail->resize(600, null, function ($constraint) {
+                    $constraint->aspectRatio(); // Maintain aspect ratio
+                });
+                $thumbnail->save(public_path($thumbnailPath . $thumbnailFileName));
+
+                // Update the gallery record with the thumbnail path
+                $gallery->thumbnail = $thumbnailPath . $thumbnailFileName;
+                $gallery->save();
+
+                // Log success
+                Log::info("Thumbnail generated for: {$gallery->image}");
+            } else {
+                // Log error
+                Log::error("Image not found: {$gallery->image}");
+            }
+        }
+
+        return response()->json(['message' => 'Thumbnail generation completed!']);
+    }
     public function list()
     {
         $galleries = DB::table('galleries')->whereNull('deleted_at')->get();

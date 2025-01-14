@@ -114,6 +114,7 @@ Route::get('/image-active/{id}', [GalleryController::class, 'active'])->name('im
 Route::get('/image-diactive/{id}', [GalleryController::class, 'diactive'])->name('image.diactive');
 Route::get('/image-delete/{id}', [GalleryController::class, 'delete'])->name('image.delete');
 Route::put('/image/update', [GalleryController::class, 'update'])->name('image.update');
+Route::get('/generate-thumbnails', [GalleryController::class, 'generateThumbnails']);
 
 
 
