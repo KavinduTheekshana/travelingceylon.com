@@ -4,6 +4,7 @@
     bottom: 124px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 2;
 }
 .site-title img {
     max-width: 300px !important;
@@ -58,4 +59,12 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+.banner-image {
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
 }

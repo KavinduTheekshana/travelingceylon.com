@@ -1,8 +1,9 @@
   <!-- ***home banner html start form here*** -->
   <section class="home-banner-section home-banner-slider">
 
-      <div class="home-banner d-flex flex-wrap align-items-center lazyload" aria-hidden="true"
-          style="background-image: url({{ url('frontend/assets/images/slider/the-orphanage-was-founded.webp') }});">
+      <div class="home-banner d-flex flex-wrap align-items-center lazyload" aria-hidden="true">
+          <img class="banner-image" src="{{ url('frontend/assets/images/slider/the-orphanage-was-founded.webp') }}"
+              width="100%" height="100%" alt="Traveling Ceylon Elephants">
           <div class="overlay"></div>
           <div class="container header-title">
               <div class="banner-content text-center">
@@ -14,8 +15,9 @@
               </div>
           </div>
       </div>
-      <div class="home-banner d-flex flex-wrap align-items-center lazyload" aria-hidden="true"
-          style="background-image: url({{ url('frontend/assets/images/Leopard-srilanka-Getty.webp') }});">
+      <div class="home-banner d-flex flex-wrap align-items-center lazyload" aria-hidden="true">
+          <img class="banner-image" src="{{ url('frontend/assets/images/Leopard-srilanka-Getty.webp') }}" width="100%"
+              height="100%" alt="Traveling Ceylon Wildlife">
           <div class="overlay"></div>
           <div class="container header-title">
               <div class="banner-content text-center">
@@ -28,8 +30,9 @@
           </div>
       </div>
 
-      <div class="home-banner d-flex flex-wrap align-items-center lazyload" aria-hidden="true"
-          style="background-image: url({{ url('frontend/assets/images/slider/DDD-Srilanka-1.webp') }});">
+      <div class="home-banner d-flex flex-wrap align-items-center lazyload" aria-hidden="true">
+          <img class="banner-image" src="{{ url('frontend/assets/images/slider/DDD-Srilanka-1.webp') }}" width="100%"
+              height="100%" alt="Traveling Ceylon Lion Rock">
           <div class="overlay"></div>
           <div class="container header-title">
               <div class="banner-content text-center">
@@ -43,8 +46,9 @@
           </div>
       </div>
 
-      <div class="home-banner d-flex flex-wrap align-items-center lazyload" aria-hidden="true"
-          style="background-image: url({{ url('frontend/assets/images/slider/GettyRF_1129567869.webp') }});">
+      <div class="home-banner d-flex flex-wrap align-items-center lazyload" aria-hidden="true">
+          <img class="banner-image" src="{{ url('frontend/assets/images/slider/GettyRF_1129567869.webp') }}"
+              width="100%" height="100%" alt="Traveling Ceylon Beach">
           <div class="overlay"></div>
           <div class="container header-title">
               <div class="banner-content text-center">
