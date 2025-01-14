@@ -7,8 +7,8 @@
                         <aside class="widget widget_text">
                             <div class="footer-logo">
                                 <a href="{{ url('/') }}"><img loading="lazy" class="lazyload"
-                                        src="{{ asset('frontend/assets/images/logo/travelingceylon.svg') }}"
-                                        alt="travelingceylon logo"></a>
+                                        src="{{ asset('frontend/assets/images/logo/travelingceylon.png') }}"
+                                        alt="Traveling ceylon logo"></a>
                             </div>
                             <div class="textwidget widget-text">
                                 Welcome to our travel website! With over 22 years of experience in organizing
