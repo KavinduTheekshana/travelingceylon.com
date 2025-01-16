@@ -7,7 +7,7 @@
                 <p>Stay updated with the latest trends, tips, and insights from our experts.</p>
             </div>
             <div class="heading-btn">
-                <a href="blog-archive.html" class="round-btn">View All Blog</a>
+                <a href="{{ route('blog.list.all') }}" class="round-btn">View All Blog</a>
             </div>
         </div>
         <div class="blog-section">
@@ -21,9 +21,9 @@
                             </figure>
                             <div class="post-content">
                                 <div class="cat-meta">
-                                    <a href="#"> {{ $blog->category->name }}</a>
+                                    <a href="{{ route('blog.details', ['slug' => $blog->slug]) }}"> {{ $blog->category->name }}</a>
                                 </div>
-                                <h3><a href="blog-single.html">{{ $blog->title }}</a></h3>
+                                <h3><a href="{{ route('blog.details', ['slug' => $blog->slug]) }}">{{ $blog->title }}</a></h3>
                                 <p>{{ Str::limit(str_replace('&nbsp;', ' ', strip_tags($blog->content)), 50, '... read more') }}
                                 </p>
                                 <div class="post-footer d-flex justify-content-between align-items-center">
@@ -31,12 +31,7 @@
                                         <a href="{{ route('blog.details', ['slug' => $blog->slug]) }}"
                                             class="round-btn">Read More</a>
                                     </div>
-                                    <div class="meta-comment">
-                                        <a href="blog-archive.html">
-                                            <i aria-hidden="true" class="fas fa-comment"></i>
-                                            <span>0</span>
-                                        </a>
-                                    </div>
+
                                 </div>
                             </div>
                         </article>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Destinations;
 use App\Models\Gallery;
 use App\Models\Packages;
@@ -91,12 +92,42 @@ class HomeController extends Controller
     {
         $distination = Destinations::where('status', 1)
             ->inRandomOrder()
-            ->select('image', 'title','slug') // Fetch both image and title
+            ->select('image', 'title', 'slug') // Fetch both image and title
             ->first();
         // Retrieve the blog by slug
-        $blog = Post::with('category','user')->where('slug', $slug)->firstOrFail();
+        $blog = Post::with('category', 'user')->where('slug', $slug)->firstOrFail();
 
+        $recents = Post::with('category')
+            ->where('status', 1)
+            ->latest()
+            ->take(3)
+            ->get();
+
+        $categories = Category::withCount('blogs')->get();
+        $gallery_footer = DB::table('galleries')->where('status', 1)->whereNull('deleted_at')->take(6)->get();
+        $packages_footer = DB::table('packages')->where('status', 1)->where('popular_status', 1)->whereNull('deleted_at')->take(2)->get();
         // Pass the blog data to the view
-        return view('frontend.blog.article', compact('blog', 'distination'));
+        return view('frontend.blog.article', compact('blog', 'distination', 'recents', 'categories', 'gallery_footer', 'packages_footer'));
+    }
+
+    public function all()
+    {
+        $distination = Destinations::where('status', 1)
+            ->inRandomOrder()
+            ->select('image', 'title', 'slug') // Fetch both image and title
+            ->first();
+
+            $blogs = Post::with('category')->where('status', 1)->paginate(1);
+        $recents = Post::with('category')
+            ->where('status', 1)
+            ->latest()
+            ->take(3)
+            ->get();
+
+        $categories = Category::withCount('blogs')->get();
+        $gallery_footer = DB::table('galleries')->where('status', 1)->whereNull('deleted_at')->take(6)->get();
+        $packages_footer = DB::table('packages')->where('status', 1)->where('popular_status', 1)->whereNull('deleted_at')->take(2)->get();
+        // Pass the blog data to the view
+        return view('frontend.blog.list', compact('blogs', 'distination', 'recents', 'categories', 'gallery_footer', 'packages_footer'));
     }
 }

@@ -37,6 +37,8 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/plan', [HomeController::class, 'plan'])->name('plan');
+Route::get('/blog/{slug}', [HomeController::class, 'blog'])->name('blog.details');
+Route::get('/blog/list/all', [HomeController::class, 'all'])->name('blog.list.all');
 
 // Booking Routs
 Route::post('/booking/send', [BookingController::class, 'save'])->name('booking.send');
@@ -148,7 +150,7 @@ Route::put('/blog/update/{id}', [PostController::class, 'update'])->name('blog.u
 Route::get('/blog-active/{id}', [PostController::class, 'active'])->name('blog.active');
 Route::get('/blog-diactive/{id}', [PostController::class, 'diactive'])->name('blog.diactive');
 Route::get('/blog-delete/{id}', [PostController::class, 'delete'])->name('blog.delete');
-Route::get('/blog/{slug}', [HomeController::class, 'blog'])->name('blog.details');
+
 
 
 // Tour Plans Back End
