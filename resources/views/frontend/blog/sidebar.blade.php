@@ -19,7 +19,7 @@
                                     <a href="{{ route('blog.details', ['slug' => $blog->slug]) }}">{{ $blog->created_at->format('F j, Y') }}</a>
                                 </span>
                                 <span class="comments-link">
-                                    <a href="blog-single.html">{{ $blog->category->name }}</a>
+                                    <a href="#">{{ $blog->category->name }}</a>
                                 </span>
                             </div>
                         </div>
