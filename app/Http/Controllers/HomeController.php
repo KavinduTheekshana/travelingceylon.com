@@ -117,7 +117,7 @@ class HomeController extends Controller
             ->select('image', 'title', 'slug') // Fetch both image and title
             ->first();
 
-            $blogs = Post::with('category')->where('status', 1)->paginate(1);
+        $blogs = Post::with('category')->where('status', 1)->paginate(8);
         $recents = Post::with('category')
             ->where('status', 1)
             ->latest()
