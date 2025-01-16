@@ -42,7 +42,7 @@
                 <li>
                     <i aria-hidden="true" class="fas fa-dot-circle"></i>
                     <a href="#">{{ $category->name }}</a>
-                    {{-- <span>({{ $category->blogs_count }})</span> --}}
+                    <span>({{ $category->blogs_count }})</span>
                 </li>
                 @endforeach
             </ul>
