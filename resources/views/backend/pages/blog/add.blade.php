@@ -35,6 +35,12 @@
 
                     @include('backend.components.alert')
 
+                    @if ($errors->count() > 0)
+                        <span class='help-block'>
+                            <strong>{{ 'Some input field is not properly filled' }}</strong>
+                        </span>
+                    @endif
+
                     <div class="card">
                         <div class="card-body">
                             <form class="row g-3" method="POST"
@@ -45,77 +51,77 @@
                                     @method('PUT') <!-- Use PUT for updates -->
                                 @endif
 
+                                <!-- Title -->
                                 <div class="col-md-12">
                                     <label for="title" class="form-label">Title</label>
                                     <input type="text" class="form-control" id="title" name="title"
-                                        value="{{ isset($blog) ? $blog->title : '' }}" required
+                                        value="{{ isset($blog) ? $blog->title : old('title') }}" required
                                         placeholder="Blog Title">
                                 </div>
 
+                                <!-- Content -->
                                 <div class="col-md-12">
                                     <label for="content" class="form-label">Content</label>
-                                    <textarea class="form-control" id="content" name="content" rows="6" required>{{ isset($blog) ? $blog->content : '' }}</textarea>
+                                    <textarea class="form-control" id="content" name="content" rows="6" required>{{ isset($blog) ? $blog->content : old('content') }}</textarea>
                                 </div>
 
+                                <!-- Category -->
                                 <div class="col-md-6">
                                     <label for="category_id" class="form-label">Category</label>
                                     <select class="form-control" id="category_id" name="category_id">
                                         <option value="">Select a Category</option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}"
-                                                {{ isset($blog) && $blog->category_id == $category->id ? 'selected' : '' }}>
+                                                {{ (isset($blog) && $blog->category_id == $category->id) || old('category_id') == $category->id ? 'selected' : '' }}>
                                                 {{ $category->name }}
                                             </option>
                                         @endforeach
                                     </select>
                                 </div>
 
-
-                                {{-- <div class="col-md-6">
-                                    <label for="image" class="form-label">Featured Image</label>
-                                    <input type="file" class="form-control" id="image" name="image">
-                                </div> --}}
-
+                                <!-- Image -->
                                 <div class="form-row">
                                     <label for="inputGroupFile01" class="form-label">Traveler Image</label>
                                     <div class="input-group mb-3">
                                         <label class="input-group-text" for="inputGroupFile01">Upload</label>
                                         <input type="file" class="form-control" name="image" id="inputGroupFile01"
-                                        accept="image/*" onchange="readURL(this);"
-                                        {{ isset($blog) && $blog->image ? '' : 'required' }}>
-
+                                            accept="image/*" onchange="readURL(this);"
+                                            {{ isset($blog) && $blog->image ? '' : 'required' }}>
                                     </div>
-
                                     <img id="blah"
                                         src="{{ isset($blog) && $blog->image ? asset('storage/' . $blog->image) : asset('backend/assets/images/default.jpg') }}"
                                         class="placeholder-image" alt="Preview"
                                         style="max-width: 200px; max-height: 200px; object-fit: cover;">
                                 </div>
 
-
+                                <!-- Meta Keywords -->
                                 <div class="col-md-12">
                                     <label for="meta_keywords" class="form-label">Meta Keywords</label>
                                     <input type="text" class="form-control" id="meta_keywords" name="meta_keywords"
-                                        value="{{ isset($blog) ? $blog->meta_keywords : '' }}"
+                                        value="{{ isset($blog) ? $blog->meta_keywords : old('meta_keywords') }}"
                                         placeholder="Keywords for SEO">
                                 </div>
 
+                                <!-- Meta Description -->
                                 <div class="col-md-12">
                                     <label for="meta_description" class="form-label">Meta Description</label>
-                                    <textarea class="form-control" id="meta_description" name="meta_description" rows="3">{{ isset($blog) ? $blog->meta_description : '' }}</textarea>
+                                    <textarea class="form-control" id="meta_description" name="meta_description" rows="3">{{ isset($blog) ? $blog->meta_description : old('meta_description') }}</textarea>
                                 </div>
 
+                                <!-- Status -->
                                 <div class="col-md-6">
                                     <label for="status" class="form-label">Status</label>
                                     <select class="form-control" id="status" name="status">
                                         <option value="1"
-                                            {{ isset($blog) && $blog->status == 1 ? 'selected' : '' }}>Published
-                                        </option>
+                                            {{ (isset($blog) && $blog->status == 1) || old('status') == 1 ? 'selected' : '' }}>
+                                            Published</option>
                                         <option value="0"
-                                            {{ isset($blog) && $blog->status == 0 ? 'selected' : '' }}>Draft</option>
+                                            {{ (isset($blog) && $blog->status == 0) || old('status') == 0 ? 'selected' : '' }}>
+                                            Draft</option>
                                     </select>
                                 </div>
 
+                                <!-- Submit Button -->
                                 <div class="col-md-12">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
@@ -144,6 +150,17 @@
         plugins: 'code table lists',
         toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | table',
         placeholder: 'Add your text here...', // Placeholder for the editor
+        setup: function(editor) {
+            // Sync content with the textarea on form submission
+            editor.on('change', function() {
+                tinymce.triggerSave();
+            });
+        }
+    });
+
+    // Sync TinyMCE content with the textarea before form submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+        tinymce.triggerSave();
     });
 
     // image display
