@@ -36,7 +36,7 @@
                                                     href="{{ route('blog.details', ['slug' => $blog->slug]) }}">{{ $blog->category->name }}</a>
                                             </div>
                                             <h3><a
-                                                    href="{{ route('blog.details', ['slug' => $blog->slug]) }}">{{ Str::limit($blog->title, 45, '...') }}</a>
+                                                    href="{{ route('blog.details', ['slug' => $blog->slug]) }}">{{ Str::limit($blog->title, 40, '...') }}</a>
                                             </h3>
                                             <p>{{ Str::limit(str_replace('&nbsp;', ' ', strip_tags($blog->meta_description)), 80, '... ') }}
                                             </p>
