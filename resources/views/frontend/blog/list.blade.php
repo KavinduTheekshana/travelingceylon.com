@@ -27,7 +27,7 @@
                                 <div class="grid-item col-md-6">
                                     <article class="post">
                                         <figure class="featured-post">
-                                            <img src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('backend/assets/images/default.jpg') }}"
+                                            <img src="{{ $blog->thumbnail ? asset('storage/' . $blog->thumbnail) : asset('backend/assets/images/default.jpg') }}"
                                                 alt="">
                                         </figure>
                                         <div class="post-content">
@@ -36,9 +36,9 @@
                                                     href="{{ route('blog.details', ['slug' => $blog->slug]) }}">{{ $blog->category->name }}</a>
                                             </div>
                                             <h3><a
-                                                    href="{{ route('blog.details', ['slug' => $blog->slug]) }}">{{ $blog->title }}</a>
+                                                    href="{{ route('blog.details', ['slug' => $blog->slug]) }}">{{ Str::limit($blog->title, 45, '...') }}</a>
                                             </h3>
-                                            <p>{{ Str::limit(str_replace('&nbsp;', ' ', strip_tags($blog->content)), 50, '... ') }}
+                                            <p>{{ Str::limit(str_replace('&nbsp;', ' ', strip_tags($blog->meta_description)), 80, '... ') }}
                                             </p>
                                             <div class="post-footer d-flex justify-content-between align-items-center">
                                                 <div class="post-btn">

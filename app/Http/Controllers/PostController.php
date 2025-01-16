@@ -164,6 +164,7 @@ class PostController extends Controller
         return view('backend.pages.blog.add', compact('blog', 'categories')); // Pass blog and categories to the form
     }
 
+
     public function update(Request $request, $id)
     {
         $blog = Post::findOrFail($id);
@@ -173,18 +174,57 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'category_id' => 'nullable|exists:categories,id',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120', // Allow WebP and other formats
             'meta_keywords' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:255',
             'status' => 'required|boolean',
         ]);
 
-        // Handle image upload
+        // Handle image upload if provided
         if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageFolder = 'images/posts/'; // Main image folder
+            $thumbnailFolder = 'images/posts/thumbnails/'; // Thumbnail folder
+
+            // Delete old image and thumbnail if they exist
             if ($blog->image) {
-                Storage::delete('public/' . $blog->image); // Delete old image
+                Storage::disk('local')->delete($blog->image);
             }
-            $blog->image = $request->file('image')->store('images/posts', 'public');
+            if ($blog->thumbnail) {
+                Storage::disk('local')->delete($blog->thumbnail);
+            }
+
+            // Generate a unique file name
+            $fileName = time() . '.webp'; // Save all images as WebP
+
+            // Process the image with Intervention Image
+            $imageIntervention = Image::make($image->getRealPath());
+
+            // Resize the image if necessary (e.g., width > 1920px)
+            if ($imageIntervention->width() > 1920) {
+                $imageIntervention->resize(1920, null, function ($constraint) {
+                    $constraint->aspectRatio(); // Maintain aspect ratio
+                    $constraint->upsize(); // Prevent upsizing
+                });
+            }
+
+            // Save the main image as WebP in the storage directory
+            $imageIntervention->encode('webp', 80); // Convert to WebP with 80% quality
+            $imagePath = $imageFolder . $fileName;
+            Storage::disk('public')->put($imagePath, $imageIntervention->stream());
+
+            // Generate thumbnail
+            $thumbnailFileName = 'thumb_' . $fileName; // Thumbnail file name
+            $thumbnail = Image::make($imageIntervention->stream());
+            $thumbnail->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio(); // Maintain aspect ratio
+            });
+            $thumbnailPath = $thumbnailFolder . $thumbnailFileName;
+            Storage::disk('public')->put($thumbnailPath, $thumbnail->stream());
+
+            // Update image and thumbnail paths in the database
+            $blog->image = $imagePath;
+            $blog->thumbnail = $thumbnailPath;
         }
 
         // Update blog post
@@ -192,14 +232,52 @@ class PostController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'category_id' => $request->category_id,
-            'image' => $blog->image,
             'meta_keywords' => $request->meta_keywords,
             'meta_description' => $request->meta_description,
             'status' => $request->status,
         ]);
 
+        // Redirect with success message
         return redirect()->back()->with('status', 'Blog updated successfully!');
     }
+
+
+    // public function update(Request $request, $id)
+    // {
+    //     $blog = Post::findOrFail($id);
+
+    //     // Validate input
+    //     $request->validate([
+    //         'title' => 'required|string|max:255',
+    //         'content' => 'required|string',
+    //         'category_id' => 'nullable|exists:categories,id',
+    //         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    //         'meta_keywords' => 'nullable|string|max:255',
+    //         'meta_description' => 'nullable|string|max:255',
+    //         'status' => 'required|boolean',
+    //     ]);
+
+    //     // Handle image upload
+    //     if ($request->hasFile('image')) {
+    //         if ($blog->image) {
+    //             Storage::delete('public/' . $blog->image); // Delete old image
+    //         }
+    //         $blog->image = $request->file('image')->store('images/posts', 'public');
+    //     }
+
+    //     // Update blog post
+    //     $blog->update([
+    //         'title' => $request->title,
+    //         'content' => $request->content,
+    //         'category_id' => $request->category_id,
+    //         'image' => $blog->image,
+    //         'meta_keywords' => $request->meta_keywords,
+    //         'meta_description' => $request->meta_description,
+    //         'status' => $request->status,
+    //     ]);
+
+    //     return redirect()->back()->with('status', 'Blog updated successfully!');
+    // }
 
     public function active($id)
     {

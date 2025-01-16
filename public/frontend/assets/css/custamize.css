@@ -68,3 +68,19 @@
     object-fit: cover;
     width: 100%;
 }
+.featured-post{
+    height: 240px !important;
+}
+.featured-post img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.post-thumb a{
+    height: 64px !important;
+}
+.post-thumb img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover;
+}

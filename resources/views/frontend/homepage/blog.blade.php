@@ -23,7 +23,7 @@
                                 <div class="cat-meta">
                                     <a href="{{ route('blog.details', ['slug' => $blog->slug]) }}"> {{ $blog->category->name }}</a>
                                 </div>
-                                <h3><a href="{{ route('blog.details', ['slug' => $blog->slug]) }}">{{ Str::limit($blog->title, 50, '...') }}</a></h3>
+                                <h3><a href="{{ route('blog.details', ['slug' => $blog->slug]) }}">{{ Str::limit($blog->title, 45, '...') }}</a></h3>
                                 <p>{{ Str::limit(str_replace('&nbsp;', ' ', strip_tags($blog->meta_description)), 80, '...') }}
                                 </p>
                                 <div class="post-footer d-flex justify-content-between align-items-center">
