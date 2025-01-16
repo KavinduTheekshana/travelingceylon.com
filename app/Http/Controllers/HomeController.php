@@ -20,7 +20,11 @@ class HomeController extends Controller
         $gallery_footer = DB::table('galleries')->where('status', 1)->whereNull('deleted_at')->take(6)->get();
         $packages_footer = DB::table('packages')->where('status', 1)->where('popular_status', 1)->whereNull('deleted_at')->take(2)->get();
         $testimonials = DB::table('testimonials')->where('status', 1)->whereNull('deleted_at')->get();
-        $blogs = Post::with('category')->where('status', 1)->take(2)->get();
+        $blogs = Post::with('category')
+            ->where('status', 1)
+            ->take(2)
+            ->orderBy('created_at', 'desc') // Corrected syntax
+            ->get();
         return view('frontend.home', ['destinations' => $destinations, 'packages' => $packages, 'gallery' => $gallery, 'testimonials' => $testimonials, 'gallery_footer' => $gallery_footer, 'packages_footer' => $packages_footer, 'blogs' => $blogs]);
     }
 
@@ -117,7 +121,7 @@ class HomeController extends Controller
             ->select('image', 'title', 'slug') // Fetch both image and title
             ->first();
 
-        $blogs = Post::with('category')->where('status', 1)->paginate(8);
+        $blogs = Post::with('category')->where('status', 1)->orderby('created_at', 'desc')->paginate(8);
         $recents = Post::with('category')
             ->where('status', 1)
             ->latest()

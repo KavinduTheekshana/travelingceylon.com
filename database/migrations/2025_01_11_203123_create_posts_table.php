@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id'); // Author of the post
             $table->unsignedBigInteger('category_id')->nullable(); // Associated category
             $table->string('image')->nullable(); // Featured image URL
+            $table->string('thumbnail')->nullable(); // Thumbnail image URL
             $table->boolean('status')->default(1);
             $table->string('meta_keywords')->nullable();
             $table->string('meta_description')->nullable();
