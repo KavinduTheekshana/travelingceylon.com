@@ -1,6 +1,6 @@
   <!-- ***Home callback html start from here*** -->
   <section data-animscroll="fade-up" class="home-callback bg-img-fullcallback" style="background-image: url({{asset('frontend/assets/images/videobackground.jpg')}});">
-    <div class="overlay"></div>
+    <div class="overlay overlay-top"></div>
     <div class="container">
        <div class="row">
           <div class="col-lg-8 offset-lg-2 text-center">

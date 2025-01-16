@@ -26,7 +26,7 @@
                             @foreach ($blogs as $blog)
                                 <div class="grid-item col-md-6">
                                     <article class="post">
-                                        <figure class="featured-post">
+                                        <figure class="featured-post featured-post-2">
                                             <img src="{{ $blog->thumbnail ? asset('storage/' . $blog->thumbnail) : asset('backend/assets/images/default.jpg') }}"
                                                 alt="">
                                         </figure>

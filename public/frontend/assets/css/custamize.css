@@ -68,7 +68,7 @@
     object-fit: cover;
     width: 100%;
 }
-.featured-post{
+.featured-post-2{
     height: 240px !important;
 }
 .featured-post img {
@@ -83,4 +83,7 @@
     height: 100% !important;
     width: 100% !important;
     object-fit: cover;
+}
+.overlay-top{
+    z-index: 0 !important;
 }
