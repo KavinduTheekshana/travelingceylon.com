@@ -12,13 +12,24 @@
     <meta name="title" content="@yield('title', 'Traveling Ceylon | Journey into Ceylon&apos;s Timeless Beauty')">
     <link rel="canonical" href="https://travelingceylon.com" />
     <meta name="author" content="www.travelingceylon.com">
+
     <meta property="og:title" content="@yield('title', 'Traveling Ceylon | Journey into Ceylon&apos;s Timeless Beauty')" />
     <meta property="og:description" content="@yield('meta_description', 'Explore Sri Lanka with travel guides, visa info, maps, tips, luxury tours, group trips, itineraries, vaccinations, and advice for an unforgettable journey.')">
-    <meta property="og:image" content="{{ asset('frontend/assets/images/logo/travelingceylonfavicon.svg') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://travelingceylon.com">
+    <meta property="og:image" content="{{ asset('frontend/assets/images/logo/og.jpg') }}">
+    <meta property="og:site_name" content="Traveling Ceylon">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', 'Traveling Ceylon | Journey into Ceylon&apos;s Timeless Beauty')">
+    <meta name="twitter:description"
+        content="@yield('meta_description', 'Explore Sri Lanka with travel guides, visa info, maps, tips, luxury tours, group trips, itineraries, vaccinations, and advice for an unforgettable journey.')">
+    <meta name="twitter:image" content="{{ asset('frontend/assets/images/logo/og.jpg') }}">
 
 
     <!-- favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/logo/og.jpg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/logo/travelingceylonfavicon.svg') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendors/bootstrap/css/bootstrap.min.css') }}" media="all">
     <!-- jquery-ui css -->
