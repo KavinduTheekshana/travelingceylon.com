@@ -2,6 +2,7 @@
 @section('title', "$destinations->title  | Journey into Ceylon's Timeless Beauty")
 @section('meta_description', "$destinations->meta_description")
 @section('meta_keywords', "$destinations->meta_keywords")
+@section('ogimage', {{ asset($destinations->image) }})
 @section('content')
 
     <div id="page" class="page">

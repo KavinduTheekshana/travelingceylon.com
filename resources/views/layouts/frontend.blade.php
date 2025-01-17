@@ -17,7 +17,7 @@
     <meta property="og:description" content="@yield('meta_description', 'Explore Sri Lanka with travel guides, visa info, maps, tips, luxury tours, group trips, itineraries, vaccinations, and advice for an unforgettable journey.')">
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://travelingceylon.com">
-    <meta property="og:image" content="{{ asset('frontend/assets/images/logo/og.jpg') }}">
+    <meta property="og:image" content="@yield('ogimage', asset('frontend/assets/images/logo/og.jpg'))">
     <meta property="og:site_name" content="Traveling Ceylon">
 
     <!-- Twitter Card Tags -->
@@ -25,7 +25,7 @@
     <meta name="twitter:title" content="@yield('title', 'Traveling Ceylon | Journey into Ceylon&apos;s Timeless Beauty')">
     <meta name="twitter:description"
         content="@yield('meta_description', 'Explore Sri Lanka with travel guides, visa info, maps, tips, luxury tours, group trips, itineraries, vaccinations, and advice for an unforgettable journey.')">
-    <meta name="twitter:image" content="{{ asset('frontend/assets/images/logo/og.jpg') }}">
+    <meta name="twitter:image" content="@yield('ogimage', asset('frontend/assets/images/logo/og.jpg'))">
 
 
     <!-- favicon -->
