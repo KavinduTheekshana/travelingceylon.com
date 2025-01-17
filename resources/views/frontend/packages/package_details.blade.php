@@ -2,6 +2,7 @@
 @section('title', "$package->title  | Journey into Ceylon's Timeless Beauty")
 @section('meta_description', "$package->meta_description")
 @section('meta_keywords', "$package->meta_keywords")
+@section('ogimage', asset($package->image))
 @section('content')
 
     <div id="page" class="page">

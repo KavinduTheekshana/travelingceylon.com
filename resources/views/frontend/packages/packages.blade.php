@@ -2,7 +2,6 @@
 @section('title', "Book Sri Lanka Travel Packages | Tailored Tours with Traveling Ceylon")
 @section('meta_description', 'Explore customized travel packages for Sri Lanka. Book your dream vacation with tailored tours, including sightseeing, accommodations, and more with Traveling Ceylon.')
 @section('meta_keywords', 'Sri Lanka travel packages, Sri Lanka tour packages, customized travel tours, Sri Lanka vacation packages, Sri Lanka group tours, Sri Lanka travel deals, Traveling Ceylon packages, tailored travel Sri Lanka')
-@section('ogimage', {{ asset(url($package->image)) }})
 @section('content')
 
       <div id="page" class="page">

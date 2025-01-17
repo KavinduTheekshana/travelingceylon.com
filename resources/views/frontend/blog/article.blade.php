@@ -2,7 +2,7 @@
 @section('title', "$blog->title | Journey into Ceylon's Timeless Beauty")
 @section('meta_description', "$blog->meta_description")
 @section('meta_keywords', "$blog->meta_keywords")
-@section('ogimage', {{ asset(url($blog->thumbnail)) }})
+@section('ogimage', asset(url($blog->thumbnail)))
 
 @section('content')
     <div id="page" class="page">
