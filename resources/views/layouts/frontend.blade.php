@@ -18,7 +18,7 @@
 
 
     <!-- favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/logo/travelingceylonfavicon.svg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/logo/og.jpg') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/vendors/bootstrap/css/bootstrap.min.css') }}" media="all">
     <!-- jquery-ui css -->
