@@ -23,8 +23,7 @@
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('title', 'Traveling Ceylon | Journey into Ceylon&apos;s Timeless Beauty')">
-    <meta name="twitter:description"
-        content="@yield('meta_description', 'Explore Sri Lanka with travel guides, visa info, maps, tips, luxury tours, group trips, itineraries, vaccinations, and advice for an unforgettable journey.')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Explore Sri Lanka with travel guides, visa info, maps, tips, luxury tours, group trips, itineraries, vaccinations, and advice for an unforgettable journey.')">
     <meta name="twitter:image" content="@yield('ogimage', asset('frontend/assets/images/logo/og.jpg'))">
 
 
@@ -60,6 +59,46 @@
     <meta name="google-site-verification" content="C8RMETsoQCWEIQZfjWu_I7lTqhPe1ymKa9O8y8HHX9I" />
     {{-- Anim Trap  --}}
     <link rel="stylesheet" href="{{ asset('frontend/assets/plugin/animtrap/css/animtrap.min.css') }}">
+    <style>
+        /* Ensure the <ul> displays list items correctly */
+
+
+
+
+            .package-overview ul {
+            list-style: none !important;
+            /* Remove default bullets */
+            padding-left: 20px !important;
+        }
+
+        .package-overview ul li {
+            display: flex !important;
+            align-items: flex-start !important;
+            /* Align bullet and text */
+            gap: 8px !important;
+            /* Space between bullet and text */
+            position: relative !important;
+        }
+
+        .package-overview ul li::before {
+            content: "•" !important;
+            /* Custom bullet */
+            color: rgb(98, 102, 114) !important;
+            /* Bullet color */
+            font-size: 1.5em !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: -5px !important;
+            /* Adjust vertical alignment */
+        }
+
+        ul li p {
+            margin: 0 !important;
+            /* Remove default margin */
+            padding-left: 20px !important;
+            /* Space for bullet */
+        }
+    </style>
     @stack('styles')
 
     {{-- @vite(['resources/js/app.js']) --}}

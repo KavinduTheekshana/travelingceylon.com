@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title', "$package->title  | Journey into Ceylon's Timeless Beauty")
+@section('title', "$package->title | Journey into Ceylon's Timeless Beauty")
 @section('meta_description', "$package->meta_description")
 @section('meta_keywords', "$package->meta_keywords")
 @section('ogimage', asset($package->image))
@@ -59,7 +59,8 @@
                                 </ul>
                             </div>
                             <figure data-animscroll="fade-up" class="single-package-image">
-                                <img class="lazyload" loading="lazy" src="{{ asset($package->image) }}" alt="{{ $package->title }}">
+                                <img class="lazyload" loading="lazy" src="{{ asset($package->image) }}"
+                                    alt="{{ $package->title }}">
                             </figure>
                             <div data-animscroll="fade-up" class="package-content-detail">
                                 <article class="package-overview">
@@ -72,10 +73,17 @@
                             @foreach ($package_details as $key => $details)
                                 <div class="package-content-detail">
                                     <article class="package-overview">
-                                        <h3 data-animscroll="fade-up" data-animscroll-delay="{{$key*100}}" class="m-0"><span class="color-theme">DAY {{ $details->day }} </span>| {{ $details->title }}</h3>
-                                        <h6 data-animscroll="fade-up" data-animscroll-delay="{{$key*100}}">- {{ $details->location }}</h6>
-                                        <img class="lazyload" data-animscroll="fade-up" data-animscroll-delay="{{$key*100}}" src="{{ asset($details->image) }}" alt="{{ $details->location }}">
-                                        <p data-animscroll="fade-up" data-animscroll-delay="{{$key*100}}"> {!! $details->description !!}</p>
+                                        <h3 data-animscroll="fade-up" data-animscroll-delay="{{ $key * 100 }}"
+                                            class="m-0"><span class="color-theme">DAY {{ $details->day }} </span>|
+                                            {{ $details->title }}</h3>
+                                        <h6 data-animscroll="fade-up" data-animscroll-delay="{{ $key * 100 }}">-
+                                            {{ $details->location }}</h6>
+                                        <img class="lazyload" data-animscroll="fade-up"
+                                            data-animscroll-delay="{{ $key * 100 }}"
+                                            src="{{ asset($details->image) }}" alt="{{ $details->location }}">
+                                        <p data-animscroll="fade-up" data-animscroll-delay="{{ $key * 100 }}">
+                                            {!! html_entity_decode($details->description) !!}
+                                        </p>
                                     </article>
                                 </div>
                             @endforeach
@@ -108,34 +116,40 @@
                                         @csrf --}}
                                     <form id="boockingForm" class="booking-form">
                                         @csrf
-                                        <input  name="package_id" value="{{ $package->id }}" hidden>
-                                        <input  name="package_name" value="{{ $package->title }}" hidden>
+                                        <input name="package_id" value="{{ $package->id }}" hidden>
+                                        <input name="package_name" value="{{ $package->title }}" hidden>
 
 
                                         <p>
-                                            <input id="name" type="text" name="name" placeholder="Your Name...">
+                                            <input id="name" type="text" name="name"
+                                                placeholder="Your Name...">
                                         </p>
                                         <p>
-                                            <input id="email" type="email" name="email" placeholder="Your Email...">
-                                        </p>
-
-                                        <p>
-                                            <input id="phone" type="text" name="phone" placeholder="Your Phone Number...">
+                                            <input id="email" type="email" name="email"
+                                                placeholder="Your Email...">
                                         </p>
 
                                         <p>
-                                            <input id="country" type="text" name="country" placeholder="Your Country...">
+                                            <input id="phone" type="text" name="phone"
+                                                placeholder="Your Phone Number...">
+                                        </p>
+
+                                        <p>
+                                            <input id="country" type="text" name="country"
+                                                placeholder="Your Country...">
                                         </p>
 
                                         <p class="width-5">
                                             <label>Checkin Date</label>
-                                            <input id="checkin" class="input-date-picker" type="text" name="checkin"
-                                                placeholder="MM / DD / YY" autocomplete="off" readonly="readonly">
+                                            <input id="checkin" class="input-date-picker" type="text"
+                                                name="checkin" placeholder="MM / DD / YY" autocomplete="off"
+                                                readonly="readonly">
                                         </p>
                                         <p class="width-5">
                                             <label>Checkout Date</label>
-                                            <input id="checkout" class="input-date-picker" type="text" name="checkout"
-                                                placeholder="MM / DD / YY" autocomplete="off" readonly="readonly">
+                                            <input id="checkout" class="input-date-picker" type="text"
+                                                name="checkout" placeholder="MM / DD / YY" autocomplete="off"
+                                                readonly="readonly">
                                         </p>
 
 
@@ -156,7 +170,8 @@
 
                                     @foreach ($package_details as $details)
                                         <div class="related-package-item package-details-single">
-                                            <img class="lazyload" loading="lazy" src="{{ asset($details->image) }}" alt="{{ $details->title }}">
+                                            <img class="lazyload" loading="lazy" src="{{ asset($details->image) }}"
+                                                alt="{{ $details->title }}">
                                         </div>
                                     @endforeach
 
