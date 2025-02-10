@@ -19,7 +19,7 @@
                     </li>
                     <li>
                         <i class="fas fa-user-friends"></i>
-                        pax: {{ $package->peoples }}
+                       Maximum pax: {{ $package->peoples }}
                     </li>
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
