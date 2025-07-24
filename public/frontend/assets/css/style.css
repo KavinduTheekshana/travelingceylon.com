@@ -3363,7 +3363,8 @@ padding: 0 15px;
 @media screen and (min-width: 576px) {
     .package-item {
         display: grid;
-        grid-template-columns: 33.33% 40% 26.67%;
+        grid-template-columns: 33.33% 66.67%;
+        /* grid-template-columns: 33.33% 66.67% 26.67%; */
     }
 }
 @media screen and (max-width: 575px) {
