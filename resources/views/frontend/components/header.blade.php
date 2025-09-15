@@ -4,7 +4,7 @@
        <div class="container">
           <div class="top-header-inner">
              <div class="header-contact text-left">
-                <a href="tel:+94706332644" area-label="Phone Number">
+                <a href="tel:+447936331462" area-label="Phone Number">
                    <i aria-hidden="true" class="icon icon-phone-call2"></i>
                    <div class="header-contact-details">
                       <span class="contact-label">For Further Inquires :</span>
