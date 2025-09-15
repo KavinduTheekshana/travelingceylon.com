@@ -161,8 +161,9 @@ $( document ).on( 'click', '.offcanvas-menu a', function(e){
   $( '#offCanvas' ).addClass( 'offcanvas-show' );
 });
 
-$( '#offCanvas .overlay, .offcanvas-close' ).click(function(e) {   
+$( document ).on( 'click', '#offCanvas .offcanvas-overlay, .offcanvas-close', function(e) {
   e.preventDefault();
+  e.stopPropagation();
   $( '#offCanvas' ).removeClass( 'offcanvas-show' );
 });
 
