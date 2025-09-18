@@ -25,10 +25,10 @@
                         <i class="fas fa-clock"></i>
                         {{ $package->days }}D/ {{ $package->nights }}N
                     </li>
-                    {{-- <li>
-                        <i class="fas fa-user-friends"></i>
-                        pax: {{ $package->peoples }}
-                    </li> --}}
+                </ul>
+            </div>
+            <div class="package-meta">
+                <ul>
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
                         {{ $package->location }}

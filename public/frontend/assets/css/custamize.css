@@ -119,3 +119,12 @@
 .sidebar .package-list ul li a:hover {
     color: #f8f8f8 !important;
 }
+
+/* Fix for package listing - separate duration and location on different lines */
+.package-item .package-meta + .package-meta {
+    margin-top: 8px;
+}
+
+.package-item .package-meta ul li:before {
+    display: none !important;
+}
