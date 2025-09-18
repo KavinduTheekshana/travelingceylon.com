@@ -87,3 +87,35 @@
 .overlay-top{
     z-index: 0 !important;
 }
+
+/* Fix for MORE PACKAGES section text visibility */
+.sidebar .package-list {
+    position: relative;
+}
+
+.sidebar .package-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #3a78c9;
+    border-radius: 25px;
+    z-index: 1;
+}
+
+.sidebar .package-list > * {
+    position: relative;
+    z-index: 2;
+}
+
+.sidebar .package-list ul li a {
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.sidebar .package-list ul li a:hover {
+    color: #f8f8f8 !important;
+}
