@@ -88,8 +88,8 @@ $(document).ready(function() {
         }
     });
 
-    // Clear filters - reset without searching
-    $('#clearFilters, #clearAllFiltersInline, #clearAllFilters').on('click', function() {
+    // Clear filters - reset without searching (using event delegation for dynamic content)
+    $(document).on('click', '#clearFilters, #clearAllFiltersInline, #clearAllFilters', function() {
         clearAllFilters();
     });
 
