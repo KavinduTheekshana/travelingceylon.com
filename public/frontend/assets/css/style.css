@@ -4139,11 +4139,11 @@ padding: 0 15px;
 >>> Inner Banner
 ----------------------------------------------------------------*/
 .inner-banner-wrap {
-    padding-bottom: 95px;
+   
 }
 @media screen and (max-width: 575px) {
     .inner-banner-wrap {
-        padding-bottom: 55px;
+      
     }
 }
 

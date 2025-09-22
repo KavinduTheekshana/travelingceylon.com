@@ -26,13 +26,11 @@
       <h4 class="text-muted">No Destinations Found</h4>
       <p class="text-muted mb-4">
          We couldn't find any destinations matching your search criteria.
-         @if(request()->hasAny(['search', 'location', 'category']))
-            Try adjusting your filters or search terms.
-         @endif
+         Try adjusting your filters or search terms.
       </p>
-      <a href="{{ route('destinations.all') }}" class="btn btn-primary">
+      <button type="button" class="btn btn-primary" id="clearAllFilters">
          <i class="fas fa-refresh me-2"></i>View All Destinations
-      </a>
+      </button>
    </div>
 </div>
 @endforelse
