@@ -55,7 +55,7 @@
                                         <i class="fas fa-search d-md-none"></i>
                                         <span class="d-none d-md-inline">Search</span>
                                         <span class="d-md-none">Find</span>
-                                        <span class="btn-loading d-none">
+                                        <span class="btn-loading">
                                             <i class="fas fa-spinner fa-spin"></i>
                                         </span>
                                     </button>
@@ -68,17 +68,6 @@
                             </div>
                         </div>
 
-                        <!-- Mobile Filter Toggle -->
-                        <div class="mobile-filter-toggle d-md-none">
-                            <button type="button" class="btn btn-outline-primary w-100 mb-3" data-bs-toggle="collapse" data-bs-target="#mobileFilters" aria-expanded="false">
-                                <i class="fas fa-filter"></i> Advanced Filters
-                            </button>
-                            <div class="collapse" id="mobileFilters">
-                                <div class="mobile-filters-content">
-                                    <!-- Location and Category filters will be moved here on mobile via CSS -->
-                                </div>
-                            </div>
-                        </div>
 
                         <!-- Search Results Info -->
                         <div class="search-results-info d-none">

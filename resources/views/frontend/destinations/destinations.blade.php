@@ -187,16 +187,12 @@ $(document).ready(function() {
 
     function showLoading() {
         $('#loadingOverlay').removeClass('d-none');
-        $('.search-btn .btn-loading').removeClass('d-none');
-        $('.search-btn i:not(.btn-loading i)').addClass('d-none');
-        $('.search-btn span:not(.btn-loading)').addClass('d-none');
+        $('.search-btn').addClass('loading');
     }
 
     function hideLoading() {
         $('#loadingOverlay').addClass('d-none');
-        $('.search-btn .btn-loading').addClass('d-none');
-        $('.search-btn i:not(.btn-loading i)').removeClass('d-none');
-        $('.search-btn span:not(.btn-loading)').removeClass('d-none');
+        $('.search-btn').removeClass('loading');
     }
 
     function showErrorMessage(message = 'Something went wrong while searching. Please try again.') {
