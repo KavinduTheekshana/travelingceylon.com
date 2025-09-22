@@ -22,6 +22,15 @@
                      @include('frontend.destinations.single')
 
                   </div>
+
+                  <!-- Pagination -->
+                  <div class="row">
+                     <div class="col-12">
+                        <div class="pagination-wrap d-flex justify-content-center mt-5">
+                           {{ $destinations->links('frontend.components.pagination') }}
+                        </div>
+                     </div>
+                  </div>
                </div>
             </div>
 

@@ -132,3 +132,149 @@
 .package-item .package-meta ul li:before {
     display: none !important;
 }
+
+/* Pagination Styles */
+.pagination-wrap {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.pagination {
+    margin: 0 auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.pagination li {
+    margin: 0 3px 10px 3px;
+}
+
+.pagination li a,
+.pagination li span {
+    color: #444444;
+    display: block;
+    border: 1px solid #e6e6e6;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 100%;
+    transition: all 0.5s;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.pagination li a:hover,
+.pagination li span:hover {
+    background-color: #3a78c9;
+    border-color: #3a78c9;
+    color: #ffffff;
+}
+
+.pagination li.active a,
+.pagination li.active span {
+    background-color: #3a78c9;
+    border-color: #3a78c9;
+    color: #ffffff;
+}
+
+.pagination li.disabled a,
+.pagination li.disabled span {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination li.disabled a:hover,
+.pagination li.disabled span:hover {
+    background-color: transparent;
+    border-color: #e6e6e6;
+    color: #ccc;
+}
+
+.pagination-info {
+    color: #666;
+    font-size: 14px;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+    clear: both;
+    display: block;
+}
+
+/* Mobile responsiveness for pagination */
+@media (max-width: 767px) {
+    .pagination-wrap {
+        margin-top: 40px;
+        margin-bottom: 30px;
+        display: block;
+        width: 100%;
+    }
+
+    .pagination {
+        margin-bottom: 15px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .pagination li {
+        margin: 0 2px 8px 2px;
+    }
+
+    .pagination li a,
+    .pagination li span {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+    }
+
+    .pagination-info {
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+        clear: both;
+        display: block !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination-wrap {
+        margin-top: 30px;
+        margin-bottom: 20px;
+        display: block;
+        width: 100%;
+    }
+
+    .pagination {
+        margin-bottom: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .pagination li {
+        margin: 0 1px 5px 1px;
+    }
+
+    .pagination li a,
+    .pagination li span {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 12px;
+    }
+
+    .pagination-info {
+        margin-top: 10px;
+        font-size: 13px;
+        width: 100%;
+        text-align: center;
+        clear: both;
+        display: block !important;
+    }
+}

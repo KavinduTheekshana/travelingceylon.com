@@ -81,7 +81,7 @@ class HomeController extends Controller
     {
         $gallery_footer = DB::table('galleries')->where('status', 1)->whereNull('deleted_at')->take(6)->get();
         $packages_footer = DB::table('packages')->where('status', 1)->where('popular_status', 1)->whereNull('deleted_at')->take(2)->get();
-        $destinations = DB::table('destinations')->where('status', 1)->whereNull('deleted_at')->get();
+        $destinations = DB::table('destinations')->where('status', 1)->whereNull('deleted_at')->paginate(9);
         return view('frontend.destinations.destinations', ['destinations' => $destinations, 'gallery_footer' => $gallery_footer, 'packages_footer' => $packages_footer]);
     }
 
