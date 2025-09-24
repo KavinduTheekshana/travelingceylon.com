@@ -33,6 +33,7 @@ Route::get('/destination/{slug}', [HomeController::class, 'single_destination'])
 Route::get('/destinations/all', [HomeController::class, 'all_destinations'])->name('destinations.all');
 Route::post('/destinations/search', [HomeController::class, 'search_destinations'])->name('destinations.search');
 Route::get('/packages/all', [HomeController::class, 'all_packages'])->name('packages.all');
+Route::post('/packages/search', [HomeController::class, 'search_packages'])->name('packages.search');
 Route::get('/packages/{slug}', [HomeController::class, 'single_package'])->name('packages.single');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');

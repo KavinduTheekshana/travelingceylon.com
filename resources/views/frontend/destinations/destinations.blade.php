@@ -36,7 +36,7 @@
                   <div class="row">
                      <div class="col-12">
                         <div class="pagination-wrap d-flex justify-content-center mt-5" id="paginationContainer">
-                           {{ $destinations->links('frontend.components.pagination') }}
+                           {{ $destinations->links('frontend.components.pagination', ['itemType' => 'destinations']) }}
                         </div>
                      </div>
                   </div>

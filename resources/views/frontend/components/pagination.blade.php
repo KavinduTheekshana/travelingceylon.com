@@ -81,7 +81,7 @@
         {{-- Mobile pagination info - always show on mobile but underneath pagination --}}
         <div class="pagination-info d-block d-md-none">
             <small class="text-muted">
-                Showing {{ $paginator->firstItem() ?? 0 }} to {{ $paginator->lastItem() ?? 0 }} of {{ $paginator->total() }} destinations
+                Showing {{ $paginator->firstItem() ?? 0 }} to {{ $paginator->lastItem() ?? 0 }} of {{ $paginator->total() }} {{ $itemType ?? 'items' }}
             </small>
         </div>
     </div>
