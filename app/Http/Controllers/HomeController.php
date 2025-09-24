@@ -15,7 +15,33 @@ class HomeController extends Controller
     public function index()
     {
         $destinations = DB::table('destinations')->where('status', 1)->where('popular_status', 1)->whereNull('deleted_at')->get();
-        $packages = DB::table('packages')->where('status', 1)->where('popular_status', 1)->whereNull('deleted_at')->get();
+
+        // Get packages with featured/popular priority, limited to 9
+        $featured_packages = DB::table('packages')
+            ->where('status', 1)
+            ->where('popular_status', 1)
+            ->whereNull('deleted_at')
+            ->orderBy('created_at', 'desc')
+            ->take(9)
+            ->get();
+
+        // If we have fewer than 9 featured packages, fill with regular packages
+        $packages = $featured_packages;
+        if ($featured_packages->count() < 9) {
+            $remaining_count = 9 - $featured_packages->count();
+            $featured_ids = $featured_packages->pluck('id');
+
+            $regular_packages = DB::table('packages')
+                ->where('status', 1)
+                ->whereNull('deleted_at')
+                ->whereNotIn('id', $featured_ids)
+                ->orderBy('created_at', 'desc')
+                ->take($remaining_count)
+                ->get();
+
+            $packages = $featured_packages->merge($regular_packages);
+        }
+
         $gallery = DB::table('galleries')->where('status', 1)->where('popular', 1)->whereNull('deleted_at')->get();
         $gallery_footer = DB::table('galleries')->where('status', 1)->whereNull('deleted_at')->take(6)->get();
         $packages_footer = DB::table('packages')->where('status', 1)->where('popular_status', 1)->whereNull('deleted_at')->take(2)->get();
