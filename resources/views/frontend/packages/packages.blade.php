@@ -19,14 +19,6 @@
 
             <div class="package-item-wrap">
                 <div class="container">
-                    <!-- Loading Overlay -->
-                    <div id="loadingOverlay" class="loading-overlay d-none">
-                        <div class="loading-spinner">
-                            <i class="fas fa-spinner fa-spin fa-2x text-primary"></i>
-                            <p class="mt-2 text-muted">Searching packages...</p>
-                        </div>
-                    </div>
-
                     <div id="packageResults">
                         @include('frontend.packages.single_with_pagination')
                     </div>
@@ -195,13 +187,13 @@ $(document).ready(function() {
     }
 
     function showLoading() {
-        $('#loadingOverlay').removeClass('d-none');
         $('.search-btn').addClass('loading');
+        $('.search-btn').prop('disabled', true);
     }
 
     function hideLoading() {
-        $('#loadingOverlay').addClass('d-none');
         $('.search-btn').removeClass('loading');
+        $('.search-btn').prop('disabled', false);
     }
 
     function showErrorMessage(message = 'Something went wrong while searching. Please try again.') {

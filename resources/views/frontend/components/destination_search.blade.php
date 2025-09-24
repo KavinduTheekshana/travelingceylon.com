@@ -51,7 +51,7 @@
                             <!-- Search Buttons -->
                             <div class="col-lg-2 col-md-6 col-12 mb-3">
                                 <div class="search-buttons d-flex gap-2">
-                                    <button type="submit" class="btn btn-primary search-btn flex-fill">
+                                    <button type="submit" class="btn btn-primary search-btn flex-fill position-relative">
                                         <i class="fas fa-search d-md-none"></i>
                                         <span class="d-none d-md-inline">Search</span>
                                         <span class="d-md-none">Find</span>
