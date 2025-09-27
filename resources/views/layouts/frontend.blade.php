@@ -60,7 +60,7 @@
 
     <meta name="google-site-verification" content="C8RMETsoQCWEIQZfjWu_I7lTqhPe1ymKa9O8y8HHX9I" />
     {{-- Anim Trap  --}}
-    <link rel="stylesheet" href="{{ asset('frontend/assets/plugin/animtrap/css/animtrap.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('frontend/assets/plugin/animtrap/css/animtrap.min.css') }}"> --}}
     <style>
         /* Ensure the <ul> displays list items correctly */
 
@@ -131,8 +131,8 @@
     <script src="{{ asset('frontend/assets/vendors/fancybox/dist/jquery.fancybox.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/vendors/slick-nav/jquery.slicknav.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/custom.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/plugin/animtrap/js/anim-effect.js') }}"></script>
-    <script src="{{ asset('frontend/assets/plugin/animtrap/js/anim-scroll.js') }}"></script>
+    {{-- <script src="{{ asset('frontend/assets/plugin/animtrap/js/anim-effect.js') }}"></script> --}}
+    {{-- <script src="{{ asset('frontend/assets/plugin/animtrap/js/anim-scroll.js') }}"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.0/dist/sweetalert2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"
@@ -194,11 +194,11 @@
 
     @stack('scripts')
 
-    <script>
+    {{-- <script>
         ANIMSCROLL.init({
             easing: 'ease-in-out-sine'
         });
-    </script>
+    </script> --}}
 
 
     <!-- Google tag (gtag.js) -->
