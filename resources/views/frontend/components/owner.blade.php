@@ -58,6 +58,6 @@
               <i class="fas fa-times"></i>
            </a>
         </div>
-        <div class="overlay"></div>
+        <div class="overlay offcanvas-overlay"></div>
      </div>
      <!-- ***custom top bar offcanvas html*** -->

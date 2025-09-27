@@ -113,7 +113,7 @@
     <div class="bottom-footer">
         <div class="container">
             <div class="copy-right text-center">Copyright &copy; {{ now()->year }} Traveling Ceylon | Developed By:
-                <a href="https://neuroon.lk" area-label="Neuroon Informatics" target="_blank">Neuroon Informatics</a>
+                <a href="https://creatxsoftware.com" area-label="CreatxSoftware" target="_blank">CreatxSoftware</a>
             </div>
         </div>
     </div>

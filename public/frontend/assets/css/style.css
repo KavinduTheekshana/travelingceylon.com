@@ -2468,13 +2468,18 @@ padding: 0 15px;
     transition: opacity 0.5s, visibility 0.5s, right 0.6s;
     z-index: 999;
 }
-.offcanvas-container .overlay {
+.offcanvas-container .offcanvas-overlay {
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    cursor: pointer;
 }
 .offcanvas-container .offcanvas-inner {
     background-color: #ffffff;
@@ -2484,6 +2489,8 @@ padding: 0 15px;
     min-height: calc(100vh - 60px);
     height: 100%;
     overflow-y: auto;
+    position: relative;
+    z-index: 2;
 }
 .offcanvas-container .offcanvas-sidebar .widget {
     margin-bottom: 50px;
@@ -2534,6 +2541,10 @@ padding: 0 15px;
     opacity: 1;
     visibility: visible;
     right: 0;
+}
+.offcanvas-container.offcanvas-show .offcanvas-overlay {
+    opacity: 1;
+    visibility: visible;
 }
 @media screen and (max-width: 575px) {
     .offcanvas-container {
@@ -4128,11 +4139,11 @@ padding: 0 15px;
 >>> Inner Banner
 ----------------------------------------------------------------*/
 .inner-banner-wrap {
-    padding-bottom: 95px;
+   
 }
 @media screen and (max-width: 575px) {
     .inner-banner-wrap {
-        padding-bottom: 55px;
+      
     }
 }
 

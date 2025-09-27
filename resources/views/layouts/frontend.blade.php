@@ -26,6 +26,8 @@
     <meta name="twitter:description" content="@yield('meta_description', 'Explore Sri Lanka with travel guides, visa info, maps, tips, luxury tours, group trips, itineraries, vaccinations, and advice for an unforgettable journey.')">
     <meta name="twitter:image" content="@yield('ogimage', asset('frontend/assets/images/logo/og.jpg'))">
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- favicon -->
     <link rel="icon" type="image/png" href="{{ asset('frontend/assets/images/logo/travelingceylonfavicon.svg') }}">

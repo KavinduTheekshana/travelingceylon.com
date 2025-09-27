@@ -16,11 +16,21 @@
             @section('single_page_name', 'Destinations')
             @include('frontend.components.inner_banner')
 
+            @include('frontend.components.destination_search')
+
             <div class="destination-item-wrap">
                <div class="container">
-                  <div class="row gx-5">
+                  <div class="row gx-5" id="destinationResults">
                      @include('frontend.destinations.single')
+                  </div>
 
+                  <!-- Pagination -->
+                  <div class="row">
+                     <div class="col-12">
+                        <div class="pagination-wrap d-flex justify-content-center mt-5" id="paginationContainer">
+                           {{ $destinations->links('frontend.components.pagination', ['itemType' => 'destinations']) }}
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>
@@ -41,3 +51,214 @@
       </div>
 
      @endsection
+
+@push('scripts')
+<script>
+$(document).ready(function() {
+    let currentPage = 1;
+    let isLoading = false;
+
+    // CSRF Token
+    const csrfToken = $('meta[name="csrf-token"]').attr('content');
+    if (!csrfToken) {
+        console.error('CSRF token not found');
+        return;
+    }
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        }
+    });
+
+    // Search form submission - only trigger on button click
+    $('#destinationSearchForm').on('submit', function(e) {
+        e.preventDefault();
+        if (!isLoading) {
+            currentPage = 1;
+            performSearch();
+        }
+    });
+
+    // Clear filters - reset without searching (using event delegation for dynamic content)
+    $(document).on('click', '#clearFilters, #clearAllFiltersInline, #clearAllFilters', function() {
+        clearAllFilters();
+    });
+
+    // Pagination click handler (using event delegation)
+    $(document).on('click', '.pagination a', function(e) {
+        e.preventDefault();
+        if (!isLoading) {
+            let url = $(this).attr('href');
+            let page = new URL(url).searchParams.get('page') || 1;
+            currentPage = parseInt(page);
+            performSearch();
+        }
+    });
+
+    function performSearch() {
+        if (isLoading) return;
+
+        isLoading = true;
+        showLoading();
+
+        let formData = {
+            search: $('#search').val(),
+            location: $('#location').val(),
+            category: $('#category').val(),
+            page: currentPage,
+            _token: csrfToken
+        };
+
+        $.ajax({
+            url: '{{ route("destinations.search") }}',
+            method: 'POST',
+            data: formData,
+            dataType: 'json',
+            timeout: 30000,
+            success: function(response) {
+                if (response.success) {
+                    // Update results
+                    $('#destinationResults').html(response.html);
+                    $('#paginationContainer').html(response.pagination);
+
+                    // Update search results info
+                    updateSearchResultsInfo(formData, response);
+
+                    // Trigger any animations
+                    triggerAnimations();
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Search error:', {
+                    status: xhr.status,
+                    statusText: xhr.statusText,
+                    responseText: xhr.responseText,
+                    error: error
+                });
+
+                let errorMessage = 'Something went wrong while searching.';
+                if (xhr.status === 419) {
+                    errorMessage = 'Security token expired. Please refresh the page and try again.';
+                } else if (xhr.status === 500) {
+                    errorMessage = 'Server error occurred. Please try again later.';
+                } else if (xhr.status === 0) {
+                    errorMessage = 'Network error. Please check your connection.';
+                }
+
+                showErrorMessage(errorMessage);
+            },
+            complete: function() {
+                hideLoading();
+                isLoading = false;
+            }
+        });
+    }
+
+    function updateSearchResultsInfo(formData, response) {
+        let hasFilters = formData.search || formData.location || formData.category;
+
+        if (hasFilters) {
+            let resultText = '';
+            if (formData.search) {
+                resultText += `Searching for "<em>${formData.search}</em>"`;
+            }
+            if (formData.location) {
+                resultText += ` in <em>${formData.location}</em>`;
+            }
+            if (formData.category) {
+                resultText += ` under <em>${formData.category}</em> category`;
+            }
+
+            $('#searchResultsText').html(resultText);
+            $('.search-results-info').removeClass('d-none');
+        } else {
+            $('.search-results-info').addClass('d-none');
+        }
+    }
+
+    function showLoading() {
+        $('.search-btn').addClass('loading');
+        $('.search-btn').prop('disabled', true);
+    }
+
+    function hideLoading() {
+        $('.search-btn').removeClass('loading');
+        $('.search-btn').prop('disabled', false);
+    }
+
+    function showErrorMessage(message = 'Something went wrong while searching. Please try again.') {
+        $('#destinationResults').html(`
+            <div class="col-12">
+                <div class="alert alert-danger text-center">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Oops!</strong> ${message}
+                </div>
+            </div>
+        `);
+    }
+
+    function triggerAnimations() {
+        // Trigger any scroll animations or effects
+        $('[data-animscroll]').each(function(index) {
+            $(this).css('animation-delay', (index * 100) + 'ms');
+        });
+    }
+
+    function clearAllFilters() {
+        // Reset form fields
+        $('#search').val('');
+        $('#location').val('');
+        $('#category').val('');
+
+        // Hide search results info
+        $('.search-results-info').addClass('d-none');
+
+        // Reset to page 1
+        currentPage = 1;
+
+        // Show all destinations (reset to initial state)
+        showAllDestinations();
+    }
+
+    function showAllDestinations() {
+        if (isLoading) return;
+
+        isLoading = true;
+        showLoading();
+
+        $.ajax({
+            url: '{{ route("destinations.search") }}',
+            method: 'POST',
+            data: {
+                search: '',
+                location: '',
+                category: '',
+                page: 1,
+                _token: csrfToken
+            },
+            dataType: 'json',
+            timeout: 30000,
+            success: function(response) {
+                if (response.success) {
+                    // Update results
+                    $('#destinationResults').html(response.html);
+                    $('#paginationContainer').html(response.pagination);
+
+                    // Trigger any animations
+                    triggerAnimations();
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Clear filters error:', error);
+                showErrorMessage('Failed to reset filters. Please refresh the page.');
+            },
+            complete: function() {
+                hideLoading();
+                isLoading = false;
+            }
+        });
+    }
+});
+</script>
+@endpush

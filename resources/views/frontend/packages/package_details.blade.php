@@ -179,7 +179,6 @@
                             </div>
 
                             <div class="package-list" data-animscroll="fade-left">
-                                <div class="overlay"></div>
                                 <h4>MORE PACKAGES</h4>
                                 <ul>
                                     @foreach ($package_list as $list)
