@@ -16,7 +16,7 @@
         @include('frontend.components.inner_banner')
 
 
-        <div class="single-page-section">
+        <div class="single-page-section mt-5 mb-5">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 primary right-sidebar">

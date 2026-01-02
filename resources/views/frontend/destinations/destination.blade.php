@@ -16,7 +16,7 @@
         @include('frontend.components.inner_banner')
 
 
-        <div class="single-page-section">
+        <div class="single-page-section mt-5 mb-5">
             <div class="container">
                 <figure class="single-feature-img">
                     <img loading="lazy" class="lazyload" src="{{ asset($destinations->image) }}" alt="{{ $destinations->title }}">
