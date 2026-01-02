@@ -22,7 +22,7 @@
 
 
         <!-- ***contact section html start form here*** -->
-        <div class="inner-contact-wrap">
+        <div class="inner-contact-wrap mt-5 mb-5">
             <div class="container">
                <div class="row">
                   <div class="col-lg-6">

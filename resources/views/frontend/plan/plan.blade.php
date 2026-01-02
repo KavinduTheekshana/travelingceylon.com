@@ -16,7 +16,7 @@
             @section('single_page_name', 'Plan A Tour')
             @include('frontend.components.inner_banner')
 
-            <div class="inner-contact-wrap">
+            <div class="inner-contact-wrap mt-5 mb-5">
                 <div class="container">
                     <div class="row">
 

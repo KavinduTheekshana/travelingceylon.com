@@ -22,7 +22,7 @@
 
 
         <!-- ***about section html start form here*** -->
-        <div class="inner-about-wrap">
+        <div class="inner-about-wrap mt-5 mb-5">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">

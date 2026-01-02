@@ -16,7 +16,7 @@
             @section('single_page_name', 'Gallery')
             @include('frontend.components.inner_banner')
 
-            <div class="gallery-section">
+            <div class="gallery-section mt-5 mb-5">
                 <div class="container">
                    <div class="gallery-outer-wrap">
                       <div class="gallery-container grid">
