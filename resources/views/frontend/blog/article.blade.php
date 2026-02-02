@@ -15,7 +15,7 @@
         @include('frontend.components.inner_banner')
         <!-- ***Inner Banner html end here*** -->
         <div class="single-post-section">
-            <div class="single-post-inner">
+            <div class="single-post-inner mt-5 mb-5">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 primary right-sidebar">

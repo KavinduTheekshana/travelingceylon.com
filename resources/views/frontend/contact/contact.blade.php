@@ -83,6 +83,9 @@
                               <textarea rows="8" id="comment" name="comment" placeholder="Your Message*"></textarea>
                            </p>
                            <p>
+                              <div class="cf-turnstile" data-sitekey="{{ config('services.turnstile.site_key') }}"></div>
+                           </p>
+                           <p>
                               <input type="submit" name="submit" value="SUBMIT MESSAGE">
                            </p>
                         </form>
@@ -107,8 +110,6 @@
                               <li>
                                  <a href="mailto:info@travelingceylon.com">info@travelingceylon.com</a>
                               </li>
-
-
                            </ul>
                         </div>
                      </div>
@@ -121,12 +122,13 @@
                         <div class="icon-box-content">
                            <h4>PHONE NUMBER</h4>
                            <ul>
+                                <li>
+                                 <a href="tell:+447916177140">+44 79 16 177 140</a>
+                              </li>
                               <li>
                                  <a href="tell:+94706332644">+44 79 3633 1462</a>
                               </li>
-                              <li>
-                                 <a href="tell:+447916177140">+44 79 16 177 140</a>
-                              </li>
+                            
 
                            </ul>
                         </div>
@@ -181,10 +183,23 @@
 
 
 @push('scripts')
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
     $(document).ready(function() {
         $('#contactForm').on('submit', function(event) {
             event.preventDefault();
+
+            // Get Turnstile token
+            var turnstileResponse = $('[name="cf-turnstile-response"]').val();
+
+            if (!turnstileResponse) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Verification Required',
+                    text: 'Please complete the verification challenge.'
+                });
+                return;
+            }
 
             var formData = $(this).serialize();
 
@@ -203,6 +218,11 @@
                     $('#name').val('');
                     $('#email').val('');
                     $('#comment').val('');
+
+                    // Reset Turnstile widget
+                    if (typeof turnstile !== 'undefined') {
+                        turnstile.reset();
+                    }
 
                 },
                 error: function(xhr) {

@@ -16,6 +16,7 @@ class ContactController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email'],
             'comment' => ['required'],
+            'cf-turnstile-response' => ['required', 'turnstile'],
         ]);
 
         $contact = new Contact();
