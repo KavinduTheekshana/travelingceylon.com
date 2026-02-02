@@ -1,2 +1,85 @@
+# robots.txt for TravelingCeylon.com
+
+# Allow all crawlers
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow admin and backend areas
+Disallow: /admin/
+Disallow: /backend/
+Disallow: /login
+Disallow: /register
+Disallow: /password/
+
+# Disallow private directories
+Disallow: /storage/
+Disallow: /vendor/
+Disallow: /node_modules/
+
+# Disallow API endpoints (if not meant to be indexed)
+Disallow: /api/
+
+# Disallow search results and filters (to prevent duplicate content)
+Disallow: /*?*
+
+# Disallow uploaded files except images
+Disallow: /uploads/*.pdf
+Disallow: /uploads/*.doc
+Disallow: /uploads/*.docx
+Disallow: /uploads/*.zip
+
+# Allow images for Google Image Search
+Allow: /images/
+Allow: /uploads/*.jpg
+Allow: /uploads/*.jpeg
+Allow: /uploads/*.png
+Allow: /uploads/*.gif
+Allow: /uploads/*.webp
+
+# Allow CSS and JS for better rendering
+Allow: /css/
+Allow: /js/
+Allow: *.css
+Allow: *.js
+
+# Specific bot rules
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Google Images
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://travelingceylon.com/sitemap.xml
