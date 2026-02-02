@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(php artisan:*)",
-      "Bash(composer require:*)"
+      "Bash(composer require:*)",
+      "Bash(composer show:*)",
+      "Bash(composer dump-autoload:*)"
     ],
     "deny": [],
     "ask": []

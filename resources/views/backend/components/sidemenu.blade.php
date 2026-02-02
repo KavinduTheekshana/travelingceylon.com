@@ -120,6 +120,9 @@
                  <div class="parent-icon"><i class='bx bx-bookmark-alt'></i>
                  </div>
                  <div class="menu-title">Bookings</div>
+                 @if(isset($unreadBookingCount) && $unreadBookingCount > 0)
+                     <span class="badge rounded-pill bg-danger" style="margin-left: auto;">{{ $unreadBookingCount }}</span>
+                 @endif
              </a>
          </li>
 
@@ -128,6 +131,9 @@
                  <div class="parent-icon"><i class='bx bxs-contact'></i>
                  </div>
                  <div class="menu-title">Contact Form</div>
+                 @if(isset($unreadContactCount) && $unreadContactCount > 0)
+                     <span class="badge rounded-pill bg-danger" style="margin-left: auto;">{{ $unreadContactCount }}</span>
+                 @endif
              </a>
          </li>
 
@@ -136,6 +142,9 @@
                  <div class="parent-icon"><i class='bx bx-paper-plane'></i>
                  </div>
                  <div class="menu-title">Tour Plans</div>
+                 @if(isset($unreadPlanCount) && $unreadPlanCount > 0)
+                     <span class="badge rounded-pill bg-danger" style="margin-left: auto;">{{ $unreadPlanCount }}</span>
+                 @endif
              </a>
          </li>
 

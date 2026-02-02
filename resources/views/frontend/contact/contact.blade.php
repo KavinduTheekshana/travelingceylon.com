@@ -83,7 +83,7 @@
                               <textarea rows="8" id="comment" name="comment" placeholder="Your Message*"></textarea>
                            </p>
                            <p>
-                              <div class="cf-turnstile" data-sitekey="{{ config('services.turnstile.site_key') }}"></div>
+                              <div class="cf-turnstile" data-sitekey="{{ config('turnstile.turnstile_site_key') }}"></div>
                            </p>
                            <p>
                               <input type="submit" name="submit" value="SUBMIT MESSAGE">

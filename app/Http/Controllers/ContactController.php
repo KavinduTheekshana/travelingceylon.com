@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactForm;
 use App\Models\Contact;
+use Coderflex\LaravelTurnstile\Rules\TurnstileCheck;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -16,7 +17,7 @@ class ContactController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email'],
             'comment' => ['required'],
-            'cf-turnstile-response' => ['required', 'turnstile'],
+            'cf-turnstile-response' => ['required', new TurnstileCheck()],
         ]);
 
         $contact = new Contact();

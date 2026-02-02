@@ -117,9 +117,11 @@
                                     <form id="boockingForm" class="booking-form">
                                         @csrf
                                         <input name="package_id" value="{{ $package->id }}" hidden>
-                                        <input name="package_name" value="{{ $package->title }}" hidden>
+                                        {{-- <input name="package_name" value="{{ $package->title }}" hidden> --}}
 
-
+                                        <p>
+                                            <input type="text" name="package_name" value="{{ $package->title }}" readonly>
+                                        </p>
                                         <p>
                                             <input id="name" type="text" name="name"
                                                 placeholder="Your Name...">
@@ -152,6 +154,9 @@
                                                 readonly="readonly">
                                         </p>
 
+                                        <p>
+                                            <div class="cf-turnstile" data-sitekey="{{ config('turnstile.turnstile_site_key') }}"></div>
+                                        </p>
 
                                         <p>
                                             <button type="submit" class="outline-btn outline-btn-white mt-3">INQUIRY
@@ -209,10 +214,23 @@
 @endsection
 
 @push('scripts')
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
     $(document).ready(function() {
         $('#boockingForm').on('submit', function(event) {
             event.preventDefault();
+
+            // Get Turnstile token
+            var turnstileResponse = $('[name="cf-turnstile-response"]').val();
+
+            if (!turnstileResponse) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Verification Required',
+                    text: 'Please complete the verification challenge.'
+                });
+                return;
+            }
 
             var formData = $(this).serialize();
 
@@ -234,6 +252,11 @@
                     $('#country').val('');
                     $('#checkin').val('MM / DD / YY');
                     $('#checkout').val('MM / DD / YY');
+
+                    // Reset Turnstile widget
+                    if (typeof turnstile !== 'undefined') {
+                        turnstile.reset();
+                    }
                 },
                 error: function(xhr) {
                     // Handle error response

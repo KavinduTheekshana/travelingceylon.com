@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\BookingInquiry;
 use App\Mail\FormSubmissionMail;
 use App\Models\Booking;
+use Coderflex\LaravelTurnstile\Rules\TurnstileCheck;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -22,6 +23,7 @@ class BookingController extends Controller
             'country' => ['required'],
             'checkin' => ['required'],
             'checkout' => ['required'],
+            'cf-turnstile-response' => ['required', new TurnstileCheck()],
         ]);
 
         $booking = new Booking();

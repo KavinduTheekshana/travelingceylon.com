@@ -44,7 +44,7 @@
                                 @foreach ($contacts as $contact)
                                     <td>{{ $contact->name }}</td>
                                     <td>{{ $contact->email }}</td>
-                                    <td>{{ $contact->comment }}</td>
+                                    <td style="white-space: pre-wrap; word-wrap: break-word; max-width: 300px;">{{ $contact->comment }}</td>
 
                                     <td>
                                         @if ($contact->read)
@@ -123,14 +123,15 @@
         $('#example').DataTable();
     });
 
-    // model content 
+    // model content
     $(document).ready(function() {
         $('#exampleLargeModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget);
             var title = "-  Contact Form Details";
             var status = button.data('status');
+            var comment = button.data('comment');
             var description = "<b>Name: </b>" + button.data('name') + "</br>" + "<b>Email: </b>" +
-                button.data('email') + "</br>" + "<b>Comment: </b>" + button.data('comment') + "</br>" ;
+                button.data('email') + "</br>" + "<b>Comment: </b><div style='white-space: pre-wrap; word-wrap: break-word;'>" + comment + "</div>";
 
 
 
